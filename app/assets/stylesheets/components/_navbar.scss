@@ -1,12 +1,79 @@
-.navbar-lewagon {
+$height: 93px;
+
+.header {
+  margin-top: 99px;
+
+}
+
+body {
+  margin-top: 0px;
+  margin-right: 0px;
+  margin-left: 0px;
+}
+
+.left-size {
+  display: flex;
+  justify-content: space-between ;
+  flex-direction: row;
+}
+
+.container-navbar {
+  display: flex;
+  width: 100vw;
   justify-content: space-between;
-  background: white;
+  height: $height;
+  padding-top: 13px;
+  min-width: 1000px;
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
+.container-buttons {
+  display: flex;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+#search {
+  color: black;
+  font-size: 20px;
+  font-weight: lighter;
+  border: 1px solid #EBEBEB;
+  border-radius: 10px;
+  position: center;
+  height: 40px;
+  width: 400px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  padding-left: 20px;
+}
+
+.search-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 20px;
+}
+
+.btn-navbar {
+  margin-right: 20px;
+  line-height: $height;
+  text-decoration: none;
+  color: black;
+  padding-left: 5px;
+  padding-right: 5px;
+  font-size: 20px;
+}
+
+.logo {
+  margin-left: 20px;
+  width: ($height)-13;
+}
+
+.btn-active {
+  border-bottom: solid;
+  border-width: 2px;
+}
+
+.avatar {
+  border-radius: 50%;
+  width: ($height)-25;
+  height: ($height)-25;
+  margin-top: 12.5px;
+  margin-right: 12.5px;
 }
