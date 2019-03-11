@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 2019_03_11_122013) do
 
   create_table "beers", force: :cascade do |t|
     t.bigint "brewery_id"
+    t.string "name"
     t.string "type"
     t.string "size"
     t.integer "alcohol_percentage"
@@ -78,7 +79,7 @@ ActiveRecord::Schema.define(version: 2019_03_11_122013) do
 
   create_table "review_beers", force: :cascade do |t|
     t.bigint "beer_id"
-    t.text "comment"
+    t.text "content"
     t.integer "rating"
     t.bigint "user_id"
     t.boolean "posted"
@@ -90,7 +91,7 @@ ActiveRecord::Schema.define(version: 2019_03_11_122013) do
 
   create_table "review_breweries", force: :cascade do |t|
     t.bigint "brewery_id"
-    t.text "comment"
+    t.text "content"
     t.integer "rating"
     t.bigint "user_id"
     t.boolean "posted"
