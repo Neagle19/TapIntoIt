@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_11_152505) do
+ActiveRecord::Schema.define(version: 2019_03_11_160618) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,9 +26,9 @@ ActiveRecord::Schema.define(version: 2019_03_11_152505) do
   create_table "beers", force: :cascade do |t|
     t.bigint "brewery_id"
     t.string "name"
-    t.string "type"
+    t.string "kind"
     t.string "size"
-    t.integer "alcohol_percentage"
+    t.float "alcohol_percentage"
     t.bigint "batch_id"
     t.text "description"
     t.datetime "created_at", null: false
@@ -99,6 +99,7 @@ ActiveRecord::Schema.define(version: 2019_03_11_152505) do
     t.boolean "posted"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "photo"
     t.index ["brewery_id"], name: "index_review_breweries_on_brewery_id"
     t.index ["user_id"], name: "index_review_breweries_on_user_id"
   end

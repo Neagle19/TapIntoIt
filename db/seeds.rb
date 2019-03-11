@@ -35,31 +35,45 @@ url_user_beer_photo = [
 ]
 
 10.times do |i|
-  beer = Beer.new
-  beer.name = "Maes"
-  beer.type = "pilsner"
-  beer.alcohol_percentage = '5.2%'
-  beer.photo = url_stock_photo.sample
-  beer.description = 'shit beer'
-  beer.save
   batch = Batch.new
-  batch.bottled_date = "22/10/2018"
-  batch.save
+  batch.bottled_date = "2#{i}/10/2018"
+  batch.brewery = Brewery.all.sample
+  batch.save!
+  beer = Beer.new
+  beer.name = "Maes #{i}"
+  beer.kind = "pilsner"
+  beer.alcohol_percentage = [5.2, 8.7, 6.5, 5].sample
+  beer.remote_photo_url = url_stock_photo.sample
+  beer.description = 'shit beer'
+  beer.size = '25cl'
+  beer.batch = Batch.last
+  beer.brewery = beer.batch.brewery
+  beer.save!
   review_brewery = ReviewBrewery.new
-  review_brewery.content = "atmosphere is cool"
+  review_brewery.content = "atmosphere is cool #{i}"
   review_brewery.rating = 4
   review_brewery.posted = true
-  review_brewery.save
+  review_brewery.brewery = Brewery.all.sample
+  review_brewery.remote_photo_url = url_user_beer_photo.sample
+  review_brewery.user = User.first
+  review_brewery.save!
   comment_brewery = CommentBrewery.new
-  comment_brewery.content = "Hey cool- I was there last weekend!"
-  comment_brewery.save
+  comment_brewery.content = "Hey cool- I was there last weekend #{i}!"
+  comment_brewery.user = User.first
+  comment_brewery.review_brewery = ReviewBrewery.last
+  comment_brewery.save!
   review_beer = ReviewBeer.new
-  review_beer.content = "only drinking this beer to make room in my fridge..."
+  review_beer.content = "only drinking this beer to make room in my fridge... #{i}"
+  review_beer.rating = 4
   review_beer.posted = true
-  review_beer.photo = url_user_beer_photo.sample
-  review_beer.save
+  review_beer.remote_photo_url = url_user_beer_photo.sample
+  review_beer.beer = Beer.last
+  review_beer.user = User.first
+  review_beer.save!
   comment_beer = CommentBeer.new
-  comment_beer.content = "Yeah I'm not a fan of this beer either."
-  comment_beer.save
+  comment_beer.content = "Yeah I'm not a fan of this beer either. #{i}"
+  comment_beer.review_beer = ReviewBeer.last
+  comment_beer.user = User.first
+  comment_beer.save!
 end
 
