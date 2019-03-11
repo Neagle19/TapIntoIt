@@ -3,10 +3,10 @@ class CreateBeers < ActiveRecord::Migration[5.2]
     create_table :beers do |t|
       t.references :brewery, foreign_key: true
       t.string :name
-      t.string :type
+      t.string :kind
       t.string :size
       t.string :name
-      t.integer :alcohol_percentage
+      t.float :alcohol_percentage
       t.references :batch, foreign_key: true
       t.text :description
 
