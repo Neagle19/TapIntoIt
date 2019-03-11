@@ -13,12 +13,12 @@ user123 = User.create!(
   name: "Dirk",
   location: "Brussels",
   description: "Waddup, I love beer!",
-  remote_photo_url: 'https://res.cloudinary.com/discwhk4f/image/upload/v1551781659/wx0p5qp2g5obwlw8evau.jpg'
+  remote_photo_url: 'https://res.cloudinary.com/discwhk4f/image/upload/v1551781659/wx0p5qp2g5obwlw8evau.jpg')
 
-breweries = Brewery.create([{ name: 'BrewDog', address: "20, Putterie, 1000 Bruxelles", description: "No-nonsense chain bar specialising in the Scottish brewery's craft beers, with regular guest brews.
-", email: "brusselsbar@brewdog.com", phone-number: "867-5309" }, { name: 'Brussels Beer Project', address: "20, Putterie, 1000 Bruxelles", description: "No-nonsense chain bar specialising in the Scottish brewery's craft beers, with regular guest brews.
-", email: "brusselsbar@bbp.com", phone-number: "867-5309"}, { name: "Roman's Bar", address: "20, Putterie, 1000 Bruxelles", description: "No-nonsense chain bar specialising in the Scottish brewery's craft beers, with regular guest brews.
-", email: "brusselsbar@brewdog.com", phone-number: "867-5309" }])
+brewery = Brewery.create([{ name: 'BrewDog', address: "20, Putterie, 1000 Bruxelles", description: "No-nonsense chain bar specialising in the Scottish brewery's craft beers, with regular guest brews.
+", email: "brusselsbar@brewdog.com", phone_number: "867-5309" }, { name: 'Brussels Beer Project', address: "20, Putterie, 1000 Bruxelles", description: "No-nonsense chain bar specialising in the Scottish brewery's craft beers, with regular guest brews.
+", email: "brusselsbar@bbp.com", phone_number: "867-5309"}, { name: "Roman's Bar", address: "20, Putterie, 1000 Bruxelles", description: "No-nonsense chain bar specialising in the Scottish brewery's craft beers, with regular guest brews.
+", email: "brusselsbar@brewdog.com", phone_number: "867-5309" }])
 
 url_stock_photo = [
 "https://res.cloudinary.com/discwhk4f/image/upload/v1552315324/426624_1200x1200.jpg",
