@@ -1,0 +1,41 @@
+.landing {
+  background-image: linear-gradient(239.17deg, rgba(124, 115, 115, 0.28) 3.88%, rgba(117, 114, 114, 0.55) 47.7%), asset-url('bar.jpg');
+  background-size: cover;
+  margin: 0;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  color: white;
+}
+
+.landing-title {
+  position: relative;
+  top: 35vh;
+  bottom: 50vh;
+  text-align: center;
+  font-family: 'Raleway', sans-serif;
+  h1 {
+    font-weight: 500;
+    font-size: 65px;
+  }
+  h2 {
+    font-weight: 500;
+    font-size: 40px;
+  }
+}
+
+.landing-search-bar {
+  background: rgba(255, 255, 255, 0.75);
+  position: absolute;
+  text-align: center;
+  left: 50%;
+  margin-left: -265px;
+  top: 52vh;
+  width: 530px;
+  height: 66px;
+  border-radius: 33px;
+}
