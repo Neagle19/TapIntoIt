@@ -1,0 +1,30 @@
+<style>
+  .btn-navbar {
+    color: white;
+  }
+</style>
+
+  <!-- check if it has to be underlined -->
+<% def current_class?(test_path) %>
+  <% return ' btn-active' if request.path == test_path %>
+  <% ' ' %>
+<% end %>
+
+
+
+<div class="container-navbar">
+  <div class="left-size">
+    <%= link_to root_path do %>
+      <%= image_tag "logo.png", class: "logo" %>
+    <% end %>
+    <div class="search-form">
+      <%= form_tag(root_path, method: :get) do%>
+        <%= text_field_tag(:search, params[:search],  placeholder: 'Search for a car...') %>
+        <% end %>
+    </div>
+  </div>
+  <div class="container-buttons">
+    <%= link_to "Sign up", root_path, class: "btn-navbar #{current_class?(root_path)}" %>
+    <%= link_to "Login", root_path, class: "btn-navbar #{current_class?(root_path)}" %>
+  </div>
+</div>
