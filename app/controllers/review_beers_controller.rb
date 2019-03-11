@@ -1,0 +1,2 @@
+class ReviewBeersController < ApplicationController
+end
