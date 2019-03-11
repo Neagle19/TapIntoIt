@@ -4,6 +4,7 @@ class CreateBeers < ActiveRecord::Migration[5.2]
       t.references :brewery, foreign_key: true
       t.string :type
       t.string :size
+      t.string :name
       t.integer :alcohol_percentage
       t.references :batch, foreign_key: true
       t.text :description
