@@ -1,0 +1,35 @@
+$height: 55px;
+
+.container-footer {
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  justify-content: center;
+  height: $height;
+  padding-bottom: 13px;
+  min-width: 1000px;
+  bottom: 12,5px;
+}
+
+.icons {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  a:hover {
+    opacity: 0.7;
+    color: white;
+  }
+}
+
+.icon {
+  padding: 20px;
+  color: white;
+  font-size: 30px;
+
+}
+
+body {
+  margin-bottom: 0px;
+  margin-right: 0px;
+  margin-left: 0px;
+}
