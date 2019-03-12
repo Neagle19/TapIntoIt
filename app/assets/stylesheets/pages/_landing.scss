@@ -10,32 +10,36 @@
   bottom: 0;
   z-index: -1;
   color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.landing-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .landing-title {
-  position: relative;
-  top: 35vh;
-  bottom: 50vh;
   text-align: center;
   font-family: 'Raleway', sans-serif;
+  margin-bottom: 10px;
   h1 {
     font-weight: 500;
-    font-size: 65px;
+    font-size: 50px;
   }
   h2 {
     font-weight: 500;
-    font-size: 40px;
+    font-size: 30px;
   }
 }
 
 .landing-search-bar {
   background: rgba(255, 255, 255, 0.75);
-  position: absolute;
   text-align: center;
-  left: 50%;
-  margin-left: -265px;
-  top: 54vh;
-  width: 530px;
+  width: 350px;
   height: 66px;
   border-radius: 33px;
 }
