@@ -58,7 +58,20 @@
 //   display: flex;
 //   justify-content: center;
 // }
+.add-review-beer-btn {
+  color: black;
+  background-color: transparent;
+  border: 2px solid black;
+  border-radius: 5px;
+  text-transform: capitalize;
+  margin: 5px;
+  padding: 5px;
+  text-decoration: none;
+}
 
+.add-review-beer-btn:hover {
+  opacity: 0.5;
+}
 
 .go-to-beers-btn {
   color: black;
@@ -100,4 +113,16 @@
   font-size: 45px;
   text-align: center;
   margin: 25px;
+}
+
+.beer-review-title {
+  font-weight: 300;
+  color: #E67E22;
+  font-size: 45px;
+  text-align: center;
+  margin: 25px;
+}
+
+.show-beer-review {
+  text-align: center;
 }
