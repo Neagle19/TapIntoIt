@@ -20,7 +20,7 @@
 
   </div>
   <div class="container-buttons">
-    <%= link_to "Sign up", root_path, class: "btn-navbar #{current_class?(root_path)}" %>
-    <%= link_to "Login", root_path, class: "btn-navbar #{current_class?(root_path)}" %>
+    <%= link_to "Sign up", new_user_registration_path, class: "btn-navbar #{current_class?(new_user_registration_path)}" %>
+    <%= link_to "Login", new_user_session_path, class: "btn-navbar #{current_class?(new_user_session_path)}" %>
   </div>
 </div>
