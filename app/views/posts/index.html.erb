@@ -1,0 +1,45 @@
+<% def check_liked(post) %>
+  <% if LikeBeer.where(user: current_user, review_beer: post).count.zero? %>
+        <% return "" %>
+    <% else %>
+      <% return " liked" %>
+    <% end %>
+<% end %>
+
+
+<div class="wrapper-posts">
+  <% @posts.each do |post| %>
+  <div class="wrapper-post">
+    <div class="box-post">
+    <div class="info-post">
+      <%= cl_image_tag post.user.photo, class: "avatar-post"%>
+      <%= link_to like_path(post.id) do %>
+        <div class="likes<%= check_liked(post) %>">
+          <%= post.like_beers.all.count %><i class="far fa-thumbs-up"></i> <!-- Set here that if you liked it it displays solid thumb -->
+        </div>
+      <% end %>
+      <div class="comments", data-div="wrapper-hidden-<%= post.id %>">
+        <%= post.comment_beers.all.count %><i class="far fa-comment-dots"></i>
+      </div>
+    </div>
+    <div class="big-content-post">
+      <div class="title-post">
+        <%= raw " <i class='fas fa-star'></i> " * post.rating.round %>
+        <%= post.beer.name %>
+      </div>
+      <p class="content-post"><%= post.content %></p>
+      </div>
+    </div>
+    <div class="wrapper-comments hidden" id="wrapper-hidden-<%= post.id %>">
+      <% post.comment_beers.all.each do |comment| %>
+        <div class="box-comment">
+          <%= comment.content %>
+        </div>
+      <% end %>
+    </div>
+    </div>
+  <% end %>
+</div>
+
+
+

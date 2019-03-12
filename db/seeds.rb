@@ -14,7 +14,7 @@ user123 = User.create!(
   last_name: "Van Loo",
   location: "Brussels",
   description: "Waddup, I love beer!",
-  photo: 'https://res.cloudinary.com/discwhk4f/image/upload/v1551781659/wx0p5qp2g5obwlw8evau.jpg')
+  remote_photo_url: 'https://res.cloudinary.com/discwhk4f/image/upload/v1551781659/wx0p5qp2g5obwlw8evau.jpg')
 
 brewery = Brewery.create([{ name: 'BrewDog', address: "20, Putterie, 1000 Bruxelles", description: "No-nonsense chain bar specialising in the Scottish brewery's craft beers, with regular guest brews.
 ", email: "brusselsbar10@brewdog2.com", phone_number: "867-5309" }, { name: 'Brussels Beer Project', address: "20, Putterie, 1000 Bruxelles", description: "No-nonsense chain bar specialising in the Scottish brewery's craft beers, with regular guest brews.
@@ -51,7 +51,7 @@ url_user_beer_photo = [
   beer.save!
   review_brewery = ReviewBrewery.new
   review_brewery.content = "atmosphere is cool #{i}"
-  review_brewery.rating = 4
+  review_brewery.rating = (0..5).to_a.sample
   review_brewery.posted = true
   review_brewery.brewery = Brewery.all.sample
   review_brewery.remote_photo_url = url_user_beer_photo.sample
@@ -64,7 +64,7 @@ url_user_beer_photo = [
   comment_brewery.save!
   review_beer = ReviewBeer.new
   review_beer.content = "only drinking this beer to make room in my fridge... #{i}"
-  review_beer.rating = 4
+  review_beer.rating = (0..5).to_a.sample
   review_beer.posted = true
   review_beer.remote_photo_url = url_user_beer_photo.sample
   review_beer.beer = Beer.last
@@ -72,6 +72,11 @@ url_user_beer_photo = [
   review_beer.save!
   comment_beer = CommentBeer.new
   comment_beer.content = "Yeah I'm not a fan of this beer either. #{i}"
+  comment_beer.review_beer = ReviewBeer.last
+  comment_beer.user = User.first
+  comment_beer.save!
+  comment_beer = CommentBeer.new
+  comment_beer.content = "You lil drinker #{i}"
   comment_beer.review_beer = ReviewBeer.last
   comment_beer.user = User.first
   comment_beer.save!
