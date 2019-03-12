@@ -36,10 +36,11 @@
   }
 }
 
-.landing-search-bar {
+.search-bar {
   background: rgba(255, 255, 255, 0.75);
   text-align: center;
   width: 350px;
-  height: 66px;
-  border-radius: 33px;
+  height: 66px !important;
+  border-radius: 33px !important;
+  color: #E67E22 !important;
 }

@@ -1,7 +1,11 @@
 class BeersController < ApplicationController
 
   def index
-    @beers = Beer.all
+    if params[:search].present?
+      @beers = Beer.global_search(params[:search])
+    else
+      @beers = Beer.all
+    end
   end
 
   def show
@@ -11,6 +15,6 @@ class BeersController < ApplicationController
   private
 
   def beer_params
-    params.require(:beer).permit(:name, :kind, :size, :alcohol_percentage, :description, :photo)
+    params.require(:beer).permit(:name, :kind, :size, :alcohol_percentage, :description, :photo, :search)
   end
 end
