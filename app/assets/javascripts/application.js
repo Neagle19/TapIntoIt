@@ -6,3 +6,5 @@ document.querySelectorAll(".comments").forEach((cmt) => {
       document.getElementById(event.currentTarget.dataset.div).classList.toggle("hidden")
   });
 });
+
+
