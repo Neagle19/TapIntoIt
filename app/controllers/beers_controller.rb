@@ -8,6 +8,21 @@ class BeersController < ApplicationController
     @beer = Beer.find(params[:id])
   end
 
+  def edit
+  end
+
+  def new           # GET /restaurants/new
+  end
+
+  def create        # POST /restaurants
+  end
+
+  def update        # PATCH /restaurants/:id
+  end
+
+  def destroy       # DELETE /restaurants/:id
+  end
+
   private
 
   def beer_params
