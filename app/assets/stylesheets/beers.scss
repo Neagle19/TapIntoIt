@@ -1,0 +1,103 @@
+.beer-container {
+  background-color: white;
+  text-align: center;
+}
+.beer-cards {
+  margin-right: 100px;
+  margin-left: 100px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  font-family: 'Raleway', sans-serif;
+  justify-content: center;
+}
+
+.beer-card-body {
+  position: relative;
+  color: white;
+  background-size: cover;
+  color: white;
+  width: 300px;
+  height: 500px;
+  background-repeat: no-repeat;
+  justify-content: flex-start;
+}
+
+.beer-card {
+  border-radius: 5px;
+  margin: 15px;
+  a {
+    color: inherit !important;
+    text-decoration: none !important;
+  }
+}
+
+.beer-card-name {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  font-size: 30px;
+  font-weight: 300;
+}
+
+.beer-card-alcohol {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  font-weight: 300;
+}
+
+.beer-card-brewery {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  font-weight: 300;
+}
+
+// .center-myself {
+//   display: flex;
+//   justify-content: center;
+// }
+
+
+.go-to-beers-btn {
+  color: black;
+  background-color: transparent;
+  border: 2px solid black;
+  border-radius: 5px;
+  text-transform: capitalize;
+  margin: 5px;
+  padding: 5px;
+  text-decoration: none;
+}
+
+.go-to-beers-btn:hover {
+  opacity: 0.5;
+}
+
+.show-beer-card {
+
+}
+
+.beer-container-show {
+  background-color: white;
+
+}
+
+
+
+.beer-photo-card {
+  text-align: center;
+  img {
+    height: 500px;
+    border-radius: 15px;
+  }
+}
+
+.beer-title-show {
+  font-weight: 300;
+  color: #E67E22;
+  font-size: 45px;
+  text-align: center;
+  margin: 25px;
+}
