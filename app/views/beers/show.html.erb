@@ -3,7 +3,6 @@
     <h2><%= @beer.name %></h2>
   </div>
   <div class="center-myself">
-    <div class="details-and-photo">
       <div class="beer-cards">
         <div class="show-beer-card">
           <ul>
@@ -19,7 +18,8 @@
       <div class="beer-photo-card">
         <img src='<%= cl_image_path(@beer.photo) %>' height="300">
       </div>
-    </div>
   </div>
+
+  <%= link_to "Go back to beers", beers_path, class: 'go-to-beers-btn' %>
 
 </div>
