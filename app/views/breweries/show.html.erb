@@ -1,0 +1,25 @@
+<div class='brewery-title'>
+  <h2><%= @brewery.name %></h2><br>
+  <h3><%= @brewery.description %></h3>
+</div>
+
+<div class='brewery-container'>
+  <div class='brewery-photo'>
+    <img src='<%= cl_image_path(@brewery.photo) %>' height='500'>
+  </div>
+    <div class="show-brewery-card">
+      <h4>Contact Details:</h4>
+      <p><strong>Address: </strong><%= @brewery.address %></p>
+      <p><strong>Phone Number: </strong><%= @brewery.phone_number %></p>
+      <p><strong>Email: </strong><%= @brewery.email %></p>
+      <p><strong><%= link_to "Visit #{@brewery.name}'s Website", "https://www.beerproject.be/en", target: "_blank" %></strong></p>
+    </div>
+</div>
+
+<%= link_to "Go back to breweries", breweries_path, class: 'go-to-beers-btn' %>
+
+
+
+
+
+
