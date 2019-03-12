@@ -1,0 +1,2 @@
+class CommentBreweriesController < ApplicationController
+end

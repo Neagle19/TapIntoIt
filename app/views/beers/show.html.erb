@@ -1,0 +1,25 @@
+<div class="beer-container-show">
+  <div class="beer-title-show">
+    <h2><%= @beer.name %></h2>
+  </div>
+  <div class="center-myself">
+      <div class="beer-cards">
+        <div class="show-beer-card">
+          <ul>
+            <li><strong>Beer Name:</strong><%= @beer.name %></li>
+            <li><strong>Beer Kind:</strong><%= @beer.kind %></li>
+            <li><strong>Beer Size:</strong><%= @beer.size %></li>
+            <li><strong>Alcohol Percentage :</strong><%= @beer.alcohol_percentage  %>%</li>
+            <li><strong>Description:</strong><%= @beer.description %></li>
+            <li><strong>Brewery:</strong><%= @beer.brewery.name %></li>
+          </ul>
+        </div>
+      </div>
+      <div class="beer-photo-card">
+        <img src='<%= cl_image_path(@beer.photo) %>' height="300">
+      </div>
+  </div>
+
+  <%= link_to "Go back to beers", beers_path, class: 'go-to-beers-btn' %>
+
+</div>
