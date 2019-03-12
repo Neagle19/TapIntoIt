@@ -1,0 +1,19 @@
+<div id='breweries-title'>
+<h2>Breweries Page</h2>
+</div>
+
+<div class='breweries-wrapper'>
+<ul>
+  <div class='cards'>
+    <% @breweries.each do |brewery| %>
+      <%= link_to breweries_path(brewery) do %>
+      <div class='brewery-card'>
+        <li><strong>Name: </strong><%= brewery.name%></li>
+        <% end %>
+        <li><strong>Description: </strong><%= brewery.description %></li>
+        <li><strong>Address: </strong><%= brewery.address %></li>
+      </div>
+    <% end %>
+  </div>
+</ul>
+</div>

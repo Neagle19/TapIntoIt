@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class BrewerysControllerTest < ActionDispatch::IntegrationTest
+class BreweriesControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end
