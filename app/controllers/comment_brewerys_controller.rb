@@ -1,2 +1,0 @@
-class CommentBrewerysController < ApplicationController
-end
