@@ -41,7 +41,6 @@
     <%= link_to "Messages", root_path, class: "dropdown-item btn-navbar #{current_class?(root_path)}" %>
     <%= link_to "Profile", profile_path(current_user.id), class: "dropdown-item btn-navbar #{current_class?(root_path(current_user.id))}" %>
     <%= link_to "Log out", destroy_user_session_path, method: 'delete', class: "dropdown-item btn-navbar " %>
-    <%= cl_image_tag current_user.photo , class: "dropdown-item avatar" %>
   </div>
 </div>
 </div>

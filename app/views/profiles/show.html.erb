@@ -1,8 +1,8 @@
 <div class="profile">
-  <h1> <p> photo <%= @user.photo %> </p> </h1>
+  <%= cl_image_tag @user.photo, class: "avatar" %>
 
 
-<p> name <%= @user.name %> </p>
+<p> name <%= @user.username %> </p>
 <p> first_name <%= @user.first_name %> </p>
 <p> last_name <%= @user.last_name %> </p>
 <p> email <%= @user.email %> </p>
