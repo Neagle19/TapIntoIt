@@ -28,7 +28,6 @@
   </div>
   <div class="container-buttons">
     <%= link_to "Home", root_path, class: "btn-navbar #{current_class?(root_path)}" %>
-    <%= link_to "Messages", root_path, class: "btn-navbar #{current_class?(root_path)}" %>
     <%= link_to "Profile", root_path(current_user.id), class: "btn-navbar #{current_class?(root_path(current_user.id))}" %>
     <%= link_to "Log out", root_path, method: 'delete', class: "btn-navbar " %>
     <%= cl_image_tag current_user.photo , class: "avatar" %>

@@ -15,6 +15,7 @@ class User < ApplicationRecord
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+<<<<<<< HEAD
 
   mount_uploader :photo, PhotoUploader
 
@@ -25,4 +26,7 @@ class User < ApplicationRecord
   def admin?
     role == ROLE_ADMIN
   end
+=======
+  mount_uploader :photo, PhotoUploader
+>>>>>>> 9ca26dc484c951d84f4df5b5ae23afc27b732bb4
 end
