@@ -11,7 +11,7 @@
             <li><strong>Beer Size:</strong><%= @beer.size %></li>
             <li><strong>Alcohol Percentage :</strong><%= @beer.alcohol_percentage  %>%</li>
             <li><strong>Description:</strong><%= @beer.description %></li>
-            <li><strong>Brewery:</strong><%= @beer.brewery.name %></li>
+            <li><strong>Brewery:</strong><%= link_to @beer.brewery.name, brewery_path(@beer.brewery.id) %></li>
           </ul>
         </div>
       </div>
