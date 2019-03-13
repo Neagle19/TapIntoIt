@@ -1,0 +1,13 @@
+<div class="profile">
+  <h1> <p> photo <%= @user.photo %> </p> </h1>
+
+
+<p> name <%= @user.name %> </p>
+<p> first_name <%= @user.first_name %> </p>
+<p> last_name <%= @user.last_name %> </p>
+<p> email <%= @user.email %> </p>
+<p> description <%= @user.description %> </p>
+<p> location <%= @user.location %> </p>
+
+<%= link_to "Edit", edit_profile_path %>
+</div>
