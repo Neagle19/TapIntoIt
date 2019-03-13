@@ -12,6 +12,6 @@ class User < ApplicationRecord
   mount_uploader :photo, PhotoUploader
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+  :recoverable, :rememberable, :validatable
   mount_uploader :photo, PhotoUploader
 end

@@ -31,6 +31,14 @@ class BreweriesController < ApplicationController
 
   def show
     @brewery = Brewery.find(params[:id])
+    @breweries = Brewery.where.not(latitude: nil, longitude: nil)
+    @markers = @breweries.where.not(latitude: nil, longitude: nil).map do |brewery|
+      {
+        lng: brewery.longitude,
+        lat: brewery.latitude,
+        infoWindow: render_to_string(partial: "infowindow", locals: { brewery: brewery })
+      }
+  end
   end
 
 # TZ added
@@ -57,7 +65,6 @@ class BreweriesController < ApplicationController
     end
     @brewery_top = collect_breweries.sort_by { |_k, v| v[0] }.reverse.first(5)
   end
-
   def denied
     set_booking3
   end
