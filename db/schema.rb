@@ -9,9 +9,7 @@
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
 # It's strongly recommended that you check this file into your version control system.
-
 ActiveRecord::Schema.define(version: 2019_03_13_102634) do
-
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -94,6 +92,15 @@ ActiveRecord::Schema.define(version: 2019_03_13_102634) do
     t.index ["requester_id"], name: "index_friend_connections_on_requester_id"
   end
 
+  create_table "like_beers", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "review_beer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["review_beer_id"], name: "index_like_beers_on_review_beer_id"
+    t.index ["user_id"], name: "index_like_beers_on_user_id"
+  end
+
   create_table "pg_search_documents", force: :cascade do |t|
     t.text "content"
     t.string "searchable_type"
@@ -136,7 +143,7 @@ ActiveRecord::Schema.define(version: 2019_03_13_102634) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.string "description"
-    t.string "name"
+    t.string "username"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "first_name"
@@ -156,6 +163,8 @@ ActiveRecord::Schema.define(version: 2019_03_13_102634) do
   add_foreign_key "comment_breweries", "users"
   add_foreign_key "friend_connections", "users", column: "receiver_id"
   add_foreign_key "friend_connections", "users", column: "requester_id"
+  add_foreign_key "like_beers", "review_beers"
+  add_foreign_key "like_beers", "users"
   add_foreign_key "review_beers", "beers"
   add_foreign_key "review_beers", "users"
   add_foreign_key "review_breweries", "breweries"

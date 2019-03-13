@@ -24,6 +24,31 @@ body {
   height: $height;
   padding-top: 10px;
   padding-bottom: 10px;
+  margin-bottom: 40px;
+}
+
+#dropdownMenuButton {
+  line-height: 73px;
+}
+
+.dropdown-menu.show {
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdown-menu {
+  text-align: center;
+  min-width: none;
+}
+
+.drop-btn {
+  font-size: 25px;
+  margin-right: 25px;
+}
+
+#dropdownMenuButton::after {
+    content: none;
+    border: none;
 }
 
 .container-buttons {
@@ -51,18 +76,24 @@ body {
 }
 
 .btn-navbar {
-  margin-right: 20px;
-  line-height: $height - 20;
+  line-height: 50px;
   text-decoration: none;
   color: black;
-  padding-left: 5px;
-  padding-right: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
   font-size: 20px;
+  display: inline-block;
+  text-align: center;
+  white-space: nowrap;
+  &:hover {
+    color: #353535;
+  }
 }
 
 .logo {
   margin-left: 20px;
-  width: ($height)-13;
+  width: ($height)-25;
+  padding-top: 5px;
 }
 
 .btn-active {
@@ -72,8 +103,8 @@ body {
 
 .avatar {
   border-radius: 50%;
-  width: ($height)-25;
-  height: ($height)-25;
+  width: ($height)-40;
+  height: ($height)-40;
   margin-top: 12.5px;
   margin-right: 12.5px;
 }
