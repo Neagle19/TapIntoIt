@@ -30,9 +30,9 @@
       <% end %>
     </div>
   </div>
+  <div class="redirect-btns">
+    <%= link_to "Go back to beers", beers_path, class: 'go-to-beers-btn' %>
 
-  <%= link_to "Go back to beers", beers_path, class: 'go-to-beers-btn' %>
-
-  <%= link_to "Add review", new_beer_review_beer_path(@beer.id), class: 'add-review-beer-btn'%>
-
+    <%= link_to "Add review", new_beer_review_beer_path(@beer.id), class: 'add-review-beer-btn'%>
+  </div>
 </div>

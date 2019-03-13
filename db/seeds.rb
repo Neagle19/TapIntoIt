@@ -53,6 +53,12 @@ url_brewery_photo = [
 "https://res.cloudinary.com/discwhk4f/image/upload/v1552399352/Tumbledown.jpg"
 ]
 
+review_contents = [
+  "Well I did kinda liked this one!"
+  "Wow what a taste!!!"
+  "Only drinking this beer to make room in my fridge..."
+]
+
 10.times do |i|
   batch = Batch.new
   batch.bottled_date = "2#{i}/10/2018"
@@ -74,7 +80,7 @@ url_brewery_photo = [
   review_brewery.posted = true
   review_brewery.brewery = Brewery.all.sample
   review_brewery.remote_photo_url = url_user_beer_photo.sample
-  review_brewery.user = User.first
+  review_brewery.user = User.all.sample
   review_brewery.save!
   comment_brewery = CommentBrewery.new
   comment_brewery.content = "Hey cool- I was there last weekend #{i}!"
@@ -82,12 +88,12 @@ url_brewery_photo = [
   comment_brewery.review_brewery = ReviewBrewery.last
   comment_brewery.save!
   review_beer = ReviewBeer.new
-  review_beer.content = "only drinking this beer to make room in my fridge... #{i}"
+  review_beer.content = review_contents.sample
   review_beer.rating = (0..5).to_a.sample
   review_beer.posted = true
   review_beer.remote_photo_url = url_user_beer_photo.sample
   review_beer.beer = Beer.last
-  review_beer.user = User.first
+  review_beer.user = User.all.sample
   review_beer.save!
   comment_beer = CommentBeer.new
   comment_beer.content = "Yeah I'm not a fan of this beer either. #{i}"
