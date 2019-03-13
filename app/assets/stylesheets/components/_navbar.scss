@@ -42,7 +42,8 @@ body {
 
 .dropdown-menu {
   text-align: center;
-  min-width: none;
+  min-width: 0;
+  z-index: 1000
 }
 
 .drop-btn {

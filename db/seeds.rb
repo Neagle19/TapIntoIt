@@ -5,6 +5,16 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+roman = User.create!(
+  email: "romanvanloo@icloud.com",
+  password: "test123",
+  password_confirmation: "test123",
+  first_name: "Roman",
+  last_name: "Van Loo",
+  username: "RomanTheLegend",
+  location: "Putte",
+  description: "Drink till you stink!",
+  remote_photo_url: 'https://res.cloudinary.com/discwhk4f/image/upload/v1551781659/wx0p5qp2g5obwlw8evau.jpg')
 
 user123 = User.create!(
   email: "tester123456@test.com",

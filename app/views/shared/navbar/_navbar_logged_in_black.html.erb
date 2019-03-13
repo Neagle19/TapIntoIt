@@ -1,12 +1,19 @@
 <style>
 .container-navbar {
   position: sticky;
+  position: -webkit-sticky;
   z-index: 10;
   top: 0;
   background-color: white;
 }
 .logo {
   filter: invert(100%);
+}
+.dropdown button {
+  color: black;
+  background: none;
+  border: none;
+  box-shadow: none;
 }
 </style>
 
@@ -27,12 +34,12 @@
     </div>
   </div>
 <div class="dropdown">
-  <i class="fas fa-bars dropdown-toggle drop-btn" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
+  <button class="dropdown-toggle drop-btn" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-bars"></i></button>
   <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-    <%= link_to "Home", root_path, class: "btn-navbar #{current_class?(root_path)}" %>
-    <%= link_to "Messages", root_path, class: "btn-navbar #{current_class?(root_path)}" %>
-    <%= link_to "Profile", root_path(current_user.id), class: "btn-navbar #{current_class?(root_path(current_user.id))}" %>
-    <%= link_to "Log out", destroy_user_session_path, method: 'delete', class: "btn-navbar " %>
+    <%= link_to "Home", root_path, class: "dropdown-item btn-navbar #{current_class?(root_path)}" %>
+    <%= link_to "Messages", root_path, class: "dropdown-item btn-navbar #{current_class?(root_path)}" %>
+    <%= link_to "Profile", root_path(current_user.id), class: "dropdown-item btn-navbar #{current_class?(root_path(current_user.id))}" %>
+    <%= link_to "Log out", destroy_user_session_path, method: 'delete', class: "dropdown-item btn-navbar " %>
   </div>
 </div>
 </div>
