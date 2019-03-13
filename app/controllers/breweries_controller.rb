@@ -29,9 +29,7 @@ class BreweriesController < ApplicationController
   end
 
   def show
-
-    @brewery = brewery.find(params[:id])
-    
+    @brewery = Brewery.find(params[:id])
   end
 
 # TZ added
@@ -58,6 +56,7 @@ class BreweriesController < ApplicationController
     end
     @brewery_top = collect_breweries.sort_by { |_k, v| v[0] }.reverse.first(5)
   end
+
   def denied
     set_booking3
   end
