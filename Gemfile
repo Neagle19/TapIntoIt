@@ -21,6 +21,9 @@ gem 'devise'
 
 gem 'dotenv-rails', groups: [:development, :test]
 
+# QR code encoding
+gem 'rqrcode-with-patches', '~> 0.5.4'
+
 group :development do
   gem 'web-console', '>= 3.3.0'
 end
