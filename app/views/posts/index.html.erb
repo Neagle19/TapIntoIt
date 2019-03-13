@@ -43,6 +43,13 @@
               <i class="fas fa-angle-double-right" style="margin: 10px"></i>  <%= comment.content %>
             </div>
             <% end %>
+            <div class="form-comment">
+              <%= simple_form_for CommentBeer.new do |f| %>
+                <%= f.input :review_beer_id, as: :hidden, :input_html => { :value => post.id} %>
+                <%= f.input :content, as: :string %>
+                <%= f.button :submit %>
+              <% end %>
+            </div>
           </div>
         </div>
         <% end %>
