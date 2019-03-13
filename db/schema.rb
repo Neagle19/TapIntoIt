@@ -46,11 +46,9 @@ ActiveRecord::Schema.define(version: 2019_03_12_145309) do
     t.string "phone_number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-
+    t.string "photo"
     t.float "latitude"
     t.float "longitude"
-    t.string "photo"
-
   end
 
   create_table "comment_beers", force: :cascade do |t|

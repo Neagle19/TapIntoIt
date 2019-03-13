@@ -7,8 +7,7 @@ import "bootstrap";
 //
 // To reference this file, add <%= javascript_pack_tag 'application' %> to the appropriate
 // layout file, like app/views/layouts/application.html.erb
-
-//import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
+import { growImage } from '../components/grow_image';
 import { initMapbox } from '../plugins/init_mapbox';
 
 initMapbox();
