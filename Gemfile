@@ -8,7 +8,7 @@ gem 'puma'
 gem 'rails', '5.2.2'
 gem 'redis'
 gem 'pg_search'
-
+gem "geocoder"
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 5.6.1'
 gem 'sassc-rails'
@@ -20,6 +20,9 @@ gem 'carrierwave', '~> 1.2'
 gem 'devise'
 
 gem 'dotenv-rails', groups: [:development, :test]
+
+# QR code encoding
+gem 'rqrcode-with-patches', '~> 0.5.4'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
