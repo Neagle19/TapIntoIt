@@ -18,14 +18,8 @@
 
 <%= link_to "Go back to breweries", breweries_path, class: 'go-to-beers-btn' %>
 
-<div
-      id="map"
-      style="width: 100vw;
-      height: 350px;
-      margin-top: 90px;"
-      data-markers="<%= @markers.to_json %>"
-      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-    ></div>
+<div id="map" style="width: 100vw; height: 350px; margin-top: 90px;" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+</div>
 
 
 
