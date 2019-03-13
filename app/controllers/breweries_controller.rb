@@ -48,7 +48,7 @@ class BreweriesController < ApplicationController
 
   def create
     @brewery = Brewery.new(brewery_params)
-    @brewery.user = current_user
+    # @brewery.user = current_user
     if @brewery.save!
       redirect_to brewery_path(@brewery)
     else

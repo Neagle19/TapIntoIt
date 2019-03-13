@@ -14,6 +14,7 @@ roman = User.create!(
   username: "RomanTheLegend",
   location: "Putte",
   description: "Drink till you stink!",
+  role: 0,
   remote_photo_url: 'https://res.cloudinary.com/discwhk4f/image/upload/v1551781659/wx0p5qp2g5obwlw8evau.jpg')
 
 user123 = User.create!(
@@ -58,8 +59,8 @@ url_brewery_photo = [
 ]
 
 review_contents = [
-  "Well I did kinda liked this one!"
-  "Wow what a taste!!!"
+  "Well I did kinda liked this one!",
+  "Wow what a taste!!!",
   "Only drinking this beer to make room in my fridge..."
 ]
 
