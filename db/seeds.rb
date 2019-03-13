@@ -14,6 +14,7 @@ user123 = User.create!(
   last_name: "Van Loo",
   location: "Brussels",
   description: "Waddup, I love beer!",
+  role: 1,
   photo: 'https://res.cloudinary.com/discwhk4f/image/upload/v1551781659/wx0p5qp2g5obwlw8evau.jpg')
 
 brewery = Brewery.create([{ name: 'BrewDog', photo: 'https://res.cloudinary.com/discwhk4f/image/upload/v1552399282/bangor_beer_co.png', address: "20, Putterie, 1000 Bruxelles", description: "No-nonsense chain bar specialising in the Scottish brewery's craft beers, with regular guest brews.
