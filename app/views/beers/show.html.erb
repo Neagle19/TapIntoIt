@@ -1,38 +1,38 @@
-<div class="beer-container-show">
-  <div class="beer-title-show">
+  <div class="beer-container-show">
+    <div class="beer-title-show">
     <h2><%= @beer.name %></h2>
-  </div>
-  <div class="center-myself">
-      <div class="beer-cards">
-        <div class="show-beer-card">
-          <ul>
-            <li><strong>Beer Name:</strong><%= @beer.name %></li>
-            <li><strong>Beer Kind:</strong><%= @beer.kind %></li>
-            <li><strong>Beer Size:</strong><%= @beer.size %></li>
-            <li><strong>Alcohol Percentage :</strong><%= @beer.alcohol_percentage  %>%</li>
-            <li><strong>Description:</strong><%= @beer.description %></li>
-            <li><strong>Brewery:</strong><%= link_to @beer.brewery.name, brewery_path(@beer.brewery.id) %></li>
-          </ul>
+    </div>
+    <div class="center-myself">
+        <div class="beer-cards">
+          <div class="show-beer-card">
+            <ul>
+              <li><strong>Beer Name:</strong><%= @beer.name %></li>
+              <li><strong>Beer Kind:</strong><%= @beer.kind %></li>
+              <li><strong>Beer Size:</strong><%= @beer.size %></li>
+              <li><strong>Alcohol Percentage :</strong><%= @beer.alcohol_percentage  %>%</li>
+              <li><strong>Description:</strong><%= @beer.description %></li>
+              <li><strong>Brewery:</strong><%= link_to @beer.brewery.name, brewery_path(@beer.brewery.id) %></li>
+            </ul>
+          </div>
         </div>
-      </div>
-      <div class="beer-photo-card">
-        <img src='<%= cl_image_path(@beer.photo) %>' height="300">
-      </div>
-  </div>
-
-  <div class="beer-reviews">
-    <div class="beer-review-title">
-      <h2>Reviews</h2>
+        <div class="beer-photo-card">
+          <img src='<%= cl_image_path(@beer.photo) %>' height="300">
+        </div>
     </div>
-    <div class="show-beer-review">
-      <% @review_beers.each do |review| %>
-      <p class="review-show"><b><%= review.rating %></b> -- <%= review.user.first_name %>: <i style="font-weight: 300;"><%= review.content %></i></p>
-      <% end %>
+
+    <div class="beer-reviews">
+      <div class="beer-review-title">
+        <h2>Reviews</h2>
+      </div>
+      <div class="show-beer-review">
+        <% @review_beers.each do |review| %>
+        <p class="review-show"><b><%= review.rating %></b> -- <%= review.user.first_name %>: <i style="font-weight: 300;"><%= review.content %></i></p>
+        <% end %>
+      </div>
     </div>
-  </div>
 
-  <%= link_to "Go back to beers", beers_path, class: 'go-to-beers-btn' %>
+    <%= link_to "Go back to beers", beers_path, class: 'go-to-beers-btn' %>
 
-  <%= link_to "Add review", new_beer_review_beer_path(@beer.id), class: 'add-review-beer-btn'%>
+    <%= link_to "Add review", new_beer_review_beer_path(@beer.id), class: 'add-review-beer-btn'%>
 
 </div>

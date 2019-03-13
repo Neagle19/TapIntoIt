@@ -7,6 +7,10 @@ $height: 55px;
   justify-content: center;
   height: $height;
   padding-bottom: 13px;
+  position: absolute;
+  height: 35px;
+  margin-top: 30px;
+  bottom: 0;
 }
 
 .icons {
@@ -20,8 +24,7 @@ $height: 55px;
 }
 
 .icon {
-  color: white;
-  font-size: 30px;
+  font-size: 20px;
   padding-left: 20px;
   padding-right: 20px;
 
@@ -31,4 +34,5 @@ body {
   margin-bottom: 0px;
   margin-right: 0px;
   margin-left: 0px;
+  position: relative;
 }

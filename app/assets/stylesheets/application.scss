@@ -11,14 +11,16 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+@import "posts/index";
 
 
 a:hover {
   opacity: 0.7 !important;
-  color: white !important;
   text-decoration: none !important;
 }
-
+body {
+  background-color: white;
+}
 /*
  *= require_tree .
  *= require_self
