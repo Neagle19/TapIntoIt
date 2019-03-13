@@ -2,9 +2,11 @@
   <div class="row">
     <div class="col-xs-12 col-sm-4 offset-sm-4">
       <div class="form-signup">
-        <h2>Sign Up</h2>
+        <h2>Sign in</h2>
+
         <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
           <%= f.error_notification %>
+
           <div class="form-inputs">
             <%= f.input :email,
                         required: true,
@@ -18,6 +20,7 @@
                         required: true,
                         input_html: { autocomplete: "new-password" } %>
             <%= f.input :photo %>
+            <%= f.input :role, label: "Check here if this account is for a brewery", :as => :boolean, input_html: {checked: false} %>
           </div>
           <div class="form-actions">
             <%= f.button :submit, "Sign up", class: "btn btn-primary" %>
@@ -26,5 +29,6 @@
         <% end %>
       </div>
     </div>
+
   </div>
 </div>

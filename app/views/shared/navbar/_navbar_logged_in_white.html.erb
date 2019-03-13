@@ -11,6 +11,13 @@
   top: -40px !important;
 }
 
+.dropdown button {
+  color: white;
+  background:none;
+  border: none;
+  box-shadow: none;
+}
+
 </style>
 
 <% def current_class?(test_path) %>
@@ -25,7 +32,7 @@
     <% end %>
   </div>
   <div class="dropdown">
-    <i class="fas fa-bars dropdown-toggle drop-btn" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
+    <button class="dropdown-toggle drop-btn" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-bars"></i></button>
     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
       <%= link_to "Home", root_path, class: "btn-navbar #{current_class?(root_path)}" %>
       <%= link_to "Messages", root_path, class: "btn-navbar #{current_class?(root_path)}" %>

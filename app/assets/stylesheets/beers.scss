@@ -92,7 +92,8 @@
 
 .beer-container-show {
   background-color: white;
-
+  display:flex;
+  flex-direction:column;
 }
 
 .show-beer-card {
@@ -132,4 +133,11 @@
 
 .show-beer-review {
   text-align: center;
+}
+
+.redirect-btns{
+  align-content:center;
+  align-self:center;
+  margin-bottom:70px;
+  margin-top: 20px;
 }
