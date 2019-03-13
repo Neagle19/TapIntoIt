@@ -16,9 +16,9 @@ class BreweriesController < ApplicationController
     else
       @breweries = Brewery.all
     end
-    if params[:search_place].present?
-      @breweries = @breweries.near(params[:search_place], 50)
-    end
+    # if params[:search_place].present?
+    #   @breweries = @breweries.near(params[:search_place], 50)
+    # end
     @markers = @breweries.where.not(latitude: nil, longitude: nil).map do |brewery|
       {
         lng: brewery.longitude,
@@ -30,10 +30,7 @@ class BreweriesController < ApplicationController
   end
 
   def show
-
     @brewery = Brewery.find(params[:id])
-
-
   end
 
 # TZ added
@@ -42,7 +39,7 @@ class BreweriesController < ApplicationController
   end
 
   def create
-    @brewery = Brewery.new brewery_params
+    @brewery = Brewery.new(brewery_params)
     @brewery.user = current_user
     if @brewery.save!
       redirect_to brewery_path(@brewery)
@@ -79,8 +76,8 @@ class BreweriesController < ApplicationController
 # TZ private
   private
 
-  def Brewery_params
-    params.require(:brewery).permit(:name, :location, :description, :capacity, :price, :user_id, :make, :model, :ac, :fuel, :consumption, :min_age, :search, :year, :kilometers, :photo, :photo_cache)
+  def brewery_params
+    params.require(:brewery).permit(:name, :address, :email, :phone_number, :photo, :description, :search)
   end
 
   def set_brewery
