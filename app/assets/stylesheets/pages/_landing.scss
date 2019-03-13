@@ -3,7 +3,7 @@
   background-size: cover;
   margin: 0;
   height: 100%;
-  position: absolute;
+  position: static;
   top: 0;
   left: 0;
   right: 0;
@@ -36,9 +36,10 @@
   }
 }
 
-.search-bar {
+.search-bar, .search-brewery {
   background: rgba(255, 255, 255, 0.75);
   text-align: center;
+  margin: 10px;
   width: 350px;
   height: 66px !important;
   border-radius: 33px !important;
