@@ -9,6 +9,6 @@ class User < ApplicationRecord
   has_many :comment_breweries, through: :review_breweries
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+  :recoverable, :rememberable, :validatable
   mount_uploader :photo, PhotoUploader
 end
