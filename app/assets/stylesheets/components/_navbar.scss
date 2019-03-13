@@ -27,6 +27,30 @@ body {
   margin-bottom: 40px;
 }
 
+#dropdownMenuButton {
+  line-height: 73px;
+}
+
+.dropdown-menu.show {
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdown-menu {
+  text-align: center;
+  min-width: none;
+}
+
+.drop-btn {
+  font-size: 25px;
+  margin-right: 25px;
+}
+
+#dropdownMenuButton::after {
+    content: none;
+    border: none;
+}
+
 .container-buttons {
   display: flex;
 }
@@ -52,13 +76,15 @@ body {
 }
 
 .btn-navbar {
-  margin-right: 20px;
-  line-height: $height - 20;
+  line-height: 50px;
   text-decoration: none;
   color: black;
-  padding-left: 5px;
-  padding-right: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
   font-size: 20px;
+  display: inline-block;
+  text-align: center;
+  white-space: nowrap;
   &:hover {
     color: #353535;
   }

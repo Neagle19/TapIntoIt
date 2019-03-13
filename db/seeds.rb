@@ -12,6 +12,7 @@ user123 = User.create!(
   password_confirmation: "test123",
   first_name: "Dirk",
   last_name: "Van Loo",
+  username: "DirkTheDrinker",
   location: "Brussels",
   description: "Waddup, I love beer!",
   remote_photo_url: 'https://res.cloudinary.com/discwhk4f/image/upload/v1551781659/wx0p5qp2g5obwlw8evau.jpg')
