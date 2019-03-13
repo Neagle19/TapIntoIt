@@ -23,6 +23,7 @@ class BreweriesController < ApplicationController
       {
         lng: brewery.longitude,
         lat: brewery.latitude,
+        infoWindow: render_to_string(partial: "infowindow", locals: { brewery: brewery })
       }
 
   end
@@ -31,7 +32,7 @@ class BreweriesController < ApplicationController
   def show
 
     @brewery = brewery.find(params[:id])
-    
+
   end
 
 # TZ added
@@ -78,10 +79,6 @@ class BreweriesController < ApplicationController
 
   def Brewery_params
     params.require(:brewery).permit(:name, :location, :description, :capacity, :price, :user_id, :make, :model, :ac, :fuel, :consumption, :min_age, :search, :year, :kilometers, :photo, :photo_cache)
-  end
-
-  def set_booking3
-    @brewery = Brewery.find(params[:Brewery_id])
   end
 
   def set_brewery
