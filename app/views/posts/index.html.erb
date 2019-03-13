@@ -1,0 +1,55 @@
+<% def check_liked(post) %>
+<% if LikeBeer.where(user: current_user, review_beer: post).count.zero? %>
+<% return "" %>
+<% else %>
+<% return " liked" %>
+<% end %>
+<% end %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-lg-8 offset-lg-2">
+      <div class="wrapper-posts">
+        <% @posts.each do |post| %>
+        <div class="wrapper-post">
+          <div class="box-post">
+            <div class="info-post">
+              <%= cl_image_tag post.user.photo, class: "avatar-post"%>
+              <%= link_to like_path(post.id), remote: true do %>
+              <div class="likes<%= check_liked(post) %>", data-div="<%= post.id %>", id="likes-hidden-<%= post.id %>">
+                <p id="likes-count-<%= post.id %>"><%= post.like_beers.all.count %></p><i class="far fa-thumbs-up"></i> <!-- Set here that if you liked it it displays solid thumb -->
+              </div>
+              <% end %>
+              <div class="comments", data-div="wrapper-hidden-<%= post.id %>">
+                <%= post.comment_beers.all.count %><i class="far fa-comment-dots"></i>
+              </div>
+            </div>
+            <div class="big-content-post">
+              <div class="title-post">
+                <%= raw " <i class='fas fa-star'></i> " * post.rating.round %>
+                <%= post.beer.name %>
+              </div>
+              <p class="content-post"><%= post.content %></p>
+            </div>
+          </div>
+          <div class="wrapper-comments hidden" id="wrapper-hidden-<%= post.id %>">
+            <div class="arrow-up"></div>
+            <% post.comment_beers.all.each do |comment| %>
+            <div class="box-comment">
+              <div class="avatar-comment">
+              <%= cl_image_tag comment.user.photo, class: "avatar-post"%>
+              <%= comment.user.username %>
+              </div>
+              <i class="fas fa-angle-double-right" style="margin: 10px"></i>  <%= comment.content %>
+            </div>
+            <% end %>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

@@ -1,3 +1,9 @@
+<style>
+  body {
+    height: 100vh;
+  }
+
+</style>
 <div class="landing">
   <div class="landing-content">
     <div class="landing-title">
@@ -6,7 +12,12 @@
     </div>
     <div class="landing-search-bar">
       <%= form_tag(beers_path, method: :get) do%>
-      <%= text_field_tag(:search, params[:search], class: "search-bar")%><br>
+      <%= text_field_tag(:search, params[:search], class: "search-bar", placeholder: "Find a beer...")%><br>
+      <% end %>
+    </div>
+    <div class="brewery-search-bar">
+      <%= form_tag(breweries_path, method: :get) do%>
+      <%= text_field_tag(:search, params[:search], class: "search-brewery", placeholder: "Or a brewery...")%><br>
       <% end %>
     </div>
   </div>

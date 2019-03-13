@@ -1,19 +1,26 @@
 <style>
-  .container-navbar {
-    position: sticky;
-    z-index: 10;
-    top: 0;
-    background-color: white;
-  }
-  .logo {
-    filter: invert(100%);
-  }
+.container-navbar {
+  position: sticky;
+  position: -webkit-sticky;
+  z-index: 10;
+  top: 0;
+  background-color: white;
+}
+.logo {
+  filter: invert(100%);
+}
+
+.dropdown button {
+  background: none;
+  border: none;
+  box-shadow: none;
+}
 </style>
 
-  <!-- check if it has to be underlined -->
+<!-- check if it has to be underlined -->
 <% def current_class?(test_path) %>
-  <% return ' btn-active' if request.path == test_path %>
-  <% ' ' %>
+<% return ' btn-active' if request.path == test_path %>
+<% ' ' %>
 <% end %>
 
 
@@ -21,16 +28,20 @@
 <div class="container-navbar">
   <div class="left-size">
     <%= link_to root_path do %>
-      <%= image_tag "logo.png", class: "logo" %>
+    <%= image_tag "logo.png", class: "logo" %>
     <% end %>
     <div class="search-form">
       <%= form_tag(beers_path, method: :get) do%>
-        <%= text_field_tag(:search, params[:search],  placeholder: 'Search for a beer or a brewery...') %>
-        <% end %>
+      <%= text_field_tag(:search, params[:search], placeholder: 'Search for a beer or a brewery...') %>
+      <% end %>
     </div>
   </div>
-  <div class="container-buttons">
-    <%= link_to "Sign up", root_path, class: "btn-navbar #{current_class?(root_path)}" %>
-    <%= link_to "Login", root_path, class: "btn-navbar #{current_class?(root_path)}" %>
+
+  <div class="dropdown">
+    <button class="dropdown-toggle drop-btn" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-bars"></i></button>
+    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+      <%= link_to "Sign up", new_user_registration_path, class: "btn-navbar #{current_class?(new_user_registration_path)}" %>
+      <%= link_to "Login", new_user_session_path, class: "btn-navbar #{current_class?(new_user_session_path)}" %>
+    </div>
   </div>
 </div>

@@ -10,6 +10,7 @@
   flex-wrap: wrap;
   font-family: 'Raleway', sans-serif;
   justify-content: center;
+  padding-bottom: 40px;
 }
 
 .beer-card-body {
@@ -91,7 +92,8 @@
 
 .beer-container-show {
   background-color: white;
-
+  display:flex;
+  flex-direction:column;
 }
 
 .show-beer-card {
@@ -131,4 +133,11 @@
 
 .show-beer-review {
   text-align: center;
+}
+
+.redirect-btns{
+  align-content:center;
+  align-self:center;
+  margin-bottom:70px;
+  margin-top: 20px;
 }

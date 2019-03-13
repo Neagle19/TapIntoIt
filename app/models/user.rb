@@ -12,10 +12,14 @@ class User < ApplicationRecord
   has_many :review_beers, dependent: :destroy
   has_many :comment_beers, through: :review_beers
   has_many :comment_breweries, through: :review_breweries
+  has_many :like_beers
+
+  mount_uploader :photo, PhotoUploader
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
-<<<<<<< HEAD
+  :recoverable, :rememberable, :validatable
+      
+
 
   mount_uploader :photo, PhotoUploader
 
@@ -26,7 +30,6 @@ class User < ApplicationRecord
   def admin?
     role == ROLE_ADMIN
   end
-=======
-  mount_uploader :photo, PhotoUploader
->>>>>>> 9ca26dc484c951d84f4df5b5ae23afc27b732bb4
+
+  
 end

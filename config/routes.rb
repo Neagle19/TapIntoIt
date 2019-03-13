@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
+
   devise_for :users, controllers: { registrations: "registrations" }
+
+  resources :posts, only: [:index, :show]
+
+
   root to: 'pages#landing'
+  get '/like/new/:id', to: 'like_beers#new', as: 'like'
   resources :beers, only: [:index, :show] do
     resources :review_beers, only: [:new, :create]
   end
