@@ -14,9 +14,10 @@ Rails.application.routes.draw do
   resources :breweries, only: [:index, :show, :new]
   resources :qr_codes, only: [:new, :create]
   resources :admin, only: [:index,]
-  resources :profile, only: [:show]
+  # resources :profile, only: [:show]
   #   get 'new', to: 'qr_codes#new'
   #   post 'create', to: 'qr_codes#create'
   # end
    # resources :qr_codes, only:[:new, :create]
+   resources :profiles, only: [:show, :edit]
 end
