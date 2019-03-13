@@ -1,5 +1,5 @@
 <div style="margin-top: 200px; padding-top: 30px;"></div>
-<h2>Sign sdasdasdasdda</h2>
+<h2>Sign in</h2>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
@@ -17,6 +17,7 @@
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
     <%= f.input :photo %>
+    <%= f.input :role, label: "Check here if this account is for a brewery", :as => :boolean, input_html: {checked: false} %>
   </div>
 
   <div class="form-actions">

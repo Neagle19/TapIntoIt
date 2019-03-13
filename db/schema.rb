@@ -49,18 +49,6 @@ ActiveRecord::Schema.define(version: 2019_03_13_113211) do
     t.string "photo"
   end
 
-  create_table "brewers", force: :cascade do |t|
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["email"], name: "index_brewers_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_brewers_on_reset_password_token", unique: true
-  end
-
   create_table "comment_beers", force: :cascade do |t|
     t.bigint "review_beer_id"
     t.bigint "user_id"
