@@ -1,5 +1,5 @@
 class BreweriesController < ApplicationController
-  # before_action :set_brewery only: [:new, :show, :edit, :destroy]
+  # before_action :set_brewery, only: [:show]
 
   def index
     @breweries = Brewery.all
@@ -29,8 +29,9 @@ class BreweriesController < ApplicationController
   end
 
   def show
+
     @brewery = brewery.find(params[:id])
-    @reviews = Review.where(brewery_id: @brewery.id)
+    
   end
 
 # TZ added
