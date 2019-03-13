@@ -9,17 +9,19 @@ body {
   margin-top: 0px;
   margin-right: 0px;
   margin-left: 0px;
-  height: 100vh
+  min-height: 100vh;
+  height: 100%;
 }
 
 .left-size {
   display: flex;
   justify-content: space-between ;
   flex-direction: row;
-  width: 85vw;
+  width: 80vw;
 }
 
 .container-navbar {
+  position: absolute;
   display: flex;
   width: 100vw;
   justify-content: space-between;
