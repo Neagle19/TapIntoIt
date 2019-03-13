@@ -88,15 +88,21 @@
   opacity: 0.5;
 }
 
-.show-beer-card {
-
-}
 
 .beer-container-show {
   background-color: white;
 
 }
 
+.show-beer-card {
+  a{
+    color: black;
+  }
+  a:hover {
+      opacity: 0.7;
+      color: black !important;
+    }
+}
 
 
 .beer-photo-card {
