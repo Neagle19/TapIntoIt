@@ -9,15 +9,19 @@ body {
   margin-top: 0px;
   margin-right: 0px;
   margin-left: 0px;
+  min-height: 100vh;
+  height: 100%;
 }
 
 .left-size {
   display: flex;
   justify-content: space-between ;
   flex-direction: row;
+  width: 80vw;
 }
 
 .container-navbar {
+  position: absolute;
   display: flex;
   width: 100vw;
   justify-content: space-between;
@@ -67,6 +71,8 @@ body {
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   padding-left: 20px;
   margin: 5px;
+  width: 100%;
+  max-width: 400px
 }
 
 .search-form {
@@ -74,14 +80,16 @@ body {
   flex-direction: column;
   justify-content: center;
   margin-left: 20px;
+  flex-grow: 1;
+  flex-shrink: 1;
 }
 
 .btn-navbar {
   line-height: 50px;
   text-decoration: none;
   color: black;
-  padding-left: 15px;
-  padding-right: 15px;
+  margin-left: 15px;
+  margin-right: 15px;
   font-size: 20px;
   display: inline-block;
   text-align: center;
@@ -89,6 +97,7 @@ body {
   &:hover {
     color: #353535;
   }
+
 }
 
 .logo {
