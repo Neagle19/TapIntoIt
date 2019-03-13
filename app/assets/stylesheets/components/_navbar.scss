@@ -39,6 +39,14 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-left: 20px;
+  padding-right: 20px;
+  a {
+    border-bottom: solid;
+    border-width: 1px;
+    border-color: #A7A8A7;
+    font-weight: 100;
+  }
 }
 
 .dropdown-menu {
@@ -109,8 +117,10 @@ body {
 }
 
 .btn-active {
-  border-bottom: solid;
-  border-width: 2px;
+  border-bottom: solid !important;
+  border-width: 2px !important;
+  border-color: black !important;
+  font-weight: 500 !important;
 }
 
 .avatar {
