@@ -17,6 +17,10 @@
   box-shadow: none;
 }
 
+.btn-navbar{
+    background-color: rgba(0,0,0,0.7) !important;
+  }
+
 </style>
 
 <!-- check if it has to be underlined -->
@@ -37,9 +41,9 @@
   <div class="dropdown">
     <button class="dropdown-toggle drop-btn" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-bars"></i></button>
     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-      <%= link_to "Brewer registration", new_user_registration_path, class: "btn-navbar #{current_class?(new_user_registration_path)}"%>
-      <%= link_to "Sign up", new_user_registration_path, class: "btn-navbar #{current_class?(new_user_registration_path)}" %>
-      <%= link_to "Login", new_user_session_path, class: "btn-navbar #{current_class?(new_user_session_path)}" %>
+      <%= link_to "Brewer registration", new_user_registration_path, class: "dropdown-item btn-navbar #{current_class?(new_user_registration_path)}"%>
+      <%= link_to "Sign up", new_user_registration_path, class: "dropdown-item btn-navbar #{current_class?(new_user_registration_path)}" %>
+      <%= link_to "Login", new_user_session_path, class: "dropdown-item btn-navbar #{current_class?(new_user_session_path)}" %>
     </div>
   </div>
 
