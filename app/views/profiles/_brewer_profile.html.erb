@@ -1,13 +1,22 @@
-<h2>Welcome to your Dashboard, <strong><%= @brewery[0].name %></strong>!</h2>
-<h4>This is where you can manage all of your beers on Tap Into It</h4>
+<div class="container-profile">
+  <div class="row">
+    <div class="col-xs-12 col-md-6 marg-bot">
 
-<p>Here are your brewery details:</p>
-  <p>Brewery Name: <%= @brewery[0].name %></p>
-  <p>Brewery Address: <%= @brewery[0].address %></p>
-  <p>Brewery Description: <%= @brewery[0].description %></p>
-  <p>Brewery Email: <%= @brewery[0].email %></p>
-  <p>Brewery Phone Number: <%= @brewery[0].phone_number %></p>
-  <p>Brewery Photo: <%= @brewery[0].photo %></p>
-<p>To edit your brewery details, <%= link_to "click here", edit_brewery_path(@brewery[0].id) %></p>
+      <h2>Welcome to your Dashboard, <strong><%= @brewery[0].name %></strong>!</h2>
+      <h4>This is where you can manage all of your beers on Tap Into It</h4>
 
-<p>Here are your actively listed beers:</p>
+      <p>Here are your brewery details:</p>
+        <p><b>Brewery Name:</b> <%= @brewery[0].name %></p>
+        <p><b>Brewery Address:</b> <%= @brewery[0].address %></p>
+        <p><b>Brewery Description:</b> <%= @brewery[0].description %></p>
+        <p><b>Brewery Email:</b> <%= @brewery[0].email %></p>
+        <p><b>Brewery Phone Number:</b> <%= @brewery[0].phone_number %></p>
+        <div class='brewery-photo'>
+          <p><b>Brewery Photo:</b></p><img src='<%= cl_image_path(@brewery[0].photo) %>' height='500'>
+        </div>
+      <p>To edit your brewery details, <%= link_to "click here", edit_brewery_path(@brewery[0].id) %></p>
+
+      <p>Here are your actively listed beers:</p>
+    </div>
+  </div>
+</div>
