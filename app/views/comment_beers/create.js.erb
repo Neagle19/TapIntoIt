@@ -1,1 +1,12 @@
-console.log("Im inside create.js.erb file")
+
+function hey(){
+let doc =  document.getElementById("iterated-comments-<%= @review_id %>")
+
+doc.insertAdjacentHTML('beforeend', "<%= j render 'posts/comment_line', comment: @comment %> ")
+
+let count = document.getElementById("comment-count-<%= @review_id %>")
+var number = count.innerHTML;
+      number++;
+      count.innerHTML = number;
+      }
+hey()

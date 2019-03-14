@@ -1,1 +1,22 @@
-console.log("check")
+function hoy(){
+    console.log('secondpart');
+    var btn = document.getElementById("likes-hidden-" + "<%= @like.review_beer.id %>");
+    count = document.getElementById("likes-count-" + "<%= @like.review_beer.id %>");
+    console.log(btn)
+    console.log(count)
+    if (btn.classList.contains("liked")) {
+      console.log('thirdpart');
+      var number = count.innerHTML;
+      number--;
+      count.innerHTML = number;
+    } else {
+      console.log('thirdpart');
+      var number = count.innerHTML;
+      number++;
+      count.innerHTML = number;
+    };
+    btn.classList.toggle("liked");
+    console.log('fourthpart');
+}
+
+hoy()
