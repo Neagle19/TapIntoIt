@@ -18,12 +18,13 @@ class User < ApplicationRecord
 
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :validatable
-      
+
 
 
   mount_uploader :photo, PhotoUploader
 
   validates :role, inclusion: ROLE
+  validates :username, uniqueness: true
 
   enum role: [:user, :admin]
 
@@ -31,5 +32,5 @@ class User < ApplicationRecord
     role == ROLE_ADMIN
   end
 
-  
+
 end

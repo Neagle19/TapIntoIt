@@ -15,7 +15,18 @@ roman = User.create!(
   location: "Putte",
   role: 0,
   description: "Drink till you stink!",
+  remote_photo_url: 'https://res.cloudinary.com/discwhk4f/image/upload/v1551781659/wx0p5qp2g5obwlw8evau.jpg')
+
+shane = User.create!(
+  email: "shane@gmail.com",
+  password: "test123",
+  password_confirmation: "test123",
+  first_name: "Shane",
+  last_name: "Neagle",
+  username: "ShaneTheProblematic",
+  location: "Leuven",
   role: 0,
+  description: "Drinking wine in the train is okay!",
   remote_photo_url: 'https://res.cloudinary.com/discwhk4f/image/upload/v1551781659/wx0p5qp2g5obwlw8evau.jpg')
 
 user123 = User.create!(
