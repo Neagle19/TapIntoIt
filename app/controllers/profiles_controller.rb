@@ -1,6 +1,7 @@
 class ProfilesController < ApplicationController
   def show
     @user = User.find(params[:id])
+    @brewery = Brewery.where(user_id: @user.id)
 
     if FriendConnection.where(receiver: @user, requester: current_user)[0].nil? && FriendConnection.where(receiver: current_user, requester: @user)[0].nil?
       @connection = false
@@ -8,7 +9,6 @@ class ProfilesController < ApplicationController
       @connection = true
     end
 
-    @brewery = Brewery.where(user_id: @user.id)
     # @posts = User.find_by(user_name: params[:user_name]).posts.order('created_at DESC')
     @all_names = User.all.map { |user| user.username }.sort
     @all_names.delete(current_user.username)
