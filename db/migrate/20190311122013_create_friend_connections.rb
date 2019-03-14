@@ -3,7 +3,7 @@ class CreateFriendConnections < ActiveRecord::Migration[5.2]
     create_table :friend_connections do |t|
       t.references :requester
       t.references :receiver
-      t.boolean :accepted
+      t.boolean :accepted, default: true
 
       t.timestamps
     end

@@ -1,3 +1,4 @@
+
 <% if current_user.admin? %>
   <%= render 'brewer_profile.html.erb' %>
 <% else %>
@@ -5,5 +6,37 @@
 <% end %>
 
 
+<div class="profile-info">
+  <%= cl_image_tag @user.photo, class: "avatar" %>
+  <p class="profile-name"><b>Name:</b> <%= @user.first_name %> <%= @user.last_name %></p>
+  <p><b>Username:</b> <%= @user.username %></p>
+  <p><b>Located at:</b> <%= @user.location %></p>
+  <p><b>About:</b> <%= @user.description %></p>
+  <p><b>Contact me at:</b> <%= @user.email %></p>
 
 
+  <% if current_user == @user %>
+    <div class="center-self">
+    <%= link_to "Edit info",edit_user_registration_path,class: "edit-profile-btn btn-profile" %>
+    </div>
+  <% end %>
+</div>
+
+<% if user_signed_in? && current_user != @user %>
+  <div class="friend-btn-container">
+    <% if !@connection %>
+      <i class="fas fa-user-plus"></i><%= link_to "Add Friend", add_friend_path(@user.id)%>
+      <% elsif @connection %>
+      <p>Friends</p><i class="fas fa-check"></i>
+    <% end %>
+  </div>
+<% end %>
+
+
+<div class="search-friends-container">
+  <h3>Search other Drinkers</h3>
+    <%= simple_form_for(User.new, method: :post, url: show_with_username_path) do |f| %>
+      <%= f.input :username, collection: @all_names %>
+      <%= f.button :submit, value: "Go to profile" %>
+    <% end %>
+</div>  

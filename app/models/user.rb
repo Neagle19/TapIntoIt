@@ -25,6 +25,7 @@ class User < ApplicationRecord
   mount_uploader :photo, PhotoUploader
 
   validates :role, inclusion: ROLE
+  validates :username, uniqueness: true
 
   enum role: [:user, :admin]
 
