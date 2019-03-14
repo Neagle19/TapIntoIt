@@ -76,6 +76,7 @@ div.wrapper-post:nth-child(odd) {
 }
 
 .comments {
+  display: flex;
   &:hover {
     color: $shane;
   }

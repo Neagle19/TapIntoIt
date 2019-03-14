@@ -1,11 +1,12 @@
 
 class CommentBeersController < ApplicationController
   def create
-    comment = CommentBeer.new(beer_params)
-    comment.user = current_user
+    @comment = CommentBeer.new(beer_params)
+    @comment.user = current_user
+    @review_id = beer_params[:review_beer_id]
     puts "-"*60
     puts params
-    if comment.save
+    if @comment.save
       puts "comment saved correctly"
       # redirect_to posts_path
     else
