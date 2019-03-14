@@ -13,7 +13,7 @@ class ProfilesController < ApplicationController
     @all_names = User.all.map { |user| user.username }.sort
     @all_names.delete(current_user.username)
   end
-
+  
   def edit
     @user = User.find(params[:id])
     @brewery = Brewery.where(user_id: @user.id)
