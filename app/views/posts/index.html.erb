@@ -34,15 +34,24 @@
           </div>
           <div class="wrapper-comments hidden" id="wrapper-hidden-<%= post.id %>">
             <div class="arrow-up"></div>
-            <% post.comment_beers.all.each do |comment| %>
-            <div class="box-comment">
-              <div class="avatar-comment">
-              <%= cl_image_tag comment.user.photo, class: "avatar-post"%>
-              <%= comment.user.username %>
+            <div id="iterated-comments-<%= post.id %>">
+              <% post.comment_beers.all.each do |comment| %>
+              <div class="box-comment">
+                <div class="avatar-comment">
+                <%= cl_image_tag comment.user.photo, class: "avatar-post"%>
+                <%= comment.user.username %>
+                </div>
+                <i class="fas fa-angle-double-right" style="margin: 10px"></i>  <%= comment.content %>
               </div>
-              <i class="fas fa-angle-double-right" style="margin: 10px"></i>  <%= comment.content %>
+              <% end %>
             </div>
-            <% end %>
+            <div class="form-comment">
+              <%= simple_form_for CommentBeer.new, remote: true do |f| %>
+                <%= f.input :review_beer_id, as: :hidden, :input_html => { :value => post.id} %>
+                <%= f.input :content, as: :string %>
+                <%= f.button :submit, class: "comment-btn",name: post.id %>
+              <% end %>
+            </div>
           </div>
         </div>
         <% end %>

@@ -13,8 +13,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :breweries, only: [:index, :show, :new]
   resources :qr_codes, only: [:new, :create]
-  resources :admin, only: [:index,]
-  # resources :profile, only: [:show]
+  resources :comment_beers, only: [:create]
   #   get 'new', to: 'qr_codes#new'
   #   post 'create', to: 'qr_codes#create'
   # end
