@@ -1,0 +1,52 @@
+.avatar {
+  align-self: center;
+  width: 50%;
+  height: 50%;
+  border-radius: 50%;
+}
+
+.profile-name{
+  align-self:center
+}
+
+.profile-info {
+  min-height: 500px;
+  width: 25%;
+  position: absolute;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  font-weight: 100;
+  text-align: center;
+  padding-left: 20px;
+  padding-right: 20px;
+  box-sizing: border-box;
+  align-items: center;
+}
+
+
+.center-self {
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.edit-profile-btn {
+  text-decoration: none;
+  color: black;
+  width: 150px;
+  height: 30px;
+  line-height: 30px;
+}
+
+.btn-profile {
+  color: white;
+  background-color: #E67E22;
+  border-radius: 5px;
+  width: 150px;
+  height: 30px;
+  line-height: 30px;
+  text-decoration: none;
+}
+

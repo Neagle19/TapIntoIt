@@ -1,13 +1,14 @@
-<div class="profile">
+<div class="profile-info">
   <%= cl_image_tag @user.photo, class: "avatar" %>
+  <p class="profile-name"><b>Name:</b> <%= @user.first_name %> <%= @user.last_name %></p>
+  <p><b>Username:</b> <%= @user.username %></p>
+  <p><b>Located at:</b> <%= @user.location %></p>
+  <p><b>About:</b> <%= @user.description %></p>
+  <p><b>Contact me at:</b> <%= @user.email %></p>
 
-
-<p> name <%= @user.username %> </p>
-<p> first_name <%= @user.first_name %> </p>
-<p> last_name <%= @user.last_name %> </p>
-<p> email <%= @user.email %> </p>
-<p> description <%= @user.description %> </p>
-<p> location <%= @user.location %> </p>
-
-<%= link_to "Edit", edit_profile_path %>
+  <% if current_user == @user %>
+    <div class="center-self">
+    <%= link_to "Edit info",edit_user_registration_path,class: "edit-profile-btn btn-profile" %>
+    </div>
+  <% end %>
 </div>
