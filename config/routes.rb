@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     resources :review_beers, only: [:new, :create]
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources :breweries, only: [:index, :show, :new, :create]
+  resources :breweries, only: [:index, :show, :new, :create, :edit, :update]
   resources :qr_codes, only: [:new, :create]
   resources :comment_beers, only: [:create]
   #   get 'new', to: 'qr_codes#new'

@@ -1,18 +1,18 @@
-<h2>Welcome!</h2>
-<h3>Please provide the following information about your brewery.</h3>
+<h2>Edit your Brewery Details</h2>
 <p>This information will be made available to beer drinkers across the globe.</p>
 <%= simple_form_for(@brewery) do |f| %>
   <%= f.input :name,
-              required: true %>
+              input_html: { autocomplete: "name" } %>
   <%= f.input :address,
-              required: true %>
+              input_html: { autocomplete: "address" } %>
   <%= f.input :description,
-              required: true %>
+              input_html: { autocomplete: "description" } %>
   <%= f.input :email,
-              required: true %>
+              input_html: { autocomplete: "email" } %>
   <%= f.input :phone_number,
-              required: true %>
-  <%= f.input :photo %>
+              input_html: { autocomplete: "phone_number" } %>
+  <%= f.input :photo,
+              input_html: { autocomplete: "photo" } %>
   <%= f.input :photo_cache, as: :hidden %><br>
 
   <%= f.label 'By clicking the button below, you accept our terms and conditions.' %><br>

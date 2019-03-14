@@ -37,7 +37,7 @@
       <%= link_to "Home", root_path, class: "btn-navbar #{current_class?(root_path)}" %>
       <%= link_to "Beers", beers_path, class: "dropdown-item btn-navbar #{current_class?(beers_path)}" %>
       <%= link_to "Wall", posts_path, class: "dropdown-item btn-navbar #{current_class?(posts_path)}" %>
-      <%= link_to "Profile", profile_path(current_user.id), class: "btn-navbar #{current_class?(profile_path(current_user.id)}" %>
+      <%= link_to "Profile", profile_path(current_user.id), class: "btn-navbar #{current_class?(profile_path(current_user.id))}" %>
       <%= link_to "Log out", destroy_user_session_path, method: 'delete', class: "btn-navbar " %>
     </div>
   </div>

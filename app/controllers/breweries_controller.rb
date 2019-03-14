@@ -1,5 +1,7 @@
 class BreweriesController < ApplicationController
   # before_action :set_brewery, only: [:show]
+  before_action :verify_role, only: [:new, :create, :destroy, :edit, :update]
+  before_action :verify_ownership, only: [:destroy, :edit, :update]
 
   def index
     @breweries = Brewery.all
@@ -25,8 +27,22 @@ class BreweriesController < ApplicationController
         lat: brewery.latitude,
         infoWindow: render_to_string(partial: "infowindow", locals: { brewery: brewery })
       }
-
+    end
   end
+
+
+  def edit
+    @brewery = Brewery.find(params[:id])
+  end
+
+  def update
+    @brewery = Brewery.find(params[:id])
+    @brewery.update(brewery_params)
+    if @brewery.save(brewery_params)
+      redirect_to profile_path(current_user.id)
+    else
+      render :new
+    end
   end
 
   def show
@@ -38,7 +54,7 @@ class BreweriesController < ApplicationController
         lat: brewery.latitude,
         infoWindow: render_to_string(partial: "infowindow", locals: { brewery: brewery })
       }
-  end
+    end
   end
 
 # TZ added
@@ -84,10 +100,29 @@ class BreweriesController < ApplicationController
   private
 
   def brewery_params
-    params.require(:brewery).permit(:name, :address, :email, :phone_number, :photo, :description, :search)
+    params
+      .require(:brewery)
+      .permit(:name, :address, :email, :phone_number, :photo, :description, :search)
+      .merge(user: current_user)
   end
 
   def set_brewery
     @brewery = Brewery.find(params[:id]) # or :brewery_id
+  end
+
+  def get_user_brewery
+    current_user.breweries.find(params[:id])
+  end
+
+  def verify_role
+    if !current_user.admin?
+      redirect_to root_path
+    end
+  end
+
+  def verify_ownership
+    if !get_user_brewery
+      redirect_to root_path
+    end
   end
 end
