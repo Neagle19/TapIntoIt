@@ -12,3 +12,23 @@
     </div>
   <% end %>
 </div>
+
+<% if user_signed_in? && current_user != @user %>
+  <div class="friend-btn-container">
+    <% if !@connection %>
+      <i class="fas fa-user-plus"></i><%= link_to "Add Friend", add_friend_path(@user.id)%>
+      <% elsif @connection %>
+      <p>Friends</p><i class="fas fa-check"></i>
+    <% end %>
+  </div>
+<% end %>
+
+
+<!-- Below is the container to find other people -->
+<div class="search-friends-container">
+  <h3>Search other Drinkers</h3>
+    <%= simple_form_for(User.new, method: :post, url: show_with_username_path) do |f| %>
+      <%= f.input :username, collection: @all_names %>
+      <%= f.button :submit, value: "Go to profile" %>
+    <% end %>
+</div>
