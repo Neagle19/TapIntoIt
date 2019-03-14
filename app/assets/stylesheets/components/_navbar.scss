@@ -35,7 +35,18 @@ body {
   line-height: 73px;
 }
 
+.dropdown-menu:first-child {
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.dropdown-menu.show:last-child {
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
 .dropdown-menu.show {
+  text-align:center;
   display: flex;
   flex-direction: column;
   align-items: center;
