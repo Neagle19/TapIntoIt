@@ -13,6 +13,7 @@ roman = User.create!(
   last_name: "Van Loo",
   username: "RomanTheLegend",
   location: "Putte",
+  role: 0,
   description: "Drink till you stink!",
   role: 0,
   remote_photo_url: 'https://res.cloudinary.com/discwhk4f/image/upload/v1551781659/wx0p5qp2g5obwlw8evau.jpg')
