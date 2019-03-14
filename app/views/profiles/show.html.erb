@@ -1,14 +1,43 @@
-<div class="profile-info">
-  <%= cl_image_tag @user.photo, class: "avatar" %>
-  <p class="profile-name"><b>Name:</b> <%= @user.first_name %> <%= @user.last_name %></p>
-  <p><b>Username:</b> <%= @user.username %></p>
-  <p><b>Located at:</b> <%= @user.location %></p>
-  <p><b>About:</b> <%= @user.description %></p>
-  <p><b>Contact me at:</b> <%= @user.email %></p>
 
-  <% if current_user == @user %>
-    <div class="center-self">
-    <%= link_to "Edit info",edit_user_registration_path,class: "edit-profile-btn btn-profile" %>
+<div class="container">
+  <div  class="row">
+    <div class="col-6">
+
+      <div class="profile-info">
+        <%= cl_image_tag @user.photo, class: "avatar" %>
+        <p class="profile-name"><b>Name:</b> <%= @user.first_name %> <%= @user.last_name %></p>
+        <p><b>Username:</b> <%= @user.username %></p>
+        <p><b>Located at:</b> <%= @user.location %></p>
+        <p><b>About:</b> <%= @user.description %></p>
+        <p><b>Contact me at:</b> <%= @user.email %></p>
+
+        <% if current_user == @user %>
+          <div class="center-self">
+          <%= link_to "Edit info",edit_user_registration_path,class: "edit-profile-btn btn-profile" %>
+          </div>
+        <% end %>
+      </div>
     </div>
-  <% end %>
+    <div class="col-6">
+      <div class="container">
+        <div  class="row">
+          <div class="col-3"> <p><b></b> <%= @friend_connections %></p>
+          </div>
+
+          <div class="col-3"><p><b># Review beers</b> <%= @review_beers %></p>
+          </div>
+
+          <div class="col-3"><p><b>Review breweries</b> <%= @review_breweries %></p>
+          </div>
+
+          <div class="col-3"><p><b>Review comments</b>
+          <%@review_comments.each do |review| %>
+            <%= review.content %></p>
+            <% end %>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
