@@ -1,108 +1,36 @@
-<div class="container-profile">
-  <div class="row">
-    <div class="col-xs-12 col-md-6 marg-bot">
-      <div class="profile-info">
-        <%= cl_image_tag @user.photo, class: "avatar" %>
-        <p class="profile-name"><b>Name:</b> <%= @user.first_name %> <%= @user.last_name %></p>
-        <p><b>Username:</b> <%= @user.username %></p>
-        <p><b>Located at:</b> <%= @user.location %></p>
-        <p><b>About:</b> <%= @user.description %></p>
-        <p><b>Contact me at:</b> <%= @user.email %></p>
+<% if current_user.admin? %>
+  <%= render 'brewer_profile.html.erb' %>
+<% else %>
+  <%= render 'user_profile.html.erb' %>
+<% end %>
 
-        <% if current_user == @user %>
-          <div class="center-self">
-            <%= link_to "Edit info",edit_user_registration_path,class: "edit-profile-btn btn-profile" %>
-          </div>
-        <% end %>
-        <% if user_signed_in? && current_user != @user %>
-          <div class="friend-btn-container">
-            <% if !@connection %>
-              <i class="fas fa-user-plus"></i><%= link_to "Add Friend", add_friend_path(@user.id)%>
-            <% elsif @connection %>
-              <p>Friends</p><i class="fas fa-check"></i>
-            <% end %>
-          </div>
-        <% end %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <div class="center-self">
+        <%= link_to "Edit info",edit_user_registration_path,class: "edit-profile-btn btn-profile" %>
       </div>
     </div>
-    <div class="row">
-      <div class="col-xs-12 col-md-3 marg-bot">
-        <% @posts.each do |post| %>
-          <div class="wrapper-post">
-            <div class="box-post">
-              <div class="info-post">
-                <%= cl_image_tag post.user.photo, class: "avatar-post"%>
-                <% if current_user != @user %>
-                  <%= link_to like_path(post.id), remote: true do %>
-                    <div class="likes<%= check_liked(post) %>", data-div="<%= post.id %>", id="likes-hidden-<%= post.id %>">
-                      <p id="likes-count-<%= post.id %>"><%= post.like_beers.all.count %></p><i class="far fa-thumbs-up"></i> <!-- Set here that if you liked it it displays solid thumb -->
-                    </div>
-                  <% end %>
-                <% else %>
-                  <div class="likes">
-                    <p><%= post.like_beers.all.count %></p><i class="far fa-thumbs-up"></i> <!-- Set here that if you liked it it displays solid thumb -->
-                  </div>
-                <% end %>
-                <div class="comments-profile">
-                  <p><%= post.comment_beers.all.count %></p><i class="far fa-comment-dots"></i>
-                </div>
-              </div>
-              <div class="big-content-post">
-                <div class="title-post">
-                  <%= raw " <i class='fas fa-star'></i> " * post.rating.round %><br>
-                  <%= post.beer.name %>
-                </div>
-              </div>
-            </div>
+    <div class="col-6">
+      <div class="container">
+        <div  class="row">
+          <div class="col-3"> <p><b></b> <%= @friend_connections %></p>
           </div>
-        <% end %>
-      </div>
-      <% if current_user == @user %>
-        <div class="col-xs-12 col-md-3 marg-bot">
-          <!-- Below is the container to find other people -->
-          <div class="search-friends-container">
-            <h3>Search other Drinkers</h3>
-            <%= simple_form_for(User.new, method: :post, url: show_with_username_path) do |f| %>
-              <%= f.input :username, collection: @all_names %>
-              <%= f.button :submit, value: "Go to profile" %>
+
+          <div class="col-3"><p><b># Review beers</b> <%= @review_beers %></p>
+          </div>
+
+          <div class="col-3"><p><b>Review breweries</b> <%= @review_breweries %></p>
+          </div>
+
+          <div class="col-3"><p><b>Review comments</b>
+            <%@review_comments.each do |review| %>
+              <%= review.content %></p>
             <% end %>
-          </div>
-        </div>
-      <% end %>
-    <div class="container">
-      <div class="row">
-        <div class="col-6">
-          <div class="center-self">
-            <%= link_to "Edit info",edit_user_registration_path,class: "edit-profile-btn btn-profile" %>
-          </div>
-        </div>
-        <div class="col-6">
-          <div class="container">
-            <div  class="row">
-              <div class="col-3"> <p><b></b> <%= @friend_connections %></p>
-              </div>
-
-              <div class="col-3"><p><b># Review beers</b> <%= @review_beers %></p>
-              </div>
-
-              <div class="col-3"><p><b>Review breweries</b> <%= @review_breweries %></p>
-              </div>
-
-              <div class="col-3"><p><b>Review comments</b>
-                <%@review_comments.each do |review| %>
-                  <%= review.content %></p>
-                <% end %>
-              </div>
-            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-
-<% if current_user.admin? %>
-  <%= render 'brewer_profile.html.erb' %>
-<% else %>
-  <%= render 'user_profile.html.erb' %>
-<% end %>
