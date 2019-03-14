@@ -7,8 +7,16 @@ class RegistrationsController < Devise::RegistrationsController
     if current_user.admin?
       new_brewery_path
     else
-      super(resource)
+      edit_user_registration_path
     end # Or :prefix_to_your_route
+  end
+
+  def after_update_path_for(resource_or_scope)
+    unless current_user.admin?
+      profile_path(@current_user.id)
+    else
+      super(resource_or_scope)
+    end
   end
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]

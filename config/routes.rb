@@ -18,5 +18,5 @@ Rails.application.routes.draw do
   #   post 'create', to: 'qr_codes#create'
   # end
    # resources :qr_codes, only:[:new, :create]
-   resources :profiles, only: [:show, :edit]
+   resources :profiles, only: [:show]
 end
