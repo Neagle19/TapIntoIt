@@ -45,9 +45,9 @@ user123 = User.create!(
 
 
 brewery = Brewery.create([{ name: 'BrewDog', remote_photo_url: 'https://res.cloudinary.com/discwhk4f/image/upload/v1552399282/bangor_beer_co.png', address: "20, Putterie, 1000 Bruxelles", description: "No-nonsense chain bar specialising in the Scottish brewery's craft beers, with regular guest brews.
-", email: "brusselsbar10@brewdog2.com", phone_number: "867-5309" }, { name: 'Brussels Beer Project', remote_photo_url: 'https://res.cloudinary.com/discwhk4f/image/upload/v1552399310/Battery_Steele.jpg', address: "20, Putterie, 1000 Bruxelles", description: "No-nonsense chain bar specialising in the Scottish brewery's craft beers, with regular guest brews.
-", email: "brusselsbar@bbp.com", phone_number: "867-5309"}, { name: "Roman's Bar", remote_photo_url: 'https://res.cloudinary.com/discwhk4f/image/upload/v1552399333/Mason_s_Brewing.jpg', address: "20, Putterie, 1000 Bruxelles", description: "No-nonsense chain bar specialising in the Scottish brewery's craft beers, with regular guest brews.
-", email: "brussels1@bre111wdog.com", phone_number: "867-5309" }])
+", email: "brusselsbar10@brewdog2.com", phone_number: "867-5309", user: user123 }, { name: 'Brussels Beer Project', remote_photo_url: 'https://res.cloudinary.com/discwhk4f/image/upload/v1552399310/Battery_Steele.jpg', address: "20, Putterie, 1000 Bruxelles", description: "No-nonsense chain bar specialising in the Scottish brewery's craft beers, with regular guest brews.
+", email: "brusselsbar@bbp.com", phone_number: "867-5309", user: roman }, { name: "Roman's Bar", remote_photo_url: 'https://res.cloudinary.com/discwhk4f/image/upload/v1552399333/Mason_s_Brewing.jpg', address: "20, Putterie, 1000 Bruxelles", description: "No-nonsense chain bar specialising in the Scottish brewery's craft beers, with regular guest brews.
+", email: "brussels1@bre111wdog.com", phone_number: "867-5309", user: user123 }])
 
 url_stock_photo = [
 "https://res.cloudinary.com/discwhk4f/image/upload/v1552315324/426624_1200x1200.jpg",

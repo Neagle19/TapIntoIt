@@ -1,13 +1,14 @@
 class ProfilesController < ApplicationController
   def show
     @user = User.find(params[:id])
+    @brewery = Brewery.where(user_id: @user.id)
 
     if FriendConnection.where(receiver: @user, requester: current_user)[0].nil? && FriendConnection.where(receiver: current_user, requester: @user)[0].nil?
       @connection = false
     else
       @connection = true
     end
-
+    
     @brewery = Brewery.where(user_id: @user.id)
     @posts = ReviewBeer.where(user: @user).sort_by{|review| review.created_at}
     @all_names = User.all.map { |user| user.username }.sort

@@ -2,6 +2,7 @@ class Brewery < ApplicationRecord
   has_many :batches
   has_many :beers
   has_many :review_breweries, dependent: :destroy
+  belongs_to :user
   validates :description, presence: true
   validates :address, presence: true
   validates :name, presence: true

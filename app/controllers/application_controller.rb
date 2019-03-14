@@ -14,9 +14,9 @@ class ApplicationController < ActionController::Base
     root_path
   end
 
-   def after_update_path_for(resource_or_scope)
-      profile_path(@user.id)
-    end
+  def after_update_path_for(resource_or_scope)
+    profile_path(@user.id)
+  end
 
   private
 
@@ -27,7 +27,7 @@ class ApplicationController < ActionController::Base
     elsif params[:user] && params[:user][:role] != '1'
       params[:user][:role] = :user
     end
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:photo, :role])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:photo, :role, :username])
     devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :username, :email, :password, :description, :location, :photo, :photo_cache])
     # For additional in app/views/devise/registrations/edit.html.erb
     # devise_parameter_sanitizer.permit(:account_update, keys: [:username])

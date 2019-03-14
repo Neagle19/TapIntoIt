@@ -13,6 +13,7 @@ class User < ApplicationRecord
   has_many :comment_beers, through: :review_beers
   has_many :comment_breweries, through: :review_breweries
   has_many :like_beers
+  has_many :breweries
 
   mount_uploader :photo, PhotoUploader
 

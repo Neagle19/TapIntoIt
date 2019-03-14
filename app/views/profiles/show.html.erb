@@ -73,3 +73,9 @@
     <% end %>
   </div>
 </div>
+
+<% if current_user.admin? %>
+  <%= render 'brewer_profile.html.erb' %>
+<% else %>
+  <%= render 'user_profile.html.erb' %>
+<% end %>
