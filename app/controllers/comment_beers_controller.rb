@@ -1,3 +1,4 @@
+
 class CommentBeersController < ApplicationController
   def create
     comment = CommentBeer.new(beer_params)
@@ -5,9 +6,11 @@ class CommentBeersController < ApplicationController
     puts "-"*60
     puts params
     if comment.save
-      redirect_to posts_path
+      puts "comment saved correctly"
+      # redirect_to posts_path
     else
-      redirect_to posts_path
+      puts "something went wrong when saving the comment"
+      # redirect_to posts_path
     end
   end
 
