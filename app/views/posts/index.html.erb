@@ -26,6 +26,7 @@
             </div>
             <div class="big-content-post">
               <div class="title-post">
+                <%= post.user.username %>  <i class="fas fa-angle-double-right"></i>
                 <%= raw " <i class='fas fa-star'></i> " * post.rating.round %>
                 <%= post.beer.name %>
               </div>

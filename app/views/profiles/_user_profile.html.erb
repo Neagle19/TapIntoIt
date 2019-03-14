@@ -68,6 +68,13 @@
         <%= f.button :submit, value: "Go to profile" %>
         <% end %>
       </div>
+      <div class="profile-numbers">
+        <ul class="numbers-ul">
+          <li class="user-numbers">#Friends: <%= @friends_count %></li>
+          <li class="user-numbers">#Reviewed Beers: <%= @review_beers %></li>
+          <li class="user-numbers">#Reviewed Breweries: <%= @review_breweries %></li>
+        </ul>
+      </div>
     </div>
     <% end %>
   </div>
