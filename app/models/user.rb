@@ -13,17 +13,19 @@ class User < ApplicationRecord
   has_many :comment_beers, through: :review_beers
   has_many :comment_breweries, through: :review_breweries
   has_many :like_beers
+  has_many :breweries
 
   mount_uploader :photo, PhotoUploader
 
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :validatable
-      
+
 
 
   mount_uploader :photo, PhotoUploader
 
   validates :role, inclusion: ROLE
+  validates :username, uniqueness: true
 
   enum role: [:user, :admin]
 
@@ -31,5 +33,5 @@ class User < ApplicationRecord
     role == ROLE_ADMIN
   end
 
-  
+
 end

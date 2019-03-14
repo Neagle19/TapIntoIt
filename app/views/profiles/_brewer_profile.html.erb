@@ -1,0 +1,13 @@
+<h2>Welcome to your Dashboard, <strong><%= @brewery[0].name %></strong>!</h2>
+<h4>This is where you can manage all of your beers on Tap Into It</h4>
+
+<p>Here are your brewery details:</p>
+  <p>Brewery Name: <%= @brewery[0].name %></p>
+  <p>Brewery Address: <%= @brewery[0].address %></p>
+  <p>Brewery Description: <%= @brewery[0].description %></p>
+  <p>Brewery Email: <%= @brewery[0].email %></p>
+  <p>Brewery Phone Number: <%= @brewery[0].phone_number %></p>
+  <p>Brewery Photo: <%= @brewery[0].photo %></p>
+<p>To edit your brewery details, <%= link_to "click here", edit_brewery_path(@brewery[0].id) %></p>
+
+<p>Here are your actively listed beers:</p>
