@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-6 offset-md-6">
+      <div class="form-beer">
+        <h2>Edit your beer</h2><br>
+        <p>This information will be made available to beer drinkers across the globe.</p>
+        <%= simple_form_for(@beer) do |f| %>
+        <div class="form-inputs">
+          <%= f.input :name,
+                      input_html: { autocomplete: "name" } %>
+          <%= f.input :kind,
+                      input_html: { autocomplete: "kind" } %>
+          <%= f.input :size,
+                      input_html: { autocomplete: "size" } %>
+          <%= f.input :alcohol_percentage,
+                      input_html: { autocomplete: "alcohol_percentage" } %>
+          <%= f.input :description,
+                      input_html: { autocomplete: "description" } %>
+          <%= f.input :photo,
+                      input_html: { autocomplete: "photo" } %>
+          <%= f.input :photo_cache, as: :hidden, required: true %><br>
+
+          <%= f.label 'By clicking the button below, you accept our terms and conditions.' %><br>
+        </div>
+
+        <div class="form-actions">
+          <%= f.submit :submit_html => {:style=> 'margin-bottom: 50px'}, class: "btn btn-primary" %><br>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
