@@ -7,19 +7,32 @@
   <div class='brewery-photo'>
     <img src='<%= cl_image_path(@brewery.photo) %>' height='500'>
   </div>
-    <div class="show-brewery-card">
-      <h4>Contact Details:</h4>
-      <p><strong>Address: </strong><%= @brewery.address %></p>
-      <p><strong>Phone Number: </strong><%= @brewery.phone_number %></p>
-      <p><strong>Email: </strong><%= @brewery.email %></p>
-      <p><strong><%= link_to "Visit #{@brewery.name}'s Website", "https://www.beerproject.be/en", target: "_blank" %></strong></p>
-    </div>
+  <div class="show-brewery-card">
+    <h4>Contact Details:</h4>
+    <p><strong>Address: </strong><%= @brewery.address %></p>
+    <p><strong>Phone Number: </strong><%= @brewery.phone_number %></p>
+    <p><strong>Email: </strong><%= @brewery.email %></p>
+    <p><strong><%= link_to "Visit #{@brewery.name}'s Website", "https://www.beerproject.be/en", target: "_blank" %></strong></p>
+  </div>
 </div>
 
-<%= link_to "Go back to breweries", breweries_path, class: 'go-to-beers-btn' %>
+<% if  user_signed_in? && current_user.checkins.where(brewery: @brewery)[0].nil? %>
+  <%= link_to checkin_path(@brewery.id), remote: true do%>
+  <div class="checkin-btn go-to-beers-btn">
 
-<div id="map" style="width: 100vw; height: 350px; margin-top: 90px;" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-</div>
+    <i class="fas fa-map-marker-alt"></i><p id="not-checked-in" class="not-checked-in"> Check In</p>
+  </div>
+  <% end %>
+  <% elsif user_signed_in? && !current_user.checkins.where(brewery: @brewery)[0].nil? %>
+  <div class="checkin-btn go-to-beers-btn">
+    <i class="fas fa-map-marker-alt"></i><p id="checked-in" class="checked-in"> Checked In</p>
+    <% end %>
+  </div>
+
+  <%= link_to "Go back to breweries", breweries_path, class: 'go-to-beers-btn' %>
+
+  <div id="map" style="width: 100vw; height: 350px; margin-top: 90px;" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
 
 
 
