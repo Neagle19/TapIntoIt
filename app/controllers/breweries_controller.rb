@@ -66,7 +66,7 @@ class BreweriesController < ApplicationController
     @brewery = Brewery.new(brewery_params)
     # @brewery.user = current_user
     if @brewery.save!
-      redirect_to brewery_path(@brewery)
+      redirect_to profile_path(current_user.id)
     else
       render :new
     end
