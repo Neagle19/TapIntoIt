@@ -35,6 +35,10 @@
     <%= link_to "Go back to beers", beers_path, class: 'go-to-beers-btn' %>
 
     <%= link_to "Add review", new_beer_review_beer_path(@beer.id), class: 'add-review-beer-btn'%>
+      <% if current_user.admin? && current_user.id == @beer.brewery_id %>
+        <%= link_to "Edit this beer", edit_beer_path(@beer.id) %>
+      <% end %>
+
   </div>
 
 </div>
