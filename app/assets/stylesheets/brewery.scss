@@ -35,3 +35,19 @@
     margin-bottom: 20px
   }
 }
+
+
+.checkin-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  width: 120px;
+  p {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+  i {
+    margin-right: 10px !important;
+  }
+}
