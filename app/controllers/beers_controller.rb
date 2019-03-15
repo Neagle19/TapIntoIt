@@ -16,10 +16,20 @@ class BeersController < ApplicationController
   def edit
   end
 
-  def new           # GET /restaurants/new
+  def new
+    @beer = Beer.new
   end
 
-  def create        # POST /restaurants
+  def create
+    @beer = Beer.new beer_params
+    @user = current_user
+    @brewery = Brewery.where(user_id: @user.id)
+    @beer.brewery = @brewery[0]
+    if @beer.save!
+      redirect_to beer_path(@beer)
+    else
+      render :new
+    end
   end
 
   def update        # PATCH /restaurants/:id

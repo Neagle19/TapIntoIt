@@ -7,7 +7,6 @@ class CreateBeers < ActiveRecord::Migration[5.2]
       t.string :size
       t.string :name
       t.float :alcohol_percentage
-      t.references :batch, foreign_key: true
       t.text :description
 
       t.timestamps
