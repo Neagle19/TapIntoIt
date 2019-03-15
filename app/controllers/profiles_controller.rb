@@ -2,6 +2,7 @@ class ProfilesController < ApplicationController
   def show
     @user = User.find(params[:id])
     @brewery = Brewery.where(user_id: @user.id)
+    @beers = Beer.where(brewery_id: @brewery[0].id)
     @review_beers = @user.review_beers.count
     @review_breweries = @user.review_breweries.count
     @received_friend_connections = FriendConnection.where(receiver: @user).count

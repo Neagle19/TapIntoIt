@@ -77,10 +77,6 @@ review_contents = [
 ]
 
 10.times do |i|
-  batch = Batch.new
-  batch.bottled_date = "2#{i}/10/2018"
-  batch.brewery = Brewery.all.sample
-  batch.save!
   beer = Beer.new
   beer.name = "Maes #{i}"
   beer.kind = "pilsner"
@@ -88,8 +84,7 @@ review_contents = [
   beer.remote_photo_url = url_stock_photo.sample
   beer.description = 'shit beer'
   beer.size = '25cl'
-  beer.batch = Batch.last
-  beer.brewery = beer.batch.brewery
+  beer.brewery = Brewery.all.sample
   beer.save!
   review_brewery = ReviewBrewery.new
   review_brewery.content = "atmosphere is cool #{i}"
@@ -122,5 +117,13 @@ review_contents = [
   comment_beer.review_beer = ReviewBeer.last
   comment_beer.user = User.first
   comment_beer.save!
+end
+
+10.times do |i|
+  batch = Batch.new
+  batch.bottled_date = "2#{i}/10/2018"
+  batch.beer = Beer.all.sample
+  batch.brewery = Brewery.all.sample
+  batch.save!
 end
 

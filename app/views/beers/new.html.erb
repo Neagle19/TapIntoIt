@@ -1,1 +1,34 @@
-<%= render 'form', beer: @beer %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-6 offset-md-6">
+      <div class="form-brewery">
+          <h2>Add a new beer</h2>
+          <h3>Please provide the following information about your beer.</h3>
+          <p>This information will be made available to beer drinkers across the globe.</p>
+          <%= simple_form_for(@beer) do |f| %>
+          <div class="form-inputs">
+            <%= f.input :name,
+                        required: true%>
+            <%= f.input :kind,
+                        required: true %>
+            <%= f.input :size,
+                        required: true %>
+            <%= f.input :alcohol_percentage,
+                        required: true %>
+            <%= f.input :description,
+                        required: true %>
+            <%= f.input :photo,
+                        required: true %>
+            <%= f.input :photo_cache, as: :hidden, required: true %><br>
+
+            <%= f.label 'By clicking the button below, you accept our terms and conditions.' %><br>
+          </div>
+
+          <div class="form-actions">
+            <%= f.submit :submit_html => {:style=> 'margin-bottom: 50px'}, class: "btn btn-primary" %><br>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

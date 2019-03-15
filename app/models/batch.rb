@@ -1,6 +1,6 @@
 class Batch < ApplicationRecord
   belongs_to :brewery
-  has_many :beers, dependent: :destroy
+  belongs_to :beer
   validates :bottled_date, presence: true
   validates :brewery, presence: true
 end
