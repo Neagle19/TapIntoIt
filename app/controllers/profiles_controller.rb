@@ -15,7 +15,7 @@ class ProfilesController < ApplicationController
     end
 
     @brewery = Brewery.where(user_id: @user.id)
-    @posts = ReviewBeer.where(user: @user).sort_by{|review| review.created_at}
+    @posts = ReviewBeer.where(user: @user).sort_by{|review| review.created_at}.reverse
     @all_names = User.all.map { |user| user.username }.sort
     @all_names.delete(current_user.username)
   end
