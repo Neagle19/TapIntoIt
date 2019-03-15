@@ -33,12 +33,10 @@ ActiveRecord::Schema.define(version: 2019_03_15_102537) do
     t.string "kind"
     t.string "size"
     t.float "alcohol_percentage"
-    t.bigint "batch_id"
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "photo"
-    t.index ["batch_id"], name: "index_beers_on_batch_id"
     t.index ["brewery_id"], name: "index_beers_on_brewery_id"
   end
 
@@ -152,7 +150,6 @@ ActiveRecord::Schema.define(version: 2019_03_15_102537) do
 
   add_foreign_key "batches", "beers"
   add_foreign_key "batches", "breweries"
-  add_foreign_key "beers", "batches"
   add_foreign_key "beers", "breweries"
   add_foreign_key "breweries", "users"
   add_foreign_key "comment_beers", "review_beers"
