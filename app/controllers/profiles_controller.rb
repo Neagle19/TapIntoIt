@@ -8,11 +8,13 @@ class ProfilesController < ApplicationController
     else
       @connection = true
     end
-    
+
     @brewery = Brewery.where(user_id: @user.id)
     @posts = ReviewBeer.where(user: @user).sort_by{|review| review.created_at}
     @all_names = User.all.map { |user| user.username }.sort
     @all_names.delete(current_user.username)
+
+    # @beers = Beer.where(:brewery_id == @brewery.id)
   end
 
   def edit
