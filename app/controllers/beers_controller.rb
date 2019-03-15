@@ -14,6 +14,17 @@ class BeersController < ApplicationController
   end
 
   def edit
+    @beer = Beer.find(params[:id])
+  end
+
+  def update
+    @beer = Beer.find(params[:id])
+    @beer.update(beer_params)
+    if @beer.save(beer_params)
+      redirect_to @beer
+    else
+      render :new
+    end
   end
 
   def new
@@ -30,9 +41,6 @@ class BeersController < ApplicationController
     else
       render :new
     end
-  end
-
-  def update        # PATCH /restaurants/:id
   end
 
   def destroy       # DELETE /restaurants/:id
