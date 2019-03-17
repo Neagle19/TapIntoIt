@@ -3,7 +3,7 @@ class QrCodesController < ApplicationController
   end
 
   def show
-    @qr = RQRCode::QRCode.new("http://localhost:3000/beers/beer_id/batches/#{params[:id]}")
+    @qr = RQRCode::QRCode.new("https://www.tapintoit.me/beers/beer_id/batches/#{params[:id]}")
   end
 
   def create
