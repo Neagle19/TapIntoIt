@@ -6,7 +6,6 @@ class BatchesController < ApplicationController
     @user = current_user
     @beer = Beer.find(params[:beer_id])
     @batches = @beer.batches
-
   end
 
   def show
