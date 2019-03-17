@@ -35,7 +35,7 @@
     <%= link_to "Go back to beers", beers_path, class: 'go-to-beers-btn' %>
 
     <%= link_to "Add review", new_beer_review_beer_path(@beer.id), class: 'add-review-beer-btn'%>
-      <% if current_user.admin? %>
+      <% if user_signed_in? && current_user.admin? %>
         <%= link_to "Edit this beer", edit_beer_path(@beer.id), class: 'links-buttons' %>
          <%= link_to "Create a new batch", new_beer_batch_path(@beer), class: 'links-buttons' %>
         <%= link_to "All the batches from this beer", beer_batches_path(@beer), class: 'links-buttons' %>
