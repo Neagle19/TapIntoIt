@@ -1,7 +1,7 @@
-class CreateReviewBeers < ActiveRecord::Migration[5.2]
+class CreateReviewBatches < ActiveRecord::Migration[5.2]
   def change
-    create_table :review_beers do |t|
-      t.references :beer, foreign_key: true
+    create_table :review_batches do |t|
+      t.references :batch, foreign_key: true
       t.text :content
       t.integer :rating
       t.references :user, foreign_key: true
