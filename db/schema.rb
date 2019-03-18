@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_15_110349) do
+ActiveRecord::Schema.define(version: 2019_03_18_133847) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,10 +33,12 @@ ActiveRecord::Schema.define(version: 2019_03_15_110349) do
     t.string "kind"
     t.string "size"
     t.float "alcohol_percentage"
+    t.bigint "batch_id"
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "photo"
+    t.index ["batch_id"], name: "index_beers_on_batch_id"
     t.index ["brewery_id"], name: "index_beers_on_brewery_id"
   end
 
@@ -87,7 +89,7 @@ ActiveRecord::Schema.define(version: 2019_03_15_110349) do
   create_table "friend_connections", force: :cascade do |t|
     t.bigint "requester_id"
     t.bigint "receiver_id"
-    t.boolean "accepted", default: true
+    t.boolean "accepted"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["receiver_id"], name: "index_friend_connections_on_receiver_id"
@@ -153,12 +155,15 @@ ActiveRecord::Schema.define(version: 2019_03_15_110349) do
     t.string "photo"
     t.string "location"
     t.integer "role"
+    t.float "lat"
+    t.float "lng"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "batches", "beers"
   add_foreign_key "batches", "breweries"
+  add_foreign_key "beers", "batches"
   add_foreign_key "beers", "breweries"
   add_foreign_key "breweries", "users"
   add_foreign_key "checkins", "breweries"

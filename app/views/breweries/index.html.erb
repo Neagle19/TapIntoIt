@@ -1,5 +1,3 @@
-
-
 <div class='breweries-wrapper'>
   <div class='breweries-title'>
     <h2>Breweries Page</h2>
@@ -18,6 +16,7 @@
             </div> -->
             <div class='brewery-card-address'>
               <%= brewery.address %>
+              <%= brewery.distance_from([current_user.lat, current_user.lng]).round(3) %> km
             </div>
           </div>
         </div>

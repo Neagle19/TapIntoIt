@@ -23,6 +23,13 @@ class ProfilesController < ApplicationController
     @all_names.delete(current_user.username)
   end
 
+  def profile_geoloc
+    user = current_user
+    user.lat = params[:lat]
+    user.lng = params[:lng]
+    user.save
+  end
+
   def edit
     @user = User.find(params[:id])
     @brewery = Brewery.where(user_id: @user.id)
