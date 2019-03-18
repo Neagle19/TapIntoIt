@@ -47,14 +47,18 @@ class BreweriesController < ApplicationController
   def show
     @brewery = Brewery.find(params[:id])
     @breweries = Brewery.where.not(latitude: nil, longitude: nil)
-    @markers = @breweries.where.not(latitude: nil, longitude: nil).map do |brewery|
-      {
-        lng: brewery.longitude,
-        lat: brewery.latitude,
-        infoWindow: render_to_string(partial: "infowindow", locals: { brewery: brewery })
-      }
+    # @markers = @breweries.where.not(latitude: nil, longitude: nil).map do |brewery|
+    #   {
+    #     lng: brewery.longitude,
+    #     lat: brewery.latitude,
+    #     infoWindow: render_to_string(partial: "infowindow", locals: { brewery: brewery })
+    #   }
+  # end
+    if @brewery.longitude.present? && @brewery.latitude.present?
+      @markers = [{lng: @brewery.longitude, lat: @brewery.latitude, infoWindow: render_to_string(partial: "infowindow", locals: { brewery: @brewery })}]
     end
   end
+
 
 # TZ added
   def new
@@ -122,6 +126,22 @@ class BreweriesController < ApplicationController
   def verify_ownership
     if !get_user_brewery
       redirect_to root_path
+    end
+  end
+
+  def search
+    if params[:search].present?
+      @breweries = Brewery.global_search(params[:search])
+    else
+      @breweries = Brewery.all
+    end
+
+    @markers = @breweries.where.not(latitude: nil, longitude: nil).map do |brewery|
+      {
+        lng: brewery.longitude,
+        lat: brewery.latitude,
+        infoWindow: render_to_string(partial: "infowindow", locals: { brewery: brewery })
+      }
     end
   end
 end

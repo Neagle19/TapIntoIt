@@ -22,6 +22,11 @@
   height: 500px;
   background-repeat: no-repeat;
   justify-content: flex-start;
+  transition: 0.4s ease;
+  &:hover {
+  transform: scale(1.05);
+  transition: 0.4s ease;
+  }
 }
 
 .beer-card {
