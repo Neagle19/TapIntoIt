@@ -9,13 +9,14 @@ Rails.application.routes.draw do
   get '/like/new/:id', to: 'like_beers#new', as: 'like'
   resources :beers, only: [:index, :show, :new, :create, :update, :edit] do
     resources :review_beers, only: [:new, :create]
+    resources :batches, only: [:index, :show, :new, :create]
+
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :breweries, only: [:index, :show, :new, :create, :edit, :update]
-  resources :qr_codes, only: [:new, :create]
+  resources :qr_codes, only: [:new, :create, :show]
   get '/checkin/:id', to: 'checkins#create', as: 'checkin'
   resources :comment_beers, only: [:create]
-  resources :batches, only: [:show, :new, :create, :destroy, :edit, :update, :index]
   #   get 'new', to: 'qr_codes#new'
   #   post 'create', to: 'qr_codes#create'
   # end

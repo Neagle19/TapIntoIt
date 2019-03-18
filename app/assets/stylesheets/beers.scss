@@ -85,6 +85,21 @@
   text-decoration: none;
 }
 
+.links-buttons {
+  color: #E67E22;
+  background-color: transparent;
+  border: 2px solid #E67E22;
+  border-radius: 5px;
+  text-transform: capitalize;
+  margin: 5px;
+  padding: 5px;
+  text-decoration: none;
+}
+
+.links-buttons:hover {
+  opacity: 0,5;
+}
+
 .go-to-beers-btn:hover {
   opacity: 0.5;
 }
