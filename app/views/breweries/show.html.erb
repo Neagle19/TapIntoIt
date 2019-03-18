@@ -29,6 +29,20 @@
     <% end %>
   </div>
 
+<% if  user_signed_in? && current_user.follows.where(brewery: @brewery)[0].nil? %>
+  <%= link_to follow_path(@brewery.id) do%>
+  <div class="follow-btn go-to-beers-btn">
+
+    <p id="not-followed" class="not-followed">Follow</p>
+  </div>
+  <% end %>
+  <% elsif user_signed_in? && !current_user.follows.where(brewery: @brewery)[0].nil? %>
+  <div class="follow-btn go-to-beers-btn">
+    <p id="followed" class="followed">Followed</p>
+    <% end %>
+  </div>
+
+
   <%= link_to "Go back to breweries", breweries_path, class: 'go-to-beers-btn' %>
 
   <div id="map" style="width: 100vw; height: 350px; margin-top: 90px;" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">

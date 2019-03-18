@@ -3,4 +3,5 @@ class Batch < ApplicationRecord
   belongs_to :beer
   validates :bottled_date, presence: true
   validates :brewery, presence: true
+  has_many :notif, as: :notifable
 end

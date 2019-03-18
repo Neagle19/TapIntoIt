@@ -1,5 +1,4 @@
 class BatchesController < ApplicationController
-
   before_action :verify_role, only: [:new, :create]
 
   def index
@@ -23,7 +22,7 @@ class BatchesController < ApplicationController
     @batch.beer = Beer.find(params[:beer_id])
     @batch.brewery = @batch.beer.brewery
     if @batch.save!
-      redirect_to beer_batches_path(@batch.beer)
+        redirect_to beer_batches_path(@batch.beer)
     else
       render :new
     end
@@ -33,7 +32,6 @@ class BatchesController < ApplicationController
 
   def batch_params
     params.require(:batch).permit(:bottled_date, :description, :quantity)
-
   end
 
   def verify_role

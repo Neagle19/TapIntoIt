@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_15_110349) do
+ActiveRecord::Schema.define(version: 2019_03_18_102309) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -84,10 +84,19 @@ ActiveRecord::Schema.define(version: 2019_03_15_110349) do
     t.index ["user_id"], name: "index_comment_breweries_on_user_id"
   end
 
+  create_table "follows", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "brewery_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["brewery_id"], name: "index_follows_on_brewery_id"
+    t.index ["user_id"], name: "index_follows_on_user_id"
+  end
+
   create_table "friend_connections", force: :cascade do |t|
     t.bigint "requester_id"
     t.bigint "receiver_id"
-    t.boolean "accepted", default: true
+    t.boolean "accepted", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["receiver_id"], name: "index_friend_connections_on_receiver_id"
@@ -101,6 +110,15 @@ ActiveRecord::Schema.define(version: 2019_03_15_110349) do
     t.datetime "updated_at", null: false
     t.index ["review_beer_id"], name: "index_like_beers_on_review_beer_id"
     t.index ["user_id"], name: "index_like_beers_on_user_id"
+  end
+
+  create_table "notifs", force: :cascade do |t|
+    t.string "notifable_type"
+    t.bigint "notifable_id"
+    t.boolean "read", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["notifable_type", "notifable_id"], name: "index_notifs_on_notifable_type_and_notifable_id"
   end
 
   create_table "pg_search_documents", force: :cascade do |t|
@@ -167,6 +185,8 @@ ActiveRecord::Schema.define(version: 2019_03_15_110349) do
   add_foreign_key "comment_beers", "users"
   add_foreign_key "comment_breweries", "review_breweries"
   add_foreign_key "comment_breweries", "users"
+  add_foreign_key "follows", "breweries"
+  add_foreign_key "follows", "users"
   add_foreign_key "friend_connections", "users", column: "receiver_id"
   add_foreign_key "friend_connections", "users", column: "requester_id"
   add_foreign_key "like_beers", "review_beers"

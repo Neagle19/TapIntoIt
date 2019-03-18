@@ -37,7 +37,7 @@ class BeersController < ApplicationController
     @brewery = Brewery.where(user_id: @user.id)
     @beer.brewery = @brewery[0]
     if @beer.save!
-      redirect_to beer_path(@beer)
+        redirect_to beer_path(@beer)
     else
       render :new
     end
