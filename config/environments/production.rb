@@ -91,4 +91,10 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+  Rails.application.configure do
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.default_url_options = { host: "tapintoit.herokuapp.com" }
+  # or your custom domain name eg. "www.yourdomain.com"
+end
 end
