@@ -18,7 +18,25 @@
 <li><strong><%= @batch.ingredientthree %>: </strong><%= @batch.ingredientthreedesc %></li>
 <li><strong><%= @batch.ingredientfour %>: </strong><%= @batch.ingredientfourdesc %></li><br><br>
 
+
 <%= link_to "view qr code", qr_code_path(@batch.id), class: 'go-to-beers-btn' %>
 <%= link_to "View all batches for this beer", beer_batches_path(@batch.beer), class: 'go-to-beers-btn' %>
 <%= link_to "Go back to beer", beer_path(@batch.beer), class: 'go-to-beers-btn' %>
 <%= link_to "Go to this beer's brewery", brewery_path(@batch.brewery), class: 'go-to-beers-btn' %><br><br><br>
+
+
+
+<div class="batch-reviews">
+      <div class="batch-review-title">
+        <h2>Reviews</h2>
+      </div>
+      <div class="show-batch-review">
+        <% @review_batches.each do |review| %>
+        <p class="review-show"><b><%= review.rating %></b> -- <%= review.user.first_name %>: <i style="font-weight: 300;"><%= review.content %></i></p>
+        <% end %>
+      </div>
+</div>
+
+
+<%= link_to "Add review", new_beer_batch_review_batch_path(@beer.id, @batch.id), class: 'add-review-beer-btn'%>
+

@@ -9,7 +9,9 @@ Rails.application.routes.draw do
   get '/like/new/:id', to: 'like_beers#new', as: 'like'
   resources :beers, only: [:index, :show, :new, :create, :update, :edit] do
     resources :review_beers, only: [:new, :create]
-    resources :batches, only: [:index, :show, :new, :create]
+    resources :batches, only: [:index, :show, :new, :create] do
+      resources :review_batches, only: [:new, :create]
+    end
 
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -22,5 +24,6 @@ Rails.application.routes.draw do
   # end
    # resources :qr_codes, only:[:new, :create]
    post '/profiles', to: 'profiles#show_with_username', as: 'show_with_username'
+   post '/profile_geoloc', to: 'profiles#profile_geoloc', as: 'profile_geoloc'
    resources :profiles, only: [:show, :edit]
 end

@@ -9,5 +9,20 @@ import "bootstrap";
 // layout file, like app/views/layouts/application.html.erb
 import { growImage } from '../components/grow_image';
 import { initMapbox } from '../plugins/init_mapbox';
+  var x = document.getElementById("demo");
+ if(x) {
 
+   function getLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(showPosition);   }
+      else
+        {     x.innerHTML = "Geolocation is not supported by this browser.";   }
+    }
+      function showPosition(position) {
+       document.getElementById('lat').value = position.coords.latitude;
+       document.getElementById('lng').value = position.coords.longitude;
+       document.getElementById('lng').parentNode.submit()
+        }
+   getLocation()
+   }
 initMapbox();
