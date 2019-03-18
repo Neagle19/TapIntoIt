@@ -94,7 +94,8 @@ Rails.application.configure do
   Rails.application.configure do
 
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.default_url_options = { host: "tapintoit.herokuapp.com" }
+  config.action_mailer.postmark_settings = { api_key: ENV['POST_TOK'] }
+  config.action_mailer.default_url_options = { host: "www.tapintoit.me" }
   # or your custom domain name eg. "www.yourdomain.com"
 end
 end
