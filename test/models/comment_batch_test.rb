@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class CommentBeerTest < ActiveSupport::TestCase
+class CommentBatchTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

@@ -11,6 +11,8 @@ class BatchesController < ApplicationController
   def show
     @user = current_user
     @batch = Batch.find(params[:id])
+    @review_batches = ReviewBatch.where(batch_id: @batch.id)
+    @beer = @batch.beer
   end
 
   def new
@@ -33,7 +35,6 @@ class BatchesController < ApplicationController
 
   def batch_params
     params.require(:batch).permit(:bottled_date, :description, :quantity)
-
   end
 
   def verify_role
@@ -42,5 +43,3 @@ class BatchesController < ApplicationController
     end
   end
 end
-
-
