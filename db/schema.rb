@@ -116,16 +116,6 @@ ActiveRecord::Schema.define(version: 2019_03_18_133847) do
     t.index ["user_id"], name: "index_comment_batches_on_user_id"
   end
 
-  create_table "comment_beers", force: :cascade do |t|
-    t.bigint "review_beer_id"
-    t.bigint "user_id"
-    t.text "content"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["review_beer_id"], name: "index_comment_beers_on_review_beer_id"
-    t.index ["user_id"], name: "index_comment_beers_on_user_id"
-  end
-
   create_table "comment_breweries", force: :cascade do |t|
     t.bigint "review_brewery_id"
     t.bigint "user_id"
@@ -155,15 +145,6 @@ ActiveRecord::Schema.define(version: 2019_03_18_133847) do
     t.index ["user_id"], name: "index_like_batches_on_user_id"
   end
 
-  create_table "like_beers", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "review_beer_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["review_beer_id"], name: "index_like_beers_on_review_beer_id"
-    t.index ["user_id"], name: "index_like_beers_on_user_id"
-  end
-
   create_table "pg_search_documents", force: :cascade do |t|
     t.text "content"
     t.string "searchable_type"
@@ -183,19 +164,6 @@ ActiveRecord::Schema.define(version: 2019_03_18_133847) do
     t.datetime "updated_at", null: false
     t.index ["batch_id"], name: "index_review_batches_on_batch_id"
     t.index ["user_id"], name: "index_review_batches_on_user_id"
-  end
-
-  create_table "review_beers", force: :cascade do |t|
-    t.bigint "beer_id"
-    t.text "content"
-    t.integer "rating"
-    t.bigint "user_id"
-    t.boolean "posted"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "photo"
-    t.index ["beer_id"], name: "index_review_beers_on_beer_id"
-    t.index ["user_id"], name: "index_review_beers_on_user_id"
   end
 
   create_table "review_breweries", force: :cascade do |t|
@@ -240,20 +208,14 @@ ActiveRecord::Schema.define(version: 2019_03_18_133847) do
   add_foreign_key "checkins", "users"
   add_foreign_key "comment_batches", "review_batches"
   add_foreign_key "comment_batches", "users"
-  add_foreign_key "comment_beers", "review_beers"
-  add_foreign_key "comment_beers", "users"
   add_foreign_key "comment_breweries", "review_breweries"
   add_foreign_key "comment_breweries", "users"
   add_foreign_key "friend_connections", "users", column: "receiver_id"
   add_foreign_key "friend_connections", "users", column: "requester_id"
   add_foreign_key "like_batches", "review_batches"
   add_foreign_key "like_batches", "users"
-  add_foreign_key "like_beers", "review_beers"
-  add_foreign_key "like_beers", "users"
   add_foreign_key "review_batches", "batches"
   add_foreign_key "review_batches", "users"
-  add_foreign_key "review_beers", "beers"
-  add_foreign_key "review_beers", "users"
   add_foreign_key "review_breweries", "breweries"
   add_foreign_key "review_breweries", "users"
 end
