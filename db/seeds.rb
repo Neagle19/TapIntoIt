@@ -76,6 +76,34 @@ review_contents = [
   "Only drinking this beer to make room in my fridge..."
 ]
 
+## beers from tasting ##
+bloody_orange_ipa = Beer.create!(
+  name: "Bloody Orange IPA",
+  kind: "IPA",
+  size: "33cl",
+  alcohol_percentage: 6.7,
+  description: "Our Bloody Orange IPA recalls a time when ales shipped from England to India were highly hopped to preserve their distinct taste during the long journey. The result is a hop lover’s dream with a fruity aroma, set off by a dry malt middle, and long hop finish."
+  )
+
+ipa_de_papa = Beer.create!(
+  name: "IPA de Papa",
+  kind: "IPA",
+  size: "33cl",
+  alcohol_percentage: 4.5,
+  description: "Cask; Regular.A perfectly balanced ale, characterised by its fresh hoppy taste and a clean bitter finish."
+  )
+
+delta_ipa = Beer.create!(
+  name: "Delta IPA",
+  kind: "IPA",
+  size: "33cl",
+  alcohol_percentage: "6.5",
+  description: "Delta’s our 1st elected beer: an exotic view of Brussels, bitter and lively!"
+  )
+
+
+
+
 10.times do |i|
   beer = Beer.new
   beer.name = "Maes #{i}"

@@ -1,4 +1,5 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'zthi@hotmail.com'
+  default from: 'contact@tapintoit.me',
+
   layout 'mailer'
 end
