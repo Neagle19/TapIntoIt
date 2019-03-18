@@ -1,0 +1,15 @@
+<div class="form-inputs">
+  <%= simple_form_for([@beer, @batch ]) do |f| %>
+            <%= f.input :bottled_date,
+                        required: true%>
+            <%= f.input :description,
+                        required: true %>
+            <%= f.input :quantity,
+                        required: true %>
+
+
+          <div class="form-actions">
+            <%= f.submit :submit_html => {:style=> 'margin-bottom: 50px'}, class: "btn btn-primary" %><br>
+            <% end %>
+           </div>
+</div>
