@@ -9,6 +9,7 @@ class BatchesController < ApplicationController
   end
 
   def show
+    # @beer = Beer.find(params[:beer_id])
     @user = current_user
     @batch = Batch.find(params[:id])
   end
@@ -32,7 +33,7 @@ class BatchesController < ApplicationController
   private
 
   def batch_params
-    params.require(:batch).permit(:bottled_date, :description, :quantity)
+    params.require(:batch).permit(:bottled_date, :description, :quantity, :brewingstart, :stepone, :steponedescription, :steptwo, :steptwodescription, :stepthree, :stepthreedescription, :stepfour, :stepfourdescription, :stepfive, :stepfivedescription, :stepsix, :stepsixdescription, :stepseven, :stepsevendescription, :stepeight, :stepeightdescription, :stepnine, :stepninedescription, :stepten, :steptendescription, :stepeleven, :stepelevendescription, :steptwelve, :steptwelvedescription, :ingredientone, :ingredientonedesc, :ingredienttwo, :ingredienttwodesc, :ingredientthree, :ingredientthreedesc, :ingredientfour, :ingredientfourdesc, :ingredientfive, :ingredientfivedesc, :ingredientsix, :ingredientsixdesc, :ingredientseven, :ingredientsevendesc, :ingredienteight, :ingredienteightdesc, :brewer)
 
   end
 
