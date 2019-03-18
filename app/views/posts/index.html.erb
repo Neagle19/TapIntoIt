@@ -1,5 +1,5 @@
 <% def check_liked(post) %>
-<% if LikeBeer.where(user: current_user, review_beer: post).count.zero? %>
+<% if LikeBatch.where(user: current_user, review_batch: post).count.zero? %>
 <% return "" %>
 <% else %>
 <% return " liked" %>
@@ -17,18 +17,18 @@
               <%= cl_image_tag post.user.photo, class: "avatar-post"%>
               <%= link_to like_path(post.id), remote: true do %>
               <div class="likes<%= check_liked(post) %>", data-div="<%= post.id %>", id="likes-hidden-<%= post.id %>">
-                <p id="likes-count-<%= post.id %>"><%= post.like_beers.all.count %></p><i class="far fa-thumbs-up"></i> <!-- Set here that if you liked it it displays solid thumb -->
+                <p id="likes-count-<%= post.id %>"><%= post.like_batches.all.count %></p><i class="far fa-thumbs-up"></i> <!-- Set here that if you liked it it displays solid thumb -->
               </div>
               <% end %>
               <div class="comments", data-div="wrapper-hidden-<%= post.id %>">
-                <p id="comment-count-<%= post.id %>"><%= post.comment_beers.all.count %></p><i class="far fa-comment-dots"></i>
+                <p id="comment-count-<%= post.id %>"><%= post.comment_batches.all.count %></p><i class="far fa-comment-dots"></i>
               </div>
             </div>
             <div class="big-content-post">
               <div class="title-post">
                 <%= post.user.username %>  <i class="fas fa-angle-double-right"></i>
                 <%= raw " <i class='fas fa-star'></i> " * post.rating.round %>
-                <%= post.beer.name %>
+                <%= post.batch.beer.name %>
               </div>
               <p class="content-post"><%= post.content %></p>
             </div>
@@ -36,13 +36,13 @@
           <div class="wrapper-comments hidden" id="wrapper-hidden-<%= post.id %>">
             <div class="arrow-up"></div>
             <ul id="iterated-comments-<%= post.id %>">
-              <% post.comment_beers.all.each do |comment| %>
+              <% post.comment_batches.all.each do |comment| %>
                 <%= render 'comment_line', comment: comment %>
               <% end %>
             </ul>
             <div class="form-comment">
-              <%= simple_form_for CommentBeer.new, remote: true do |f| %>
-                <%= f.input :review_beer_id, as: :hidden, :input_html => { :value => post.id} %>
+              <%= simple_form_for CommentBatch.new, remote: true do |f| %>
+                <%= f.input :review_batch_id, as: :hidden, :input_html => { :value => post.id} %>
                 <%= f.input :content, as: :string %>
                 <%= f.button :submit, class: "comment-btn",name: post.id %>
               <% end %>

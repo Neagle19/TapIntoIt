@@ -1,5 +1,5 @@
 <% def check_liked(post) %>
-<% if LikeBeer.where(user: current_user, review_beer: post).count.zero? %>
+<% if LikeBatch.where(user: current_user, review_batch: post).count.zero? %>
 <% return "" %>
 <% else %>
 <% return " liked" %>
@@ -50,12 +50,12 @@
             <% end %>
             <% else %>
             <div class="likes">
-              <p><%= post.like_beers.all.count %></p><i class="far fa-thumbs-up"></i> <!-- Set here that if you liked it it displays solid thumb -->
+              <p><%= post.like_batches.all.count %></p><i class="far fa-thumbs-up"></i> <!-- Set here that if you liked it it displays solid thumb -->
             </div>
             <% end %>
 
             <div class="comments-profile">
-              <p><%= post.comment_beers.all.count %></p><i class="far fa-comment-dots"></i>
+              <p><%= post.comment_batches.all.count %></p><i class="far fa-comment-dots"></i>
             </div>
           </div>
           <div class="big-content-post">
@@ -81,7 +81,7 @@
       <div class="profile-numbers">
         <ul class="numbers-ul">
           <li class="user-numbers">#Friends: <%= @friends_count %></li>
-          <li class="user-numbers">#Reviewed Beers: <%= @review_beers %></li>
+          <li class="user-numbers">#Reviewed Batches: <%= @review_batches %></li>
           <li class="user-numbers">#Reviewed Breweries: <%= @review_breweries %></li>
         </ul>
       </div>

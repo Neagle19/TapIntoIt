@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_18_102309) do
+
+ActiveRecord::Schema.define(version: 2019_03_18_133847) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +24,48 @@ ActiveRecord::Schema.define(version: 2019_03_18_102309) do
     t.text "description"
     t.integer "quantity"
     t.bigint "beer_id"
+    t.date "brewingstart"
+    t.string "stepone"
+    t.string "steponedescription"
+    t.string "steptwo"
+    t.string "steptwodescription"
+    t.string "stepthree"
+    t.string "stepthreedescription"
+    t.string "stepfour"
+    t.string "stepfourdescription"
+    t.string "stepfive"
+    t.string "stepfivedescription"
+    t.string "stepsix"
+    t.string "stepsixdescription"
+    t.string "stepseven"
+    t.string "stepsevendescription"
+    t.string "stepeight"
+    t.string "stepeightdescription"
+    t.string "stepnine"
+    t.string "stepninedescription"
+    t.string "stepten"
+    t.string "steptendescription"
+    t.string "stepeleven"
+    t.string "stepelevendescription"
+    t.string "steptwelve"
+    t.string "steptwelvedescription"
+    t.string "ingredientone"
+    t.string "ingredientonedesc"
+    t.string "ingredienttwo"
+    t.string "ingredienttwodesc"
+    t.string "ingredientthree"
+    t.string "ingredientthreedesc"
+    t.string "ingredientfour"
+    t.string "ingredientfourdesc"
+    t.string "ingredientfive"
+    t.string "ingredientfivedesc"
+    t.string "ingredientsix"
+    t.string "ingredientsixdesc"
+    t.string "ingredientseven"
+    t.string "ingredientsevendesc"
+    t.string "ingredienteight"
+    t.string "ingredienteightdesc"
+    t.string "brewer"
     t.index ["beer_id"], name: "index_batches_on_beer_id"
     t.index ["brewery_id"], name: "index_batches_on_brewery_id"
   end
@@ -64,14 +107,14 @@ ActiveRecord::Schema.define(version: 2019_03_18_102309) do
     t.index ["user_id"], name: "index_checkins_on_user_id"
   end
 
-  create_table "comment_beers", force: :cascade do |t|
-    t.bigint "review_beer_id"
+  create_table "comment_batches", force: :cascade do |t|
     t.bigint "user_id"
+    t.bigint "review_batch_id"
     t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["review_beer_id"], name: "index_comment_beers_on_review_beer_id"
-    t.index ["user_id"], name: "index_comment_beers_on_user_id"
+    t.index ["review_batch_id"], name: "index_comment_batches_on_review_batch_id"
+    t.index ["user_id"], name: "index_comment_batches_on_user_id"
   end
 
   create_table "comment_breweries", force: :cascade do |t|
@@ -103,13 +146,13 @@ ActiveRecord::Schema.define(version: 2019_03_18_102309) do
     t.index ["requester_id"], name: "index_friend_connections_on_requester_id"
   end
 
-  create_table "like_beers", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "review_beer_id"
+  create_table "like_batches", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["review_beer_id"], name: "index_like_beers_on_review_beer_id"
-    t.index ["user_id"], name: "index_like_beers_on_user_id"
+    t.bigint "user_id"
+    t.bigint "review_batch_id"
+    t.index ["review_batch_id"], name: "index_like_batches_on_review_batch_id"
+    t.index ["user_id"], name: "index_like_batches_on_user_id"
   end
 
   create_table "notifs", force: :cascade do |t|
@@ -130,17 +173,16 @@ ActiveRecord::Schema.define(version: 2019_03_18_102309) do
     t.index ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable_type_and_searchable_id"
   end
 
-  create_table "review_beers", force: :cascade do |t|
-    t.bigint "beer_id"
+  create_table "review_batches", force: :cascade do |t|
+    t.bigint "batch_id"
     t.text "content"
     t.integer "rating"
     t.bigint "user_id"
     t.boolean "posted"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "photo"
-    t.index ["beer_id"], name: "index_review_beers_on_beer_id"
-    t.index ["user_id"], name: "index_review_beers_on_user_id"
+    t.index ["batch_id"], name: "index_review_batches_on_batch_id"
+    t.index ["user_id"], name: "index_review_batches_on_user_id"
   end
 
   create_table "review_breweries", force: :cascade do |t|
@@ -171,6 +213,8 @@ ActiveRecord::Schema.define(version: 2019_03_18_102309) do
     t.string "photo"
     t.string "location"
     t.integer "role"
+    t.float "lat"
+    t.float "lng"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -181,18 +225,18 @@ ActiveRecord::Schema.define(version: 2019_03_18_102309) do
   add_foreign_key "breweries", "users"
   add_foreign_key "checkins", "breweries"
   add_foreign_key "checkins", "users"
-  add_foreign_key "comment_beers", "review_beers"
-  add_foreign_key "comment_beers", "users"
+  add_foreign_key "comment_batches", "review_batches"
+  add_foreign_key "comment_batches", "users"
   add_foreign_key "comment_breweries", "review_breweries"
   add_foreign_key "comment_breweries", "users"
   add_foreign_key "follows", "breweries"
   add_foreign_key "follows", "users"
   add_foreign_key "friend_connections", "users", column: "receiver_id"
   add_foreign_key "friend_connections", "users", column: "requester_id"
-  add_foreign_key "like_beers", "review_beers"
-  add_foreign_key "like_beers", "users"
-  add_foreign_key "review_beers", "beers"
-  add_foreign_key "review_beers", "users"
+  add_foreign_key "like_batches", "review_batches"
+  add_foreign_key "like_batches", "users"
+  add_foreign_key "review_batches", "batches"
+  add_foreign_key "review_batches", "users"
   add_foreign_key "review_breweries", "breweries"
   add_foreign_key "review_breweries", "users"
 end

@@ -3,9 +3,6 @@ class BreweriesController < ApplicationController
   before_action :verify_role, only: [:new, :create, :destroy, :edit, :update]
   before_action :verify_ownership, only: [:destroy, :edit, :update]
 
-  def index
-    @breweries = Brewery.all
-  end
 
   def landing
   end
@@ -15,13 +12,15 @@ class BreweriesController < ApplicationController
 
     if params[:search].present?
       @breweries = Brewery.global_search(params[:search])
-    else
+    elsif params[:show].present?
       @breweries = Brewery.all
+    else
+      @breweries = Brewery.near([current_user.lat, current_user.lng], 10)
     end
     # if params[:search_place].present?
     #   @breweries = @breweries.near(params[:search_place], 50)
     # end
-    @markers = @breweries.where.not(latitude: nil, longitude: nil).map do |brewery|
+    @markers = Brewery.where.not(latitude: nil, longitude: nil).map do |brewery|
       {
         lng: brewery.longitude,
         lat: brewery.latitude,
@@ -48,14 +47,18 @@ class BreweriesController < ApplicationController
   def show
     @brewery = Brewery.find(params[:id])
     @breweries = Brewery.where.not(latitude: nil, longitude: nil)
-    @markers = @breweries.where.not(latitude: nil, longitude: nil).map do |brewery|
-      {
-        lng: brewery.longitude,
-        lat: brewery.latitude,
-        infoWindow: render_to_string(partial: "infowindow", locals: { brewery: brewery })
-      }
+    # @markers = @breweries.where.not(latitude: nil, longitude: nil).map do |brewery|
+    #   {
+    #     lng: brewery.longitude,
+    #     lat: brewery.latitude,
+    #     infoWindow: render_to_string(partial: "infowindow", locals: { brewery: brewery })
+    #   }
+  # end
+    if @brewery.longitude.present? && @brewery.latitude.present?
+      @markers = [{lng: @brewery.longitude, lat: @brewery.latitude, infoWindow: render_to_string(partial: "infowindow", locals: { brewery: @brewery })}]
     end
   end
+
 
 # TZ added
   def new
@@ -123,6 +126,22 @@ class BreweriesController < ApplicationController
   def verify_ownership
     if !get_user_brewery
       redirect_to root_path
+    end
+  end
+
+  def search
+    if params[:search].present?
+      @breweries = Brewery.global_search(params[:search])
+    else
+      @breweries = Brewery.all
+    end
+
+    @markers = @breweries.where.not(latitude: nil, longitude: nil).map do |brewery|
+      {
+        lng: brewery.longitude,
+        lat: brewery.latitude,
+        infoWindow: render_to_string(partial: "infowindow", locals: { brewery: brewery })
+      }
     end
   end
 end

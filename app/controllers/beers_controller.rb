@@ -10,7 +10,6 @@ class BeersController < ApplicationController
 
   def show
     @beer = Beer.find(params[:id])
-    @review_beers = ReviewBeer.where(beer_id: @beer.id)
   end
 
   def edit
