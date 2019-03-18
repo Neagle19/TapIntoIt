@@ -1,43 +1,52 @@
 <div class="container-profile">
-  <div class="row">
-    <div class="col-xs-12 col-md-6 marg-bot">
-
-      <h2>Welcome to your Dashboard, <strong><%= @brewery[0].name %></strong>!</h2>
-      <h4>This is where you can manage all of your beers on Tap Into It</h4>
-
-      <p>Here are your brewery details:</p>
-        <p><b>Brewery Name:</b> <%= @brewery[0].name %></p>
-        <p><b>Brewery Address:</b> <%= @brewery[0].address %></p>
-        <p><b>Brewery Description:</b> <%= @brewery[0].description %></p>
-        <p><b>Brewery Email:</b> <%= @brewery[0].email %></p>
-        <p><b>Brewery Phone Number:</b> <%= @brewery[0].phone_number %></p>
-        <div class='brewery-photo'>
-          <p><b>Brewery Photo:</b></p><img src='<%= cl_image_path(@brewery[0].photo) %>' height='500'>
-        </div>
-      <p>To edit your brewery details, <%= link_to "click here", edit_brewery_path(@brewery[0].id) %></p>
-
-      <p>Here are your actively listed beers:</p>
-      <% @beers.each do |beer| %>
+  <div class="profile-title">
+    <h2>Welcome to your Dashboard!</h2><br>
+    <h2><strong><%= @brewery[0].name %></strong></h2>
+  </div>
+  <div class='brewery-photo'>
+    <img src='<%= cl_image_path(@brewery[0].photo) %>' height='500'>
+  </div>
+  <div class="card-brewery-details">
+    <p>Here are your brewery details:</p>
+    <p><b>Name:</b> <%= @brewery[0].name %></p>
+    <p><b>Address:</b> <%= @brewery[0].address %></p>
+    <p><b>Description:</b> <%= @brewery[0].description %></p>
+    <p><b>Email:</b> <%= @brewery[0].email %></p>
+    <p><b>Phone Number:</b> <%= @brewery[0].phone_number %></p>
+    <div class="edit-brewery-btn">
+      <%= link_to "Edit here", edit_brewery_path(@brewery[0].id) %>
+    </div>
+  </div>
+  <div class="middle-box-brewery-profile">
+    <h2>Here are your actively listed beers:</h2>
+  </div>
+  <div class="add-new-beer-btn">
+      <%= link_to "Add a new beer", new_beer_path %>
+  </div>
+  <div class="beers-brewer-profile-page">
+    <% @beers.each do |beer| %>
+    <div class="beer-brewer">
       <%= link_to beer_path(beer) do %>
-      <div class="beer-card">
-        <div class="beer-card-body" style="background-image: linear-gradient(-150deg, rgba(0,101,168,0.2) 0%, rgba(0,36,61,0.3) 80%), url(<%= cl_image_path(beer.photo) %>">
-          <div class="beer-card-link">
-            <div class="beer-card-name">
-              <%= beer.name %><br>
-            </div>
-            <div class="beer-card-alcohol">
-              <%= beer.alcohol_percentage %>%<br>
-            </div>
-            <div class="beer-card-brewery">
-              <%= beer.brewery.name %><br>
+        <div class="beer-card">
+          <div class="beer-card-body" style="background-image: linear-gradient(-150deg, rgba(0,101,168,0.2) 0%, rgba(0,36,61,0.3) 80%), url(<%= cl_image_path(beer.photo) %>">
+            <div class="beer-card-link">
+              <div class="beer-card-name">
+                <%= beer.name %><br>
+              </div>
+              <div class="beer-card-alcohol">
+                <%= beer.alcohol_percentage %>%<br>
+              </div>
+              <div class="beer-card-brewery">
+                <%= beer.brewery.name %><br>
+              </div>
             </div>
           </div>
         </div>
-      </div>
       <% end %>
-    <% end %>
     </div>
+    <% end %>
   </div>
 </div>
-<p><%= link_to "Click here to add a new beer", new_beer_path %></p>
+
+
 
