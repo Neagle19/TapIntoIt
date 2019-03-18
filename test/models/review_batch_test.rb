@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class ReviewBeerTest < ActiveSupport::TestCase
+class ReviewBatchTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

@@ -1,7 +1,7 @@
 function hoy(){
     console.log('secondpart');
-    var btn = document.getElementById("likes-hidden-" + "<%= @like.review_beer.id %>");
-    count = document.getElementById("likes-count-" + "<%= @like.review_beer.id %>");
+    var btn = document.getElementById("likes-hidden-" + "<%= @like.review_batch.id %>");
+    count = document.getElementById("likes-count-" + "<%= @like.review_batch.id %>");
     console.log(btn)
     console.log(count)
     if (btn.classList.contains("liked")) {
