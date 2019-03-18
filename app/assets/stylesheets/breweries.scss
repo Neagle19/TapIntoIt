@@ -21,6 +21,18 @@
   position: relative;
 }
 
+.form-brewery {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.container {
+  text-align: center;
+}
+
 .brewery-card-image {
   background-size: cover;
   width: 300px;
@@ -44,3 +56,7 @@
 .simple_form input[type='submit'] {
   margin-bottom: 50px;
 }
+
+
+
+

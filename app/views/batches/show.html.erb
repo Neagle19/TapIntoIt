@@ -1,0 +1,6 @@
+<h1>Info about this specific batch</h1>
+<li><strong>batch description:</strong><%= @batch.description %></li>
+<li><strong>batch quantity:</strong><%= @batch.quantity %></li>
+<li><strong>Bottled on:</strong><%= @batch.bottled_date %></li>
+
+<%= link_to "show qr code", qr_code_path(@batch.id) %>
