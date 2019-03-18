@@ -3,9 +3,6 @@ class BreweriesController < ApplicationController
   before_action :verify_role, only: [:new, :create, :destroy, :edit, :update]
   before_action :verify_ownership, only: [:destroy, :edit, :update]
 
-  def index
-    @breweries = Brewery.all
-  end
 
   def landing
   end
@@ -15,13 +12,15 @@ class BreweriesController < ApplicationController
 
     if params[:search].present?
       @breweries = Brewery.global_search(params[:search])
-    else
+    elsif params[:show].present?
       @breweries = Brewery.all
+    else
+      @breweries = Brewery.near([current_user.lat, current_user.lng], 10)
     end
     # if params[:search_place].present?
     #   @breweries = @breweries.near(params[:search_place], 50)
     # end
-    @markers = @breweries.where.not(latitude: nil, longitude: nil).map do |brewery|
+    @markers = Brewery.where.not(latitude: nil, longitude: nil).map do |brewery|
       {
         lng: brewery.longitude,
         lat: brewery.latitude,

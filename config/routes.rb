@@ -22,5 +22,6 @@ Rails.application.routes.draw do
   # end
    # resources :qr_codes, only:[:new, :create]
    post '/profiles', to: 'profiles#show_with_username', as: 'show_with_username'
+   post '/profile_geoloc', to: 'profiles#profile_geoloc', as: 'profile_geoloc'
    resources :profiles, only: [:show, :edit]
 end
