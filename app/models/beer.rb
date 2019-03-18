@@ -1,6 +1,6 @@
 class Beer < ApplicationRecord
   belongs_to :brewery
-  # has_many :batches, dependent: :destroy
+  has_many :batches, dependent: :destroy
   has_many :review_beers, dependent: :destroy
   validates :name, presence: true
   validates :brewery, presence: true
