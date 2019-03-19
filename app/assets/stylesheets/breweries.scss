@@ -64,4 +64,22 @@
 
 
 
+.brewery-profile{
+  display:grid;
+  grid-template-columns: 40% 70%;
+  grid-template-row: 50% 50%;
+}
+
+.brewery-title-show img {
+  width: 100%;
+}
+.brewery-map {
+  margin: 25px;
+}
+
+@media all and (max-width: 700px) {
+  .brewery-profile {
+    display: block;
+  }
+}
 
