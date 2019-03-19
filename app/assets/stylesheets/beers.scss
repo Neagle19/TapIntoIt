@@ -180,3 +180,22 @@
   margin-bottom:70px;
   margin-top: 20px;
 }
+
+.beer-profile{
+  display:grid;
+  grid-template-columns: 40% 70%;
+  grid-template-row: 50% 50%;
+}
+
+.beer-title-show img {
+  width: 100%;
+}
+.beer-map {
+  margin: 25px;
+}
+
+@media all and (max-width: 700px) {
+  .beer-profile {
+    display: block;
+  }
+}
