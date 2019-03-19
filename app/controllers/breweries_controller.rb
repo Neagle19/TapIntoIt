@@ -107,7 +107,7 @@ class BreweriesController < ApplicationController
   def brewery_params
     params
       .require(:brewery)
-      .permit(:name, :address, :email, :phone_number, :photo, :description, :search)
+      .permit(:name, :address, :email, :phone_number, :photo, :description, :search, :website)
       .merge(user: current_user)
   end
 
