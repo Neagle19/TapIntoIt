@@ -15,13 +15,12 @@ class User < ApplicationRecord
   has_many :like_batches
   has_many :checkins
   has_many :breweries
+  has_many :follows
 
   mount_uploader :photo, PhotoUploader
 
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :validatable
-
-
 
   mount_uploader :photo, PhotoUploader
 
@@ -33,6 +32,4 @@ class User < ApplicationRecord
   def admin?
     role == ROLE_ADMIN
   end
-
-
 end
