@@ -16,7 +16,9 @@
             </div> -->
             <div class='brewery-card-address'>
               <%= brewery.address %>
-              <%= brewery.distance_from([current_user.lat, current_user.lng]).round(3) %> km
+              <% if current_user  %>
+                <%= brewery.distance_from([current_user.lat, current_user.lng]).round(3) %> km
+              <% end %>
             </div>
           </div>
         </div>

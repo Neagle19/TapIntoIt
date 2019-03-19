@@ -14,8 +14,10 @@ class BreweriesController < ApplicationController
       @breweries = Brewery.global_search(params[:search])
     elsif params[:show].present?
       @breweries = Brewery.all
-    else
+    elsif current_user
       @breweries = Brewery.near([current_user.lat, current_user.lng], 10)
+    else
+
     end
     # if params[:search_place].present?
     #   @breweries = @breweries.near(params[:search_place], 50)
