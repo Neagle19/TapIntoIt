@@ -4,6 +4,7 @@ class Batch < ApplicationRecord
   has_many :review_batches, dependent: :destroy
   validates :bottled_date, presence: true
   validates :brewery, presence: true
+  has_many :notif, as: :notifable
   has_many :batches, through: :beer
   after_create :send_qr
 

@@ -11,4 +11,10 @@ class FriendConnectionsController < ApplicationController
     end
   end
 
+  def accept_friend
+    connection = FriendConnection.find(params[:id])
+    connection.accepted = true
+    connection.save
+    redirect_to notifs_path
+  end
 end
