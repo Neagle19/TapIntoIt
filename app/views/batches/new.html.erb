@@ -1,9 +1,51 @@
 <div class="form-inputs">
   <%= simple_form_for([@beer, @batch ]) do |f| %>
+            <%= f.input :description, label: "Description:", input_html: {value: @beer.description }, as: :hidden %>
+            <%= f.input :brewingstart, label: "Brewing Start Date:",
+                        required: true %>
+            <%= f.input :brewer %>
+            <%= f.input :stepone, label: "Step One:", input_html: { value: "Milling the Grain" } %>
+            <%= f.input :steponedescription, label: "Step One Description:", input_html: { value: "Grain is crushed to extract fermentable sugars, producing a product called 'grist'." }  %>
+            <%= f.input :steptwo, label: "Step Two:", input_html: { value: "Mash Conversion" } %>
+            <%= f.input :steptwodescription, label: "Step Two Description:", input_html: { value: "Grist is mixed with heated water, producing 'mash'." } %>
+            <%= f.input :stepthree, label: "Step Three:", input_html: { value: "Lautering" } %>
+            <%= f.input :stepthreedescription, label: "Step Three Description:", input_html: { value: "Grain husks are separated from the mash, producing 'wart'." } %>
+            <%= f.input :stepfour, label: "Step Four:", input_html: { value: "The boil" } %>
+            <%= f.input :stepfourdescription, label: "Step Four Description:", input_html: { value: "Wort is boiled, followed by the adding of hops." } %>
+            <%= f.input :stepfive, label: "Step Five:", input_html: { value: "Wort Separation & Cooling" } %>
+            <%= f.input :stepfivedescription, label: "Step Five Description:", input_html: { value: "Malt and hop particles are removed from the wort as the wort cools." } %>
+            <%= f.input :stepsix, label: "Step Six:", input_html: { value: "Primary fermentation" } %>
+            <%= f.input :stepsixdescription, label: "Step Six Description:", input_html: { value: "Yeast is added to the wort to convert sugar into alcohol and to create both flavor and carbon dioxide." } %>
+            <%= f.input :stepseven, label: "Step Seven:", input_html: { value: "Secondary Fermentation" } %>
+            <%= f.input :stepsevendescription, label: "Step Seven Description:", input_html: { value: "Type additional description here" } %>
+            <%= f.input :stepeight, label: "Step Eight:", placeholder: "Type additional step here" %>
+            <%= f.input :stepeightdescription, label: "Step Eight Description:", placeholder: "Type additional description here" %>
+            <%= f.input :stepnine, label: "Step Nine:", placeholder: "Type additional step here" %>
+            <%= f.input :stepninedescription, label: "Step Nine Description:", placeholder: "Type additional description here" %>
+            <%= f.input :stepten, label: "Step Ten:", placeholder: "Type additional step here" %>
+            <%= f.input :steptendescription, label: "Step Ten Description:", placeholder: "Type additional description here" %>
+            <%= f.input :stepeleven, label: "Step Eleven:", placeholder: "Type additional step here" %>
+            <%= f.input :stepelevendescription, label: "Step Eleven Description:", placeholder: "Type additional description here" %>
+            <%= f.input :steptwelve, label: "Step Twelve:", placeholder: "Type additional step here" %>
+            <%= f.input :steptwelvedescription, label: "Step Twelve Description:", placeholder: "Type additional description here" %>
+            <%= f.input :ingredientone, label: "Ingredient One:", input_html: { value: "Water" } %>
+            <%= f.input :ingredientonedesc, label: "Type:", input_html: { value: "Spa Natural Mineral Water. Origin: Belgium." } %>
+            <%= f.input :ingredienttwo, label: "Ingredient Two:", input_html: { value: "Grain" } %>
+            <%= f.input :ingredienttwodesc, label: "Type:", input_html: { value: "BESTMALZ Biscuit Malt. Origin: Germany." } %>
+            <%= f.input :ingredientthree, label: "Ingredient Three:", input_html: { value: "Hops" } %>
+            <%= f.input :ingredientthreedesc, label: "Type:", input_html: { value: "Citra Leaf Hops- features higher alpha acids and total oil contents with a low percentage of co-humulone. Origin: USA." } %>
+            <%= f.input :ingredientfour, label: "Ingredient Four:", input_html: { value: "Yeast" } %>
+            <%= f.input :ingredientfourdesc, label: "Type:", input_html: { value: "Danstar American West Coast Yeast." } %>
+            <%= f.input :ingredientfive, label: "Ingredient Five:" %>
+            <%= f.input :ingredientfivedesc, label: "Type:" %>
+            <%= f.input :ingredientsix, label: "Ingredient Six:" %>
+            <%= f.input :ingredientsixdesc, label: "Type:" %>
+            <%= f.input :ingredientseven, label: "Ingredient Seven:" %>
+            <%= f.input :ingredientsevendesc, label: "Type:" %>
+            <%= f.input :ingredienteight, label: "Ingredient Eight:" %>
+            <%= f.input :ingredienteightdesc, label: "Type:" %>
             <%= f.input :bottled_date,
                         required: true%>
-            <%= f.input :description,
-                        required: true %>
             <%= f.input :quantity,
                         required: true %>
 

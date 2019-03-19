@@ -1,6 +1,7 @@
 class Beer < ApplicationRecord
   belongs_to :brewery
   has_many :batches, dependent: :destroy
+  has_many :notif, as: :notifable
   has_many :review_beers, dependent: :destroy
   validates :name, presence: true
   validates :brewery, presence: true
@@ -8,6 +9,7 @@ class Beer < ApplicationRecord
   validates :size, presence: true
   validates :alcohol_percentage, numericality: { only_float: true }, presence: true
   validates :description, presence: true
+
   mount_uploader :photo, PhotoUploader
 
   include PgSearch

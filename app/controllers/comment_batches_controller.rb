@@ -1,9 +1,8 @@
-
-class CommentBeersController < ApplicationController
-  def create
-    @comment = CommentBeer.new(beer_params)
+class CommentBatchesController < ApplicationController
+   def create
+    @comment = CommentBatch.new(batch_params)
     @comment.user = current_user
-    @review_id = beer_params[:review_beer_id]
+    @review_id = batch_params[:review_batch_id]
     puts "-"*60
     puts params
     if @comment.save
@@ -17,7 +16,7 @@ class CommentBeersController < ApplicationController
 
   private
 
-  def beer_params
-    params.require(:comment_beer).permit(:content, :review_beer_id, :review_beer)
+  def batch_params
+    params.require(:comment_batch).permit(:content, :review_batch_id, :review_batch)
   end
 end

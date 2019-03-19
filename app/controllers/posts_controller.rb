@@ -12,7 +12,7 @@ class PostsController < ApplicationController
 
     friends_to_delete.delete(current_user)
 
-    @posts = ReviewBeer.where(user: friends_to_delete).sort_by{|review| review.created_at}.reverse
+    @posts = ReviewBatch.where(user: friends_to_delete).sort_by{|review| review.created_at}.reverse
   end
 
   def show

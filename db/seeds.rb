@@ -76,6 +76,10 @@ review_contents = [
   "Only drinking this beer to make room in my fridge..."
 ]
 
+## beers from tasting ##
+
+
+
 10.times do |i|
   beer = Beer.new
   beer.name = "Maes #{i}"
@@ -86,6 +90,14 @@ review_contents = [
   beer.size = '25cl'
   beer.brewery = Brewery.all.sample
   beer.save!
+end
+
+10.times do |i|
+  batch = Batch.new
+  batch.bottled_date = "2#{i}/10/2018"
+  batch.beer = Beer.all.sample
+  batch.brewery = Brewery.all.sample
+  batch.save!
   review_brewery = ReviewBrewery.new
   review_brewery.content = "atmosphere is cool #{i}"
   review_brewery.rating = (0..5).to_a.sample
@@ -99,31 +111,22 @@ review_contents = [
   comment_brewery.user = User.first
   comment_brewery.review_brewery = ReviewBrewery.last
   comment_brewery.save!
-  review_beer = ReviewBeer.new
-  review_beer.content = review_contents.sample
-  review_beer.rating = (0..5).to_a.sample
-  review_beer.posted = true
-  review_beer.remote_photo_url = url_user_beer_photo.sample
-  review_beer.beer = Beer.last
-  review_beer.user = User.all.sample
-  review_beer.save!
-  comment_beer = CommentBeer.new
-  comment_beer.content = "Yeah I'm not a fan of this beer either. #{i}"
-  comment_beer.review_beer = ReviewBeer.last
-  comment_beer.user = User.first
-  comment_beer.save!
-  comment_beer = CommentBeer.new
-  comment_beer.content = "You lil drinker #{i}"
-  comment_beer.review_beer = ReviewBeer.last
-  comment_beer.user = User.first
-  comment_beer.save!
-end
-
-10.times do |i|
-  batch = Batch.new
-  batch.bottled_date = "2#{i}/10/2018"
-  batch.beer = Beer.all.sample
-  batch.brewery = Brewery.all.sample
-  batch.save!
+  review_batch = ReviewBatch.new
+  review_batch.content = review_contents.sample
+  review_batch.rating = (0..5).to_a.sample
+  review_batch.posted = true
+  review_batch.batch = Batch.last
+  review_batch.user = User.all.sample
+  review_batch.save!
+  comment_batch = CommentBatch.new
+  comment_batch.content = "Yeah I'm not a fan of this batch either. #{i}"
+  comment_batch.review_batch = ReviewBatch.last
+  comment_batch.user = User.first
+  comment_batch.save!
+  comment_batch = CommentBatch.new
+  comment_batch.content = "You lil drinker #{i}"
+  comment_batch.review_batch = ReviewBatch.last
+  comment_batch.user = User.first
+  comment_batch.save!
 end
 

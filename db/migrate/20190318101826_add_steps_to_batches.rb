@@ -1,0 +1,46 @@
+class AddStepsToBatches < ActiveRecord::Migration[5.2]
+  def change
+    add_column :batches, :brewingstart, :date
+    add_column :batches, :stepone, :string
+    add_column :batches, :steponedescription, :string
+    add_column :batches, :steptwo, :string
+    add_column :batches, :steptwodescription, :string
+    add_column :batches, :stepthree, :string
+    add_column :batches, :stepthreedescription, :string
+    add_column :batches, :stepfour, :string
+    add_column :batches, :stepfourdescription, :string
+    add_column :batches, :stepfive, :string
+    add_column :batches, :stepfivedescription, :string
+    add_column :batches, :stepsix, :string
+    add_column :batches, :stepsixdescription, :string
+    add_column :batches, :stepseven, :string
+    add_column :batches, :stepsevendescription, :string
+    add_column :batches, :stepeight, :string
+    add_column :batches, :stepeightdescription, :string
+    add_column :batches, :stepnine, :string
+    add_column :batches, :stepninedescription, :string
+    add_column :batches, :stepten, :string
+    add_column :batches, :steptendescription, :string
+    add_column :batches, :stepeleven, :string
+    add_column :batches, :stepelevendescription, :string
+    add_column :batches, :steptwelve, :string
+    add_column :batches, :steptwelvedescription, :string
+    add_column :batches, :ingredientone, :string
+    add_column :batches, :ingredientonedesc, :string
+    add_column :batches, :ingredienttwo, :string
+    add_column :batches, :ingredienttwodesc, :string
+    add_column :batches, :ingredientthree, :string
+    add_column :batches, :ingredientthreedesc, :string
+    add_column :batches, :ingredientfour, :string
+    add_column :batches, :ingredientfourdesc, :string
+    add_column :batches, :ingredientfive, :string
+    add_column :batches, :ingredientfivedesc, :string
+    add_column :batches, :ingredientsix, :string
+    add_column :batches, :ingredientsixdesc, :string
+    add_column :batches, :ingredientseven, :string
+    add_column :batches, :ingredientsevendesc, :string
+    add_column :batches, :ingredienteight, :string
+    add_column :batches, :ingredienteightdesc, :string
+    add_column :batches, :brewer, :string
+  end
+end

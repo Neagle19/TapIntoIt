@@ -11,6 +11,11 @@
   top: -40px !important;
 }
 
+a:hover {
+  opacity: 0.7% !important;
+  color: white !important;
+}
+
 .dropdown button {
   color: white;
   background:none;
@@ -42,6 +47,7 @@
       <%= link_to "Beers", beers_path, class: "dropdown-item btn-navbar #{current_class?(beers_path)}" %>
       <%= link_to "Breweries", breweries_path, class: "dropdown-item btn-navbar #{current_class?(breweries_path)}" %>
       <%= link_to "Wall", posts_path, class: "dropdown-item btn-navbar #{current_class?(posts_path)}" %>
+      <%= link_to "Notifications", notifs_path, class: "dropdown-item btn-navbar #{current_class?(notifs_path)}" %>
       <%= link_to "Profile", profile_path(current_user.id), class: "dropdown-item btn-navbar #{current_class?(profile_path(current_user.id))}" %>
       <%= link_to "Log out", destroy_user_session_path, method: 'delete', class: "dropdown-item btn-navbar " %>
     </div>

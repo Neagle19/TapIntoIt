@@ -4,12 +4,15 @@ Rails.application.routes.draw do
 
   resources :posts, only: [:index, :show]
   get 'friend_connections/:id', to: 'friend_connections#create', as: 'add_friend'
+  get 'accept_friend/:id', to: 'friend_connections#accept_friend', as: 'accept_friend'
 
   root to: 'pages#landing'
   get '/like/new/:id', to: 'like_beers#new', as: 'like'
   resources :beers, only: [:index, :show, :new, :create, :update, :edit] do
     resources :review_beers, only: [:new, :create]
-    resources :batches, only: [:index, :show, :new, :create]
+    resources :batches, only: [:index, :show, :new, :create] do
+      resources :review_batches, only: [:new, :create]
+    end
 
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -24,4 +27,6 @@ Rails.application.routes.draw do
    post '/profiles', to: 'profiles#show_with_username', as: 'show_with_username'
    post '/profile_geoloc', to: 'profiles#profile_geoloc', as: 'profile_geoloc'
    resources :profiles, only: [:show, :edit]
+   resources :notifs, only: [:index]
+   get 'follow/:id', to: 'follows#create', as: 'follow'
 end

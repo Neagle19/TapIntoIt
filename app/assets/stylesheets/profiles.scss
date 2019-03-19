@@ -114,8 +114,82 @@
   font-weight: 100;
   .btn {
     border: 1px solid;
-    background-color: #DCDDDC;
   }
 }
 
 
+
+.profile-title {
+  text-align: center;
+}
+
+.brewery-photo {
+  text-align: center;
+}
+
+.card-brewery-details {
+  position: center;
+  border: 1px solid #E67E22;
+  box-shadow: 0 0 0 1;
+  width: 500px;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 10px;
+  text-align: center;
+  color: #E67E22;
+}
+
+.edit-brewery-btn {
+  text-align: center;
+  color: white;
+  background-color: #E67E22;
+  border-radius: 5px;
+  width: 150px;
+  height: 30px;
+  line-height: 30px;
+  text-decoration: none;
+  a {
+    color: white;
+  }
+  a:hover {
+    color: white;
+    opacity: 0,7%;
+  }
+}
+
+.middle-box-brewery-profile {
+  display: flex;
+  margin: 50px;
+  padding: 20px;
+  background-color: #E67E22;
+  color: white;
+  justify-content: center;
+  align-items: center;
+}
+
+.beers-brewer-profile-page {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.add-new-beer-btn {
+  position: relative;
+  margin-bottom: 20px;
+  left: 50px;
+  text-align: center;
+  color: white;
+  background-color: #E67E22;
+  border-radius: 5px;
+  width: 150px;
+  height: 30px;
+  line-height: 30px;
+  text-decoration: none;
+  a {
+    color: white;
+  }
+  a:hover {
+    color: white;
+    opacity: 0,7%;
+  }
+}

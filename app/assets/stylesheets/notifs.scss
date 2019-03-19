@@ -1,0 +1,56 @@
+.notification-container {
+
+  padding: 15px;
+  display: flex;
+  justify-content: space-around;
+  height: 100px;
+  align-items: center;
+  a.notification-link {
+    color: black;
+  }
+  p {
+
+    margin-top: 0;
+    margin-bottom: 0;
+    flex-grow: 1;
+  }
+}
+
+.add-friend-btn {
+  color: #696969 !important;
+  border: 2px solid #696969;
+  border-radius: 5px;
+  text-transform: capitalize;
+  padding: 2px;
+  margin: 10px;
+  &:hover {
+    opacity: 0.5;
+  }
+}
+
+.filter-btn {
+  color: black;
+  background-color: transparent;
+  border: 2px solid black;
+  border-radius: 5px;
+  text-transform: capitalize;
+  margin: 5px;
+  padding: 5px;
+  text-decoration: none;
+  &:hover {
+    opacity: 0.5;
+  }
+}
+
+.notif-filter-btns {
+  display: flex;
+  justify-content: space-around;
+}
+
+div.notification-container:nth-child(even) {
+    background-color: #F5F5F5;
+}
+
+.timestamp {
+  font-weight: 100;
+}

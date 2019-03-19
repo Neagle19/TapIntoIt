@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-lg-8 offset-lg-2">
+      <div class="notif-filter-btns">
+        <p class="only-friends filter-btn">Friend Requests</p>
+        <p class="only-checkins filter-btn">Check-Ins</p>
+        <p class="only-beers filter-btn">Added Beers</p>
+        <p class="only-batches filter-btn">Added Batches</p>
+      </div>
+
+        <div class="color-even-grey">
+      <% @notifications.each do |k| %>
+            <div class="notification-container <%= k[0].class %>">
+            <%= link_to k[4], class: "notification-link" do %>
+             <%= cl_image_tag k[1], class: "avatar-post"%>
+            <% end %>
+            <p class="notification-sentence">
+              <%= link_to k[3], k[4], class: "notification-link" %></p>
+            <div>
+            <% if k[0].is_a?(FriendConnection) %>
+              <%= link_to "Add Friend", accept_friend_path(k[0].id), class: "add-friend-btn" %>
+            <% end %>
+            </div>
+            <div class="timestamp">
+              <p><%= ((Time.now - k[0].created_at)/3600).round %>h ago</p>
+            </div>
+            </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
