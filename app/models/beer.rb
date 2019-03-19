@@ -14,11 +14,19 @@ class Beer < ApplicationRecord
 
   include PgSearch
   pg_search_scope :global_search,
-    against: [ :name, :kind, :alcohol_percentage ],
+    against: [:name, :kind, :alcohol_percentage],
     associated_against: {
       brewery: [:name, :address]
     },
     using: {
       tsearch: { prefix: true }
     }
+
+  def rating
+    ratings = ReviewBatch.where(batch: self.batches).pluck(:rating)
+    return 0 if ratings.blank?
+    avg = ratings.sum / ratings.size.to_f
+  end
+
+  # scope :by_rating, ->(rating) { where("rating >= ?", rating) }
 end

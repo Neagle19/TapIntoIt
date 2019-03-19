@@ -6,7 +6,8 @@
         <div class="beer-card-body" style="background-image: linear-gradient(-150deg, rgba(0,101,168,0.2) 0%, rgba(0,36,61,0.3) 80%), url(<%= cl_image_path(beer.photo) %>">
           <div class="beer-card-link">
             <div class="beer-card-name">
-              <%= beer.name %><br>
+              <p><%= raw " <i class='fas fa-star'></i> " * beer.rating.round %></p>
+              <%= beer.name %>
             </div>
             <div class="beer-card-alcohol">
               <%= beer.alcohol_percentage %>%<br>

@@ -13,6 +13,9 @@
     <p><strong>Phone Number: </strong><%= @brewery.phone_number %></p>
     <p><strong>Email: </strong><%= @brewery.email %></p>
     <p><strong><%= link_to "Visit #{@brewery.name}'s Website", "https://www.beerproject.be/en", target: "_blank" %></strong></p>
+     <% if current_user  %>
+                <%= @brewery.distance_from([current_user.lat, current_user.lng]).round(3) %> km
+              <% end %>
   </div>
 
   <h2>Check all this Brewery's beers</h2>
