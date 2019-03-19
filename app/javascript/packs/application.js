@@ -7,8 +7,10 @@ import "bootstrap";
 //
 // To reference this file, add <%= javascript_pack_tag 'application' %> to the appropriate
 // layout file, like app/views/layouts/application.html.erb
+import Siema from 'siema';
 import { growImage } from '../components/grow_image';
 import { initMapbox } from '../plugins/init_mapbox';
+
   var x = document.getElementById("demo");
  if(x) {
 
@@ -26,3 +28,20 @@ import { initMapbox } from '../plugins/init_mapbox';
    getLocation()
    }
 initMapbox();
+
+
+new Siema({
+  selector: '.siema',
+  duration: 200,
+  easing: 'ease-out',
+  perPage: 3,
+  startIndex: 0,
+  draggable: true,
+  multipleDrag: true,
+  threshold: 20,
+  loop: false,
+  rtl: false,
+  onInit: () => {},
+  onChange: () => {},
+});
+
