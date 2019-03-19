@@ -45,7 +45,7 @@
             <% if current_user != @user %>
             <%= link_to like_path(post.id), remote: true do %>
             <div class="likes<%= check_liked(post) %>", data-div="<%= post.id %>", id="likes-hidden-<%= post.id %>">
-              <p id="likes-count-<%= post.id %>"><%= post.like_beers.all.count %></p><i class="far fa-thumbs-up"></i> <!-- Set here that if you liked it it displays solid thumb -->
+              <p id="likes-count-<%= post.id %>"><%= post.like_batches.all.count %></p><i class="far fa-thumbs-up"></i> <!-- Set here that if you liked it it displays solid thumb -->
             </div>
             <% end %>
             <% else %>
@@ -61,7 +61,7 @@
           <div class="big-content-post">
             <div class="title-post">
               <%= raw " <i class='fas fa-star'></i> " * post.rating.round %><br>
-              <%= post.beer.name %>
+              <%= post.batch.beer.name %>
             </div>
           </div>
         </div>

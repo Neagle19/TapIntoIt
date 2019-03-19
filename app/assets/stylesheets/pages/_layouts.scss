@@ -1,0 +1,10 @@
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.page-content {
+  flex-grow: 1;
+  min-height: calc(100vh - 128px);
+
+}
