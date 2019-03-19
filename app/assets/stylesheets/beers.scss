@@ -168,6 +168,15 @@
   grid-template-row: 50% 50%;
 }
 
+.beer-title-show img {
+  width: 100%;
+}
 .beer-map {
   margin: 25px;
+}
+
+@media all and (max-width: 700px) {
+  .beer-profile {
+    display: block;
+  }
 }

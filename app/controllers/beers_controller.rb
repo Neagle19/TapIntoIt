@@ -10,7 +10,7 @@ class BeersController < ApplicationController
 
   def show
     @beer = Beer.find(params[:id])
-    @review_beers = ReviewBeer.where(beer_id: @beer.id)
+    # @review_beers = ReviewBeer.where(beer_id: @beer.id)
      if @beer.brewery.longitude.present? && @beer.brewery.latitude.present?
       @markers = [{lng: @beer.brewery.longitude, lat: @beer.brewery.latitude, infoWindow: render_to_string(partial: "infowindow", locals: { brewery: @beer.brewery })}]
     end
