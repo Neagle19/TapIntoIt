@@ -5,6 +5,30 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+george = User.create!(
+  email: "george@test123.com",
+  password: "test123",
+  password_confirmation: "test123",
+  first_name: "George",
+  last_name: "Kosmopoulos",
+  username: "GeorgeKos",
+  location: "Brussels",
+  role: 0,
+  description: "Lil bit drinking, lil bit teaching you know",
+  remote_photo_url: 'https://res.cloudinary.com/discwhk4f/image/upload/v1553000545/george.jpg')
+
+olivier = User.create!(
+  email: "olivier@test123.com",
+  password: "test123",
+  password_confirmation: "test123",
+  first_name: "Olivier",
+  last_name: "Nottebart",
+  username: "OlivierNot",
+  location: "Brussels",
+  role: 0,
+  description: "I can draw on my super oversized ipad and drink at the same time.",
+  remote_photo_url: 'https://res.cloudinary.com/discwhk4f/image/upload/v1553000544/olivier.jpg')
+
 roman = User.create!(
   email: "romanvanloo@icloud.com",
   password: "test123",
@@ -15,7 +39,7 @@ roman = User.create!(
   location: "Putte",
   role: 1,
   description: "Drink till you stink!",
-  remote_photo_url: 'https://res.cloudinary.com/discwhk4f/image/upload/v1551781659/wx0p5qp2g5obwlw8evau.jpg')
+  remote_photo_url: 'https://res.cloudinary.com/discwhk4f/image/upload/v1553000545/badkop.jpg')
 
 shane = User.create!(
   email: "shane@gmail.com",
@@ -29,18 +53,29 @@ shane = User.create!(
   description: "Drinking wine in the train is okay!",
   remote_photo_url: 'https://res.cloudinary.com/discwhk4f/image/upload/v1551781659/wx0p5qp2g5obwlw8evau.jpg')
 
-user123 = User.create!(
-  email: "tester123456@test.com",
+diego = User.create!(
+  email: "diego@test.com",
+  password: "test123",
+  password_confirmation: "test123",
+  first_name: "Diego ",
+  last_name: "Saverys",
+  username: "TheDrinkerGinger",
+  location: "Brussels",
+  description: "I'm an addict!",
+  role: 0,
+  photo: 'https://res.cloudinary.com/discwhk4f/image/upload/v1553000549/IMG_9913.jpg')
+
+thierry = User.create!(
+  email: "thierry@test.com",
   password: "test123",
   password_confirmation: "test123",
   first_name: "Dirk",
   last_name: "Van Loo",
-  username: "DirkTheDrinker",
+  username: "ThePlayboy",
   location: "Brussels",
-  description: "Waddup, I love beer!",
-  role: 1,
-  photo: 'https://res.cloudinary.com/discwhk4f/image/upload/v1551781659/wx0p5qp2g5obwlw8evau.jpg')
-
+  description: "I don't drink anymore cause I'm not allowed from my girlfriend...",
+  role: 0,
+  photo: 'https://res.cloudinary.com/discwhk4f/image/upload/v1553000545/thierry.jpg')
   #remote_photo_url: 'https://res.cloudinary.com/discwhk4f/image/upload/v1551781659/wx0p5qp2g5obwlw8evau.jpg')
 
 
@@ -402,6 +437,29 @@ review_baby_lone = ReviewBatch.create!(
   )
 
 
+FriendConnection.create!(
+  receiver: diego,
+  requester: shane,
+  accepted: true
+  )
+
+FriendConnection.create!(
+  receiver: roman,
+  requester: olivier,
+  accepted: true
+  )
+
+FriendConnection.create!(
+  receiver: olivier,
+  requester: george,
+  accepted: true
+  )
+
+FriendConnection.create!(
+  receiver: george,
+  requester: thierry,
+  accepted: true
+  )
 
 # 10.times do |i|
 #   beer = Beer.new
