@@ -1,13 +1,13 @@
 <div class='breweries-wrapper'>
   <div class='breweries-title'>
-    <h2>Breweries Page</h2>
+    <h2>Breweries: </h2>
   </div>
   <div class='breweries-container'>
     <div class='breweries-cards'>
       <% @breweries.each do |brewery| %>
         <%= link_to brewery_path(brewery) do %>
         <div class='brewery-card'>
-          <div class='brewery-card-image' style="background-image: linear-gradient(-150deg, rgba(0,101,168,0.2) 0%, rgba(0,36,61,0.3) 80%), url(<%= cl_image_path(brewery.photo) %>">
+          <div class='brewery-card-image' style="background-image: linear-gradient(-0deg, rgba(0,0,0,0.5) 0%, rgba(0,25,20,0.1) 50%), url(<%= cl_image_path(brewery.photo) %>">
             <div class='brewery-card-name'>
               <%= brewery.name %>
             </div>
@@ -15,9 +15,9 @@
               <%= brewery.description %>
             </div> -->
             <div class='brewery-card-address'>
-              <%= brewery.address %>
+              <%= brewery.address %><br>
               <% if current_user  %>
-                <%= brewery.distance_from([current_user.lat, current_user.lng]).round(3) %> km
+                <%= brewery.distance_from([current_user.lat, current_user.lng]).round(2) %> km away
               <% end %>
             </div>
           </div>
@@ -34,3 +34,4 @@
 <div class="wrapper" text-align="center">
   <div id="map" style="width: 100vw; height: 350px; margin-top: 90px;" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 </div>
+
