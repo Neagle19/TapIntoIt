@@ -1,6 +1,7 @@
   <div class="beer-container-show">
     <div class="beer-title-show">
     <h2><%= @beer.name %></h2>
+    <p><%= raw " <i class='fas fa-star'></i> " * @beer.rating.round %></p>
     </div>
     <div class="center-myself">
         <div class="beer-cards">
