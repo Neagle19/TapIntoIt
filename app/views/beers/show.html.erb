@@ -1,23 +1,25 @@
-  <div class="beer-container-show">
-    <div class="beer-title-show">
+<div class="beer-profile">
+  <div class="beer-title-show">
+    <img src='<%= cl_image_path(@beer.photo) %>'>
     <h2><%= @beer.name %></h2>
-    </div>
+  </div>
+
+  <div class="beer-map">
+      <div id="map" style="height: 350px;" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+  </div>
+
     <div class="center-myself">
-        <div class="beer-cards">
-          <div class="show-beer-card">
-            <ul>
-              <li><strong>Beer Name:</strong><%= @beer.name %></li>
-              <li><strong>Beer Kind:</strong><%= @beer.kind %></li>
-              <li><strong>Beer Size:</strong><%= @beer.size %></li>
-              <li><strong>Alcohol Percentage :</strong><%= @beer.alcohol_percentage  %>%</li>
-              <li><strong>Description:</strong><%= @beer.description %></li>
-              <li><strong>Brewery:</strong><%= link_to @beer.brewery.name, brewery_path(@beer.brewery.id) %></li>
-            </ul>
-          </div>
-        </div>
-        <div class="beer-photo-card">
-          <img src='<%= cl_image_path(@beer.photo) %>' height="300">
-        </div>
+      <div class="show-beer-card">
+        <ul>
+          <li><strong>Beer Name:</strong><%= @beer.name %></li>
+          <li><strong>Beer Kind:</strong><%= @beer.kind %></li>
+          <li><strong>Beer Size:</strong><%= @beer.size %></li>
+          <li><strong>Alcohol Percentage :</strong><%= @beer.alcohol_percentage  %>%</li>
+          <li><strong>Description:</strong><%= @beer.description %></li>
+          <li><strong>Brewery:</strong><%= link_to @beer.brewery.name, brewery_path(@beer.brewery.id) %></li>
+        </ul>
+      </div>
     </div>
 
     <div class="beer-reviews">
@@ -42,6 +44,5 @@
       <% end %>
   </div>
 </div>
-
 <!-- && current_user.id == @beer.brewery_id
  -->
