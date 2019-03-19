@@ -2,7 +2,8 @@
   <div class="beer-title-show">
     <img src='<%= cl_image_path(@beer.photo) %>'>
     <h2><%= @beer.name %></h2>
-  </div>
+    <p><%= raw " <i class='fas fa-star'></i> " * @beer.rating.round %></p>
+    </div>
 
   <div class="beer-map">
       <div id="map" style="height: 350px;" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">

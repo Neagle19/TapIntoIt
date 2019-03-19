@@ -3,8 +3,8 @@
   text-align: center;
 }
 .beer-cards {
-  margin-right: 100px;
-  margin-left: 100px;
+  margin-right: 10px;
+  margin-left: 10px;
   display: flex;
   align-items: center;
   flex-wrap: wrap;
@@ -44,6 +44,12 @@
   bottom: 10px;
   font-size: 30px;
   font-weight: 300;
+  p {
+    font-size: 20px;
+    margin-bottom: 0;
+    margin-top: 0;
+    text-align: left;
+  }
 }
 
 .beer-card-alcohol {
@@ -141,6 +147,19 @@
   font-size: 45px;
   text-align: center;
   margin: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  p {
+    margin: 0;
+    margin-left: 10px;
+    font-size: 30px;
+  }
+  h2 {
+    margin-bottom: 0;
+    margin-right: 10px;
+  }
+
 }
 
 .beer-review-title {

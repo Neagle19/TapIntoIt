@@ -1,4 +1,4 @@
-<% if current_user.admin? %>
+<% if user_signed_in? && current_user.admin? %>
   <%= render 'brewer_profile.html.erb' %>
 <% else %>
   <%= render 'user_profile.html.erb' %>

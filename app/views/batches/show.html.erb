@@ -23,6 +23,7 @@
 <%= link_to "View all batches for this beer", beer_batches_path(@batch.beer), class: 'go-to-beers-btn' %>
 <%= link_to "Go back to beer", beer_path(@batch.beer), class: 'go-to-beers-btn' %>
 <%= link_to "Go to this beer's brewery", brewery_path(@batch.brewery), class: 'go-to-beers-btn' %><br><br><br>
+<%= link_to "Add review", new_beer_batch_review_batch_path(@beer.id, @batch.id), class: 'go-to-beers-btn'%>
 
 
 
@@ -38,5 +39,5 @@
 </div>
 
 
-<%= link_to "Add review", new_beer_batch_review_batch_path(@beer.id, @batch.id), class: 'add-review-beer-btn'%>
+
 

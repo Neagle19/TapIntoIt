@@ -1,11 +1,16 @@
 <style>
   <% if request.path == root_path %>
+      .containter-footer {
+        position: absolute !important;
+        bottom: 0 !important;
+      }
       .container-footer a {
         color: white !important;
       }
       body {
       position: static;
-    }
+      }
+
     <% else %>
       .container-footer a {
         color: black !important;
