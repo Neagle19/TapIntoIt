@@ -21,82 +21,82 @@
         <p><b>Contact me at:</b> <%= @user.email %></p>
 
         <% if current_user == @user %>
-        <div class="center-self">
-          <%= link_to "Edit info",edit_user_registration_path,class: "edit-profile-btn btn-profile" %>
-        </div>
+          <div class="center-self">
+            <%= link_to "Edit info",edit_user_registration_path,class: "edit-profile-btn btn-profile" %>
+          </div>
         <% end %>
       <% if user_signed_in? && current_user != @user %>
-      <div class="friend-btn-container">
-        <% if !@connection %>
-        <i class="fas fa-user-plus"></i><%= link_to "Add Friend", add_friend_path(@user.id)%>
-        <% elsif @connection %>
-        <p>Friends</p><i class="fas fa-check"></i>
-        <% end %>
-      </div>
+        <div class="friend-btn-container">
+          <% if !@connection %>
+          <i class="fas fa-user-plus"></i><%= link_to "Add Friend", add_friend_path(@user.id)%>
+          <% elsif @connection %>
+          <p>Friends</p><i class="fas fa-check"></i>
+          <% end %>
+        </div>
       <% end %>
-      </div>
+    </div>
 
     </div>
     <div class="col-xs-12 col-md-3 marg-bot">
       <h2>Recent reviews</h2>
-      <%= if !@posts.nil? %>
-      <% @posts.each do |post| %>
-      <div class="wrapper-post">
-        <div class="box-post">
-          <div class="info-post">
-            <%= cl_image_tag post.user.photo, class: "avatar-post"%>
-            <% if current_user != @user %>
-            <%= link_to like_path(post.id), remote: true do %>
-            <div class="likes<%= check_liked(post) %>", data-div="<%= post.id %>", id="likes-hidden-<%= post.id %>">
-              <p id="likes-count-<%= post.id %>"><%= post.like_batches.all.count %></p><i class="far fa-thumbs-up"></i> <!-- Set here that if you liked it it displays solid thumb -->
-            </div>
-            <% end %>
-            <% else %>
-            <div class="likes">
-              <p><%= post.like_batches.all.count %></p><i class="far fa-thumbs-up"></i> <!-- Set here that if you liked it it displays solid thumb -->
-            </div>
-            <% end %>
+      <% if !@posts.nil? %>
+        <% @posts.each do |post| %>
+          <div class="wrapper-post">
+            <div class="box-post">
+              <div class="info-post">
+                <%= cl_image_tag post.user.photo, class: "avatar-post"%>
+                <% if current_user != @user %>
+                  <%= link_to like_path(post.id), remote: true do %>
+                    <div class="likes<%= check_liked(post) %>", data-div="<%= post.id %>", id="likes-hidden-<%= post.id %>">
+                      <p id="likes-count-<%= post.id %>"><%= post.like_batches.all.count %></p><i class="far fa-thumbs-up"></i> <!-- Set here that if you liked it it displays solid thumb -->
+                    </div>
+                  <% end %>
+                <% else %>
+                  <div class="likes">
+                    <p><%= post.like_batches.all.count %></p><i class="far fa-thumbs-up"></i> <!-- Set here that if you liked it it displays solid thumb -->
+                  </div>
+                <% end %>
 
-            <div class="comments-profile">
-              <p><%= post.comment_batches.all.count %></p><i class="far fa-comment-dots"></i>
+                <div class="comments-profile">
+                  <p><%= post.comment_batches.all.count %></p><i class="far fa-comment-dots"></i>
+                </div>
+              </div>
+              <div class="big-content-post">
+                <div class="title-post">
+                  <%= raw " <i class='fas fa-star'></i> " * post.rating.round %><br>
+                  <%= post.batch.beer.name %>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="big-content-post">
-            <div class="title-post">
-              <%= raw " <i class='fas fa-star'></i> " * post.rating.round %><br>
-              <%= post.batch.beer.name %>
-            </div>
-          </div>
-        </div>
-      </div>
-      <% end %>
+        <% end %>
       <% else %>
-      <div class="wrapper-post">
-        <div class="box-post">
-          <p>No reviews yet</p>
+        <div class="wrapper-post">
+          <div class="box-post">
+            <p>No reviews yet</p>
+          </div>
         </div>
-      </div>
       <% end %>
 
     </div>
     <% if current_user == @user %>
-    <div class="col-xs-12 col-md-3 marg-bot">
-    <h2>Friend Finder</h2>
-      <!-- Below is the container to find other people -->
-      <div class="search-friends-container">
-        <%= simple_form_for(User.new, method: :post, url: show_with_username_path) do |f| %>
-        <%= f.input :username, collection: @all_names %>
-        <%= f.button :submit, value: "Go to profile" %>
-        <% end %>
+      <div class="col-xs-12 col-md-3 marg-bot">
+        <h2>Friend Finder</h2>
+        <!-- Below is the container to find other people -->
+        <div class="search-friends-container">
+          <%= simple_form_for(User.new, method: :post, url: show_with_username_path) do |f| %>
+          <%= f.input :username, collection: @all_names %>
+          <%= f.button :submit, value: "Go to profile" %>
+          <% end %>
+        </div>
+        <div class="profile-numbers">
+          <ul class="numbers-ul">
+            <li class="user-numbers">#Friends: <%= @friends_count %></li>
+            <li class="user-numbers">#Reviewed Batches: <%= @review_batches %></li>
+            <li class="user-numbers">#Reviewed Breweries: <%= @review_breweries %></li>
+          </ul>
+        </div>
       </div>
-      <div class="profile-numbers">
-        <ul class="numbers-ul">
-          <li class="user-numbers">#Friends: <%= @friends_count %></li>
-          <li class="user-numbers">#Reviewed Batches: <%= @review_batches %></li>
-          <li class="user-numbers">#Reviewed Breweries: <%= @review_breweries %></li>
-        </ul>
-      </div>
-    </div>
     <% else %>
       <div class="col-xs-12 col-md-3 marg-bot">
         <% @top3_beers.each do |beer| %>
