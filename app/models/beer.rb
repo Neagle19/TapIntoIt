@@ -21,4 +21,12 @@ class Beer < ApplicationRecord
     using: {
       tsearch: { prefix: true }
     }
+
+  def rating
+    ratings = review_beers.pluck(:rating).flatten
+    return 0 if ratings.blank?
+    avg = ratings.sum / ratings.size.to_f
+  end
+
+  # scope :by_rating, ->(rating) { where("rating >= ?", rating) }
 end
