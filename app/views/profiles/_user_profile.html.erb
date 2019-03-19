@@ -1,9 +1,9 @@
 <% def check_liked(post) %>
-<% if LikeBatch.where(user: current_user, review_batch: post).count.zero? %>
-<% return "" %>
-<% else %>
-<% return " liked" %>
-<% end %>
+  <% if LikeBatch.where(user: current_user, review_batch: post).count.zero? %>
+    <% return "" %>
+  <% else %>
+    <% return " liked" %>
+  <% end %>
 <% end %>
 
 
@@ -11,6 +11,7 @@
 <div class="container-profile">
   <div class="row">
     <div class="col-xs-12 col-md-6 marg-bot">
+      <h2>Profile info</h2>
       <div class="profile-info">
         <%= cl_image_tag @user.photo, class: "avatar" %>
         <p class="profile-name"><b>Name:</b> <%= @user.first_name %> <%= @user.last_name %></p>
@@ -37,6 +38,7 @@
 
     </div>
     <div class="col-xs-12 col-md-3 marg-bot">
+      <h2>Recent reviews</h2>
       <% @posts.each do |post| %>
       <div class="wrapper-post">
         <div class="box-post">
@@ -69,10 +71,10 @@
       <% end %>
     </div>
     <% if current_user == @user %>
+    <h2>Friend Finder</h2>
     <div class="col-xs-12 col-md-3 marg-bot">
       <!-- Below is the container to find other people -->
       <div class="search-friends-container">
-        <h3>Search other Drinkers</h3>
         <%= simple_form_for(User.new, method: :post, url: show_with_username_path) do |f| %>
         <%= f.input :username, collection: @all_names %>
         <%= f.button :submit, value: "Go to profile" %>
@@ -86,6 +88,29 @@
         </ul>
       </div>
     </div>
+    <% else %>
+      <div class="col-xs-12 col-md-3 marg-bot">
+        <% @top3_beers.each do |beer| %>
+          <%= link_to beer_path(beer) do %>
+            <div class="beer-card">
+              <div class="beer-card-body" style="background-image: linear-gradient(-150deg, rgba(0,101,168,0.2) 0%, rgba(0,36,61,0.3) 80%), url(<%= cl_image_path(beer.photo) %>">
+                <div class="beer-card-link">
+                  <div class="beer-card-name">
+                    <p><%= raw " <i class='fas fa-star'></i> " * beer.rating.round %></p>
+                    <%= beer.name %>
+                  </div>
+                  <div class="beer-card-alcohol">
+                    <%= beer.alcohol_percentage %>%<br>
+                  </div>
+                  <div class="beer-card-brewery">
+                    <%= beer.brewery.name %><br>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
     <% end %>
   </div>
 </div>
