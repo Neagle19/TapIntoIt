@@ -44,37 +44,37 @@ user123 = User.create!(
   #remote_photo_url: 'https://res.cloudinary.com/discwhk4f/image/upload/v1551781659/wx0p5qp2g5obwlw8evau.jpg')
 
 
-brewery = Brewery.create([{ name: 'BrewDog', remote_photo_url: 'https://res.cloudinary.com/discwhk4f/image/upload/v1552399282/bangor_beer_co.png', address: "20, Putterie, 1000 Bruxelles", description: "No-nonsense chain bar specialising in the Scottish brewery's craft beers, with regular guest brews.
-", email: "brusselsbar10@brewdog2.com", phone_number: "867-5309", user: user123 }, { name: 'Brussels Beer Project', remote_photo_url: 'https://res.cloudinary.com/discwhk4f/image/upload/v1552399310/Battery_Steele.jpg', address: "20, Putterie, 1000 Bruxelles", description: "No-nonsense chain bar specialising in the Scottish brewery's craft beers, with regular guest brews.
-", email: "brusselsbar@bbp.com", phone_number: "867-5309", user: roman }, { name: "Roman's Bar", remote_photo_url: 'https://res.cloudinary.com/discwhk4f/image/upload/v1552399333/Mason_s_Brewing.jpg', address: "20, Putterie, 1000 Bruxelles", description: "No-nonsense chain bar specialising in the Scottish brewery's craft beers, with regular guest brews.
-", email: "brussels1@bre111wdog.com", phone_number: "867-5309", user: user123 }])
+# brewery = Brewery.create([{ name: 'BrewDog', remote_photo_url: 'https://res.cloudinary.com/discwhk4f/image/upload/v1552399282/bangor_beer_co.png', address: "20, Putterie, 1000 Bruxelles", description: "No-nonsense chain bar specialising in the Scottish brewery's craft beers, with regular guest brews.
+# ", email: "brusselsbar10@brewdog2.com", phone_number: "867-5309", user: user123 }, { name: 'Brussels Beer Project', remote_photo_url: 'https://res.cloudinary.com/discwhk4f/image/upload/v1552399310/Battery_Steele.jpg', address: "20, Putterie, 1000 Bruxelles", description: "No-nonsense chain bar specialising in the Scottish brewery's craft beers, with regular guest brews.
+# ", email: "brusselsbar@bbp.com", phone_number: "867-5309", user: roman }, { name: "Roman's Bar", remote_photo_url: 'https://res.cloudinary.com/discwhk4f/image/upload/v1552399333/Mason_s_Brewing.jpg', address: "20, Putterie, 1000 Bruxelles", description: "No-nonsense chain bar specialising in the Scottish brewery's craft beers, with regular guest brews.
+# ", email: "brussels1@bre111wdog.com", phone_number: "867-5309", user: user123 }])
 
-url_stock_photo = [
-"https://res.cloudinary.com/discwhk4f/image/upload/v1552315324/426624_1200x1200.jpg",
-"https://res.cloudinary.com/discwhk4f/image/upload/v1552315605/OSH-Low-Alcohol-Lifestyle-1.jpg",
-"https://res.cloudinary.com/discwhk4f/image/upload/v1552315497/aHR0cDovL3d3dy5saXZlc2NpZW5jZS5jb20vaW1hZ2VzL2kvMDAwLzA3OC81MzQvb3JpZ2luYWwvYXNzb3J0ZWQtYmVlci1mbGlnaHQuanBlZw.jpg"
-]
+# url_stock_photo = [
+# "https://res.cloudinary.com/discwhk4f/image/upload/v1552315324/426624_1200x1200.jpg",
+# "https://res.cloudinary.com/discwhk4f/image/upload/v1552315605/OSH-Low-Alcohol-Lifestyle-1.jpg",
+# "https://res.cloudinary.com/discwhk4f/image/upload/v1552315497/aHR0cDovL3d3dy5saXZlc2NpZW5jZS5jb20vaW1hZ2VzL2kvMDAwLzA3OC81MzQvb3JpZ2luYWwvYXNzb3J0ZWQtYmVlci1mbGlnaHQuanBlZw.jpg"
+# ]
 
-url_user_beer_photo = [
-"https://res.cloudinary.com/discwhk4f/image/upload/v1552315359/Cerverja_Brahma__28tamanhos_29.jpg",
-"https://res.cloudinary.com/discwhk4f/image/upload/v1552315408/Mexican-beer.jpg",
-"https://res.cloudinary.com/discwhk4f/image/upload/v1552315965/19-beer-and-microbrewery-tour.jpg",
-"https://res.cloudinary.com/discwhk4f/image/upload/v1552315881/D0qvEOyW0AAckw5.jpg"
-]
+# url_user_beer_photo = [
+# "https://res.cloudinary.com/discwhk4f/image/upload/v1552315359/Cerverja_Brahma__28tamanhos_29.jpg",
+# "https://res.cloudinary.com/discwhk4f/image/upload/v1552315408/Mexican-beer.jpg",
+# "https://res.cloudinary.com/discwhk4f/image/upload/v1552315965/19-beer-and-microbrewery-tour.jpg",
+# "https://res.cloudinary.com/discwhk4f/image/upload/v1552315881/D0qvEOyW0AAckw5.jpg"
+# ]
 
-url_brewery_photo = [
-"https://res.cloudinary.com/discwhk4f/image/upload/v1552399282/bangor_beer_co.png",
-"https://res.cloudinary.com/discwhk4f/image/upload/v1552399310/Battery_Steele.jpg",
-"https://res.cloudinary.com/discwhk4f/image/upload/v1552399333/Mason_s_Brewing.jpg",
-"https://res.cloudinary.com/discwhk4f/image/upload/v1552399339/Orono_Brewing.png",
-"https://res.cloudinary.com/discwhk4f/image/upload/v1552399352/Tumbledown.jpg"
-]
+# url_brewery_photo = [
+# "https://res.cloudinary.com/discwhk4f/image/upload/v1552399282/bangor_beer_co.png",
+# "https://res.cloudinary.com/discwhk4f/image/upload/v1552399310/Battery_Steele.jpg",
+# "https://res.cloudinary.com/discwhk4f/image/upload/v1552399333/Mason_s_Brewing.jpg",
+# "https://res.cloudinary.com/discwhk4f/image/upload/v1552399339/Orono_Brewing.png",
+# "https://res.cloudinary.com/discwhk4f/image/upload/v1552399352/Tumbledown.jpg"
+# ]
 
-review_contents = [
-  "Well I did kinda liked this one!",
-  "Wow what a taste!!!",
-  "Only drinking this beer to make room in my fridge..."
-]
+# review_contents = [
+#   "Well I did kinda liked this one!",
+#   "Wow what a taste!!!",
+#   "Only drinking this beer to make room in my fridge..."
+# ]
 
 ## Breweries from tasting ##
 
@@ -395,7 +395,7 @@ revew_jungle_joy = ReviewBatch.create!(
   )
 
 review_baby_lone = ReviewBatch.create!(
-  content: "Donker amberkleurig. Smells funky, roasting and “uplifting”. It tastes strong, not my thing",
+  content: "Dark amber color. Smells funky, roasting and “uplifting”. It tastes strong, not my thing",
   rating: 3,
   batch: batch1_baby_lone,
   user: roman
