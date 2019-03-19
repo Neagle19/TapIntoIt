@@ -23,20 +23,20 @@
   <div class="add-new-beer-btn">
       <%= link_to "Add a new beer", new_beer_path %>
   </div>
-  <div class="beers-brewer-profile-page">
+  <div class="beers-brewer-profile-page-container">
     <% @beers.each do |beer| %>
-    <div class="beer-brewer">
+    <div class="beer-brewer-cards">
       <%= link_to beer_path(beer) do %>
-        <div class="beer-card">
-          <div class="beer-card-body" style="background-image: linear-gradient(-150deg, rgba(0,101,168,0.2) 0%, rgba(0,36,61,0.3) 80%), url(<%= cl_image_path(beer.photo) %>">
-            <div class="beer-card-link">
-              <div class="beer-card-name">
+        <div class="brewer-beer-card">
+          <div class="brewer-beer-card-body" style="background-image: linear-gradient(-150deg, rgba(0,101,168,0.2) 0%, rgba(0,36,61,0.3) 80%), url(<%= cl_image_path(beer.photo) %>">
+            <div class="brewer-beer-card-link">
+              <div class="brewer-beer-card-name">
                 <%= beer.name %><br>
               </div>
-              <div class="beer-card-alcohol">
+              <div class="brewer-beer-card-alcohol">
                 <%= beer.alcohol_percentage %>%<br>
               </div>
-              <div class="beer-card-brewery">
+              <div class="brewer-beer-card-brewery">
                 <%= beer.brewery.name %><br>
               </div>
             </div>

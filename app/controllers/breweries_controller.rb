@@ -49,6 +49,7 @@ class BreweriesController < ApplicationController
   def show
     @brewery = Brewery.find(params[:id])
     @breweries = Brewery.where.not(latitude: nil, longitude: nil)
+    @beers = Beer.where(brewery_id: @brewery.id)
     # @markers = @breweries.where.not(latitude: nil, longitude: nil).map do |brewery|
     #   {
     #     lng: brewery.longitude,
@@ -107,7 +108,7 @@ class BreweriesController < ApplicationController
   def brewery_params
     params
       .require(:brewery)
-      .permit(:name, :address, :email, :phone_number, :photo, :description, :search)
+      .permit(:name, :address, :email, :phone_number, :photo, :description, :search, :website)
       .merge(user: current_user)
   end
 
