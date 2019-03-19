@@ -18,6 +18,7 @@ module TapIntoIt
     config.load_defaults 5.2
     config.action_mailer.delivery_method = :postmark
     config.action_mailer.postmark_settings = { :api_token => ENV["POST_TOK"] }
+    config.action_mailer.default_url_options = { host: "tapintoit.me" }
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
