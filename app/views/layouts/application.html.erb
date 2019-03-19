@@ -16,10 +16,27 @@
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
   <body>
-    <%= render 'shared/navbar/navbar' %>
-    <%= yield %>
-    <%= javascript_include_tag 'application' %>
-    <%= javascript_pack_tag 'application' %>
-    <%= render 'footer/footer' %>
+    <% if current_page?(root_path) %>
+    <style>
+      .container-footer {
+        position: absolute;
+      }
+    </style>
+      <%= render 'shared/navbar/navbar' %>
+      <%= yield %>
+      <%= javascript_include_tag 'application' %>
+      <%= javascript_pack_tag 'application' %>
+      <%= render 'footer/footer' %>
+    <% else %>
+      <div class="page-wrapper">
+        <%= render 'shared/navbar/navbar' %>
+        <div class="page-content">
+          <%= yield %>
+        </div>
+        <%= javascript_include_tag 'application' %>
+        <%= javascript_pack_tag 'application' %>
+        <%= render 'footer/footer' %>
+      </div>
+    <% end %>
   </body>
 </html>
