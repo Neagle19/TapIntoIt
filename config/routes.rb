@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get 'accept_friend/:id', to: 'friend_connections#accept_friend', as: 'accept_friend'
 
   root to: 'pages#landing'
-  get '/like/new/:id', to: 'like_beers#new', as: 'like'
+  get '/like/new/:id', to: 'like_batches#new', as: 'like'
   resources :beers, only: [:index, :show, :new, :create, :update, :edit] do
     resources :review_beers, only: [:new, :create]
     resources :batches, only: [:index, :show, :new, :create] do
@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   resources :breweries, only: [:index, :show, :new, :create, :edit, :update]
   resources :qr_codes, only: [:new, :create, :show]
   get '/checkin/:id', to: 'checkins#create', as: 'checkin'
-  resources :comment_beers, only: [:create]
+  resources :comment_batches, only: [:create]
   #   get 'new', to: 'qr_codes#new'
   #   post 'create', to: 'qr_codes#create'
   # end
