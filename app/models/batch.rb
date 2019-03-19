@@ -6,7 +6,7 @@ class Batch < ApplicationRecord
   validates :brewery, presence: true
   has_many :notif, as: :notifable
   has_many :batches, through: :beer
-  after_create :send_qr
+  # after_create :send_qr
 
   def send_qr
     UserMailer.welcome(self.brewery.user, self.id).deliver_now
