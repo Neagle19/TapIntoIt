@@ -18,9 +18,14 @@ class ProfilesController < ApplicationController
     end
 
     @brewery = Brewery.where(user_id: @user.id)
-    @posts = ReviewBatch.where(user: @user).sort_by{|review| review.created_at}.reverse
+    @posts = ReviewBatch.where(user: @user).sort_by { |review| review.created_at }.reverse
     @all_names = User.all.map { |user| user.username }.sort
-    @all_names.delete(current_user.username)
+    @all_names.delete(current_user.username)  if user_signed_in?
+    @top_posts = @posts.sort_by { |post| post.rating }.reverse.first(3)
+    p @top_posts
+    @top3_beers = []
+    @top_posts.each { |post| @top3_beers.push(post.batch.beer) }
+
   end
 
   def profile_geoloc
