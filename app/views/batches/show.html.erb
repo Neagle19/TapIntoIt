@@ -1,6 +1,7 @@
 <h1>This batch of <%= @batch.beer.name %> was bottled on <%= @batch.bottled_date %> by <%= @batch.brewery.name %>.</h1><br>
+<img src='<%= cl_image_path(@beer.photo) %>' style="height: 350px;">
 <h2>Here is some more information about this batch:</h2><br>
-<li><strong>Description:</strong><%= @batch.description %></li>
+<li><strong>Description: </strong><%= @batch.description %></li>
 <li><strong>Total quantity produced: </strong><%= @batch.quantity %></li><br>
 <h3>Brewing Process:</h3>
 <li><strong>Brewing Start Date: </strong><%= @batch.brewingstart %></li>
