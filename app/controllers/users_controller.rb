@@ -1,4 +1,13 @@
-# class UsersController < ApplicationController
+class UsersController < ApplicationController
+  def index
+    @users = User.all
+
+    respond_to do |format|
+      format.html
+    end
+  end
+end
+
 #   def create
 #     @user = User.new(user_params)
 #     if params[:checkbox]
@@ -17,4 +26,4 @@
 #   def user_params
 #     require..
 #   end
-# end
+
