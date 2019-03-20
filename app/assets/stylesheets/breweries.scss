@@ -1,5 +1,4 @@
 .breweries-title {
-  margin-top: 35px;
   text-align: center;
 }
 .breweries-wrapper {
@@ -50,18 +49,22 @@
   position: absolute;
   left: 10px;
   top: 10px;
+  font-size: 26px;
+  font-weight: 500;
 }
 
 .brewery-card-address {
- position: absolute;
- right: 10px;
- bottom: 10px;
+  font-size: 20px;
+  font-weight: 300;
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  margin-left: 20px;
 }
 
 .simple_form input[type='submit'] {
   margin-bottom: 50px;
 }
-
 
 
 

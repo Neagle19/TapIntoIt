@@ -4,63 +4,158 @@
   <title>We're sorry, but something went wrong (500)</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
-  .rails-default-error-page {
-    background-color: #EFEFEF;
-    color: #2E2F30;
-    text-align: center;
-    font-family: arial, sans-serif;
-    margin: 0;
-  }
+     body{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      height:100vh;
+      overflow:hidden;
+      font-family:'Futura';
+      h1{
+        position:absolute;
+        bottom:20px;
+        z-index:9;
+        color:#000;
+        font-weight:100;
+        font-size:18px;
+      }
+      .post{
+        position:absolute;
+        width:10px;
+        height:100vw;
+        top:calc(50% - 200px);
+        left:calc(50% - 247.5px);
+        z-index:9;
+        border-radius:50px 50px 0 0;
+        box-shadow:inset -0.5px 10px 0 #fff, 0 0 0 2px #000, 2px 0px 0 0 #000;
+        background:linear-gradient(to bottom, transparent 50px, #000 50px, #000 350px, transparent 350px), linear-gradient(to right, #fff, #fff 5px, transparent 5px), repeating-linear-gradient(45deg, #000, #000 2px, #fff 2px, #fff 4px);
+      }
+      .outer{
+        position:absolute;
+        width:820px;
+        height:420px;
+        filter:contrast(200);
+        background:#fff;
+        overflow:hidden;
+        animation:updown 1s ease-in-out infinite alternate;
+        transform-origin:top left;
+        transform-style:preserve-3d;
+        margin-left:160px;
+        @keyframes updown{
+                from{
+                  transform: translateY(-10px);
+                }
+                to{
+                  transform:translateY(10px);
+                }
+              }
 
-  .rails-default-error-page div.dialog {
-    width: 95%;
-    max-width: 33em;
-    margin: 4em auto 0;
-  }
 
-  .rails-default-error-page div.dialog > div {
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #BBB;
-    border-top: #B00100 solid 4px;
-    border-top-left-radius: 9px;
-    border-top-right-radius: 9px;
-    background-color: white;
-    padding: 7px 12% 0;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
-  }
-
-  .rails-default-error-page h1 {
-    font-size: 100%;
-    color: #730E15;
-    line-height: 1.5em;
-  }
-
-  .rails-default-error-page div.dialog > p {
-    margin: 0 0 1em;
-    padding: 1em;
-    background-color: #F7F7F7;
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #999;
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-    border-top-color: #DADADA;
-    color: #666;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
-  }
-  </style>
+      }
+      .wrap{
+        position:absolute;
+        width:calc(100% - 20px);
+        height:calc(100% - 20px);
+        left:10px;
+        top:10px;
+        transform-style:preserve-3d;
+        filter:blur(5px);
+        .error{
+          position:absolute;
+          height:100%;
+          width:30px;
+          will-change:transform;
+          overflow:hidden;
+          background:#222;
+          &:before{
+            content:'500';
+            position:absolute;
+            font-size:140px;
+            top:115px;
+            margin-left:30px;
+            color:#fff;
+          }
+          @for $i from 1 through 50{
+            &:nth-of-type(#{$i}){
+              left:#{($i - 1) * 10}px;
+              animation:wave 1s ease-in-out infinite alternate;
+              animation-delay:#{$i/-20}s;
+    clip-path: polygon(#{$i * 0.75%} #{$i * 1%}, #{$i * 0.75%} #{100% - ($i * 1%)}, 100% 50%);
+              &:before{
+                left:#{($i - 1) * -10}px;
+              }
+              @keyframes wave{
+                from{
+                  transform:skewY(-10deg) translateY(10px);
+                }
+                to{
+                  transform:skewY(10deg) translateY(-10px);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
 </head>
 
-<body class="rails-default-error-page">
+<body>
   <!-- This file lives in public/500.html -->
-  <div class="dialog">
-    <div>
-      <h1>We're sorry, but something went wrong.</h1>
+  <h1>everything is terrible</h1>
+  <div class='post'></div>
+  <div class='outer'>
+    <div class='wrap'>
+      <div class='error'></div>
+      <div class='error'></div>
+      <div class='error'></div>
+      <div class='error'></div>
+      <div class='error'></div>
+      <div class='error'></div>
+      <div class='error'></div>
+      <div class='error'></div>
+      <div class='error'></div>
+      <div class='error'></div>
+      <div class='error'></div>
+      <div class='error'></div>
+      <div class='error'></div>
+      <div class='error'></div>
+      <div class='error'></div>
+      <div class='error'></div>
+      <div class='error'></div>
+      <div class='error'></div>
+      <div class='error'></div>
+      <div class='error'></div>
+      <div class='error'></div>
+      <div class='error'></div>
+      <div class='error'></div>
+      <div class='error'></div>
+      <div class='error'></div>
+      <div class='error'></div>
+      <div class='error'></div>
+      <div class='error'></div>
+      <div class='error'></div>
+      <div class='error'></div>
+      <div class='error'></div>
+      <div class='error'></div>
+      <div class='error'></div>
+      <div class='error'></div>
+      <div class='error'></div>
+      <div class='error'></div>
+      <div class='error'></div>
+      <div class='error'></div>
+      <div class='error'></div>
+      <div class='error'></div>
+      <div class='error'></div>
+      <div class='error'></div>
+      <div class='error'></div>
+      <div class='error'></div>
+      <div class='error'></div>
+      <div class='error'></div>
+      <div class='error'></div>
+      <div class='error'></div>
+      <div class='error'></div>
+      <div class='error'></div>
     </div>
-    <p>If you are the application owner check the logs for more information.</p>
   </div>
 </body>
 </html>

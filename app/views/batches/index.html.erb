@@ -1,11 +1,15 @@
-<h1>These are your batches</h1>
+<h1>Here are all batches for <%= @beer.name %>:</h1>
 
-<% @batches.each do |batch| %>
-  <%= link_to beer_batch_path(:beer_id, batch) do %>
-  <%= batch.description %><br>
-  <%= batch.quantity %><br>
-  <%= batch.bottled_date %><br>
+<ul class="list-batch">
+  <% @batches.each do |batch| %>
+    <li class="list-batch-item">
+      <%= link_to beer_batch_path(:beer_id, batch) do %>
+        <p>Beer Name: <%= batch.beer.name %></p>
+        <p>Batch ID: <%= batch.id %></p>
+        <p>Bottled Date: <%= batch.bottled_date %></p>
+      <% end %>
+    </li>
   <% end %>
-<% end %>
+</ul>
 
 <%= link_to "Go back to beer", beer_path(@beer), class: 'go-to-beers-btn' %>
