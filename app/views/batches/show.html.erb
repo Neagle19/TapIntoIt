@@ -19,6 +19,7 @@
 <li><strong><%= @batch.ingredientthree %>: </strong><%= @batch.ingredientthreedesc %></li>
 <li><strong><%= @batch.ingredientfour %>: </strong><%= @batch.ingredientfourdesc %></li><br><br>
 
+<%= line_chart @chart_data %>
 
 <%= link_to "view qr code", qr_code_path(@batch.id), class: 'go-to-beers-btn' %>
 <%= link_to "View all batches for this beer", beer_batches_path(@batch.beer), class: 'go-to-beers-btn' %>

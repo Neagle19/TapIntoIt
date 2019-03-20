@@ -11,4 +11,10 @@ class Batch < ApplicationRecord
   def send_qr
     UserMailer.welcome(self.brewery.user, self.id).deliver_now
   end
+
+  def rating
+    ratings = ReviewBatch.where(batch: self).pluck(:rating)
+    return 0 if ratings.blank?
+    avg = ratings.sum / ratings.size.to_f
+  end
 end
