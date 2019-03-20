@@ -1,7 +1,41 @@
+<div class="wrap-brewery">
 <div class='brewery-title'>
-  <h2><%= @brewery.name %></h2><br>
+  <h2><%= @brewery.name %></h2>
   <h3><%= @brewery.description %></h3>
 </div>
+
+<div class="social-btns">
+  <div class="checkin-wrap">
+    <% if  user_signed_in? && current_user.checkins.where(brewery: @brewery)[0].nil? %>
+      <%= link_to checkin_path(@brewery.id), remote: true do%>
+      <div class="checkin-btn go-to-beers-btn">
+
+        <i class="fas fa-map-marker-alt"></i><p id="not-checked-in" class="not-checked-in nounderline"> Check In</p>
+      </div>
+      <% end %>
+      <% elsif user_signed_in? && !current_user.checkins.where(brewery: @brewery)[0].nil? %>
+      <div class="checkin-btn go-to-beers-btn">
+        <i class="fas fa-map-marker-alt"></i><p id="checked-in" class="checked-in nounderline"> Checked In</p>
+      </div>
+        <% end %>
+    </div>
+  <div class="follow-wrap">
+    <% if  user_signed_in? && current_user.follows.where(brewery: @brewery)[0].nil? %>
+      <%= link_to follow_path(@brewery.id) do%>
+      <div class="follow-btn go-to-beers-btn">
+
+        <p id="not-followed" class="not-followed nounderline"><i class="fas fa-rss-square"></i> Follow</p>
+      </div>
+      <% end %>
+      <% elsif user_signed_in? && !current_user.follows.where(brewery: @brewery)[0].nil? %>
+      <div class="follow-btn go-to-beers-btn">
+        <p id="followed" class="followed nounderline"><i class="fas fa-rss-square"></i> Followed</p>
+      </div>
+        <% end %>
+    </div>
+  </div>
+
+
 
 <div class='brewery-container'>
   <div class='brewery-photo'>
@@ -18,8 +52,8 @@
               <% end %>
   </div>
 
-  <h2>Check all this Brewery's beers</h2>
   <div class="brewery-beers-container">
+  <h2>Check all this Brewery's beers</h2>
     <div class="brewery-child brewery-beer-cards">
       <% @beers.each do |beer| %>
         <%= link_to beer_path(beer) do %>
@@ -39,40 +73,16 @@
       <% end %>
     </div>
   </div>
-</div>
 
-<% if  user_signed_in? && current_user.checkins.where(brewery: @brewery)[0].nil? %>
-  <%= link_to checkin_path(@brewery.id), remote: true do%>
-  <div class="checkin-btn go-to-beers-btn">
 
-    <i class="fas fa-map-marker-alt"></i><p id="not-checked-in" class="not-checked-in"> Check In</p>
+  <div class="back-btn">
+    <%= link_to "Go back to breweries", breweries_path, class: 'go-to-beers-btn' %>
   </div>
-  <% end %>
-  <% elsif user_signed_in? && !current_user.checkins.where(brewery: @brewery)[0].nil? %>
-  <div class="checkin-btn go-to-beers-btn">
-    <i class="fas fa-map-marker-alt"></i><p id="checked-in" class="checked-in"> Checked In</p>
-    <% end %>
-  </div>
-
-<% if  user_signed_in? && current_user.follows.where(brewery: @brewery)[0].nil? %>
-  <%= link_to follow_path(@brewery.id) do%>
-  <div class="follow-btn go-to-beers-btn">
-
-    <p id="not-followed" class="not-followed">Follow</p>
-  </div>
-  <% end %>
-  <% elsif user_signed_in? && !current_user.follows.where(brewery: @brewery)[0].nil? %>
-  <div class="follow-btn go-to-beers-btn">
-    <p id="followed" class="followed">Followed</p>
-    <% end %>
-  </div>
-
-
-  <%= link_to "Go back to breweries", breweries_path, class: 'go-to-beers-btn' %>
 
   <div id="map" style="width: 100vw; height: 350px; margin-top: 90px;" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
 
+</div>
 
 
 
