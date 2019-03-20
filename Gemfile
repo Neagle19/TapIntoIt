@@ -21,6 +21,8 @@ gem 'devise'
 gem 'postmark-rails'
 gem 'letter_opener', group: :development
 
+gem "chartkick"
+gem "groupdate"
 
 gem 'dotenv-rails', groups: [:development, :test]
 

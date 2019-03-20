@@ -7,8 +7,10 @@
     <meta name="description" content="Your premier source of beer knowledge.">
     <meta property="og:title" content="TapIntoIt - Experience your beer">
     <meta property="og:image" content="https://res.cloudinary.com/discwhk4f/image/upload/v1553079101/craft_beer.jpg">
+    <meta property="og:type" content="website">
     <meta property="og:description" content="TapIntoIt is the premier way you can not just drink beer, but experience it.">
-    <meta property="og:site_name" content="TapIntoIt"/>
+    <meta property="og:site_name" content="TapIntoIt">
+    <meta property="og:url" content="<%= request.original_url %>" >
     <%= favicon_link_tag asset_path('logo.png') %>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
@@ -21,6 +23,8 @@
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
   <body>
+        <%= javascript_include_tag 'application' %>
+
     <% if current_page?(root_path) %>
     <style>
       .container-footer {
@@ -29,7 +33,6 @@
     </style>
       <%= render 'shared/navbar/navbar' %>
       <%= yield %>
-      <%= javascript_include_tag 'application' %>
       <%= javascript_pack_tag 'application' %>
       <%= render 'footer/footer' %>
     <% else %>
@@ -38,7 +41,6 @@
         <div class="page-content">
           <%= yield %>
         </div>
-        <%= javascript_include_tag 'application' %>
         <%= javascript_pack_tag 'application' %>
         <%= render 'footer/footer' %>
       </div>

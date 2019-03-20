@@ -1,4 +1,6 @@
 //= require rails-ujs
+//= require Chart.bundle
+//= require chartkick
 //= require_tree .
 
 document.querySelectorAll(".comments").forEach((cmt) => {
@@ -55,5 +57,3 @@ document.querySelectorAll(".only-batches").forEach((cmt) => {
 
   });
 });
-
-
