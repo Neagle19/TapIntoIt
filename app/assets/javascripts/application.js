@@ -56,5 +56,5 @@ document.querySelectorAll(".only-batches").forEach((cmt) => {
   });
 });
 
-require Chart.bundle
-require chartkick
+// require Chart.bundle
+// require chartkick
