@@ -1,6 +1,15 @@
 .brewery-title {
   text-align: center;
   margin-top: 30px;
+  max-width: 400px;
+  h2 {
+    font-size: 30px;
+  }
+  h3 {
+    font-size: 20px;
+    font-weight: 100;
+    margin-top: 30px;
+  }
 }
 
 .brewery-container {
@@ -10,10 +19,27 @@
 
 .brewery-photo {
   margin: 30px;
+  img {
+    height: 60vw;
+    border-radius: 20px;
+  }
+}
+
+.wrap-brewery {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ECECEC;
 }
 
 .show-brewery-card {
+  background-color: #ECECEC;
   align-items: center;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  h4 {
+    margin-bottom: 26px;
+  }
   // display: inline-block;
 }
 
@@ -54,7 +80,7 @@
 
 
 .follow-btn {
-  width:80px;
+  width:100px;
   height:30px;
   align-content:center;
   text-align:center;
@@ -69,24 +95,22 @@
 }
 
 .brewery-beers-container {
-  padding: 1rem;
-  display: flex;
-  text-align: center;
-  overflow-x: scroll;
-  scroll-padding: 0 50%;
-  scroll-snap-type: x mandatory;
+  padding-top: 35px;
 }
 
 .brewery-beer-cards {
-  margin-right: 100px;
-  margin-left: 100px;
+  margin-right: 20px;
+  margin-left: 20px;
+  margin-top: 45px;
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
   font-family: 'Raleway', sans-serif;
   justify-content: center;
   padding-bottom: 40px;
-  scroll-snap-align: center;
+  overflow-x: auto;
+  flex-direction: column;
+  max-height: 400px;
+  flex-wrap: wrap;
 }
 
 .brewery-beer-card {
@@ -102,8 +126,8 @@
   position: relative;
   color: white;
   background-size: cover;
-  width: 150px;
-  height: 250px;
+  width: 250px;
+  height: 350px;
   background-repeat: no-repeat;
   justify-content: flex-start;
   transition: 0.4s ease;
@@ -131,4 +155,23 @@
   right: 10px;
   top: 10px;
   font-weight: 300;
+}
+
+.social-btns {
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+  color: #EAC343;
+}
+
+.checkin-btn, .follow-btn {
+ color: #EAC343;
+ border-color: #EAC343;
+ p:hover {
+  text-decoration: none;
+ }
+}
+
+.nounderline {
+  text-decoration: none !important
 }
