@@ -2,6 +2,10 @@
   <div class='breweries-title'>
     <h2>Breweries Page</h2>
   </div>
+  <div class="wrapper" text-align="center">
+  <div id="map" style="width: 100vw; height: 350px; margin-top: 90px;" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+</div>
+
   <div class='breweries-container'>
     <div class='breweries-cards'>
       <% @breweries.each do |brewery| %>
@@ -26,11 +30,4 @@
       <% end %>
     </div>
   </div>
-</div>
-
-
-
-
-<div class="wrapper" text-align="center">
-  <div id="map" style="width: 100vw; height: 350px; margin-top: 90px;" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 </div>
