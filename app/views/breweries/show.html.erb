@@ -1,8 +1,16 @@
 <div class="wrap-brewery">
-<div class='brewery-title'>
-  <h2><%= @brewery.name %></h2>
-  <h3><%= @brewery.description %></h3>
-</div>
+  <div class="brewery-first-info">
+    <div class='brewery-title'>
+      <h2><%= @brewery.name %></h2>
+    </div>
+
+    <div class='brewery-photo'>
+        <img src='<%= cl_image_path(@brewery.photo) %>' height='500'>
+    </div>
+    <div class="brewery-description">
+      <p><%= @brewery.description %></p>
+    </div>
+  </div>
 
 <div class="social-btns">
   <div class="checkin-wrap">
@@ -34,26 +42,11 @@
         <% end %>
     </div>
   </div>
-
-
-
 <div class='brewery-container'>
-  <div class='brewery-photo'>
-    <img src='<%= cl_image_path(@brewery.photo) %>' height='500'>
-  </div>
-  <div class="show-brewery-card">
-    <h4>Contact Details:</h4>
-    <p><strong>Address: </strong><%= @brewery.address %></p>
-    <p><strong>Phone Number: </strong><%= @brewery.phone_number %></p>
-    <p><strong>Email: </strong><%= @brewery.email %></p>
-    <p><strong><%= link_to "Visit #{@brewery.name}'s Website", "https://www.beerproject.be/en", target: "_blank" %></strong></p>
-     <% if current_user  %>
-                <%= @brewery.distance_from([current_user.lat, current_user.lng]).round(3) %> km
-              <% end %>
-  </div>
-
   <div class="brewery-beers-container">
-  <h2>Check all this Brewery's beers</h2>
+    <div class="brewery-beers-title">
+      <h3>Our Beers</h3>
+    </div>
     <div class="brewery-child brewery-beer-cards">
       <% @beers.each do |beer| %>
         <%= link_to beer_path(beer) do %>
@@ -72,6 +65,20 @@
         <% end %>
       <% end %>
     </div>
+  </div>
+  <div class="show-brewery-card">
+    <div class="brewery-find-title">
+      <h3>Find Us</h3>
+    </div>
+    <div class="brewery-find-description">
+      <%= @brewery.address %><br>
+      <%= @brewery.phone_number %><br>
+      <%= @brewery.email %>
+      <p><strong><%= link_to "Visit our Website", "https://www.beerproject.be/en", target: "_blank" %></strong></p>
+       <% if current_user  %>
+          <%= @brewery.distance_from([current_user.lat, current_user.lng]).round(3) %> km
+        <% end %>
+      </div>
   </div>
 
 
