@@ -10,6 +10,8 @@ import "chartkick";
 // layout file, like app/views/layouts/application.html.erb
 import { growImage } from '../components/grow_image';
 import { initMapbox } from '../plugins/init_mapbox';
+import { showComments } from '../components/comments';
+showComments();
   var x = document.getElementById("demo");
  if(x) {
 
@@ -25,5 +27,56 @@ import { initMapbox } from '../plugins/init_mapbox';
        document.getElementById('lng').parentNode.submit()
         }
    getLocation()
-   }
+   };
 initMapbox();
+
+
+
+// var friends = document.querySelectorAll(".FriendConnection");
+// var checkins = document.querySelectorAll(".Checkin");
+// var batches = document.querySelectorAll(".Batch");
+// var beers = document.querySelectorAll(".Beer");
+
+// document.querySelectorAll(".only-friends").forEach((cmt) => {
+//   cmt.addEventListener("click", (event) => {
+//     console.log(friends)
+//     friends.forEach(function(k){k.classList.remove("hidden")});
+//     checkins.forEach(function(k){k.classList.add("hidden")});
+//     batches.forEach(function(k){k.classList.add("hidden")});
+//     beers.forEach(function(k){k.classList.add("hidden")});
+
+//   });
+// });
+
+// document.querySelectorAll(".only-checkins").forEach((cmt) => {
+//   cmt.addEventListener("click", (event) => {
+//     console.log(friends)
+//     friends.forEach(function(k){k.classList.add("hidden")});
+//     checkins.forEach(function(k){k.classList.remove("hidden")});
+//     batches.forEach(function(k){k.classList.add("hidden")});
+//     beers.forEach(function(k){k.classList.add("hidden")});
+
+//   });
+// });
+
+// document.querySelectorAll(".only-beers").forEach((cmt) => {
+//   cmt.addEventListener("click", (event) => {
+//     console.log(friends)
+//     friends.forEach(function(k){k.classList.add("hidden")});
+//     checkins.forEach(function(k){k.classList.add("hidden")});
+//     batches.forEach(function(k){k.classList.remove("hidden")});
+//     beers.forEach(function(k){k.classList.add("hidden")});
+
+//   });
+// });
+
+// document.querySelectorAll(".only-batches").forEach((cmt) => {
+//   cmt.addEventListener("click", (event) => {
+//     console.log(friends)
+//     friends.forEach(function(k){k.classList.add("hidden")});
+//     checkins.forEach(function(k){k.classList.add("hidden")});
+//     batches.forEach(function(k){k.classList.add("hidden")});
+//     beers.forEach(function(k){k.classList.remove("hidden")});
+
+//   });
+// });
