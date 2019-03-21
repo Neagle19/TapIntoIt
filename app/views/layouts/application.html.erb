@@ -34,6 +34,7 @@
     </style>
       <%= render 'shared/navbar/navbar' %>
       <%= yield %>
+      <%= javascript_pack_tag 'application' %>
       <%= render 'footer/footer' %>
     <% else %>
       <div class="page-wrapper">
