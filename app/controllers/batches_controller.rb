@@ -14,7 +14,10 @@ class BatchesController < ApplicationController
     @review_batches = ReviewBatch.where(batch_id: @batch.id)
     @beer = @batch.beer
 
-    data = @beer.batches.map { |batch| { batch.bottled_date => batch.review_batches.first&.rating.to_i }}
+    ratings = ReviewBatch.where(batch: self).pluck(:rating)
+    return 0 if ratings.blank?
+    avg = ratings.sum / ratings.size.to_f
+    data = @beer.batches.map { |batch| { batch.bottled_date => batch.avg }}
     @chart_data = data.inject(:merge)
   end
 
@@ -34,9 +37,9 @@ class BatchesController < ApplicationController
     end
   end
 
-  def show_graph
-    render json: ReviewBatch.rating.group_by_day(:created_at).count
-  end
+  # def show_graph
+  #   render json: ReviewBatch.rating.group_by_day(:created_at).count
+  # end
 
   private
 

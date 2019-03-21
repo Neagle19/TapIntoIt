@@ -1,31 +1,48 @@
-<h1>This batch of <%= @batch.beer.name %> was bottled on <%= @batch.bottled_date %> by <%= @batch.brewery.name %>.</h1><br>
-<img src='<%= cl_image_path(@beer.photo) %>' style="height: 350px;">
-<h2>Here is some more information about this batch:</h2><br>
-<li><strong>Description: </strong><%= @batch.description %></li>
-<li><strong>Total quantity produced: </strong><%= @batch.quantity %></li><br>
-<h3>Brewing Process:</h3>
-<li><strong>Brewing Start Date: </strong><%= @batch.brewingstart %></li>
-<li><strong><%= @batch.stepone %>: </strong><%= @batch.steponedescription %></li>
-<li><strong><%= @batch.steptwo %>: </strong><%= @batch.steptwodescription %></li>
-<li><strong><%= @batch.stepthree %>: </strong><%= @batch.stepthreedescription %></li>
-<li><strong><%= @batch.stepfour %>: </strong><%= @batch.stepfourdescription %></li>
-<li><strong><%= @batch.stepfive %>: </strong><%= @batch.stepfivedescription %></li>
-<li><strong><%= @batch.stepsix %>: </strong><%= @batch.stepsixdescription %></li>
-<li><strong><%= @batch.stepseven %>: </strong><%= @batch.stepsevendescription %></li>
-<li><strong> Bottling: </strong><%= @batch.bottled_date %></li><br>
-<h3>Primary Ingredients:</h3>
-<li><strong><%= @batch.ingredientone %>: </strong><%= @batch.ingredientonedesc %></li>
-<li><strong><%= @batch.ingredienttwo %>: </strong><%= @batch.ingredienttwodesc %></li>
-<li><strong><%= @batch.ingredientthree %>: </strong><%= @batch.ingredientthreedesc %></li>
-<li><strong><%= @batch.ingredientfour %>: </strong><%= @batch.ingredientfourdesc %></li><br><br>
+<div>
+  <img class="beer-photo-on-batch" src='<%= cl_image_path(@beer.photo) %>' style="height: 350px; display: flex; flex-direction: row; align-items: center;">
+</div>
+<div class="batch-title">
+  <h1><%= @batch.beer.name %></h1>
+</div>
 
-<%= line_chart @chart_data %>
+<div class="under-title">
+  <p>Your beer was bottled on <strong><%= @batch.bottled_date.strftime("%B %d, %Y") %></strong> by <strong><%= @batch.brewery.name %>.</strong></p><br>
+</div>
 
-<%= link_to "view qr code", qr_code_path(@batch.id), class: 'go-to-beers-btn' %>
-<%= link_to "View all batches for this beer", beer_batches_path(@batch.beer), class: 'go-to-beers-btn' %>
-<%= link_to "Go back to beer", beer_path(@batch.beer), class: 'go-to-beers-btn' %>
-<%= link_to "Go to this beer's brewery", brewery_path(@batch.brewery), class: 'go-to-beers-btn' %><br><br><br>
-<%= link_to "Add review", new_beer_batch_review_batch_path(@beer.id, @batch.id), class: 'go-to-beers-btn'%>
+<!-- <h2>Your beer's brewing process:</h2><br>
+<li><strong>Description: </strong><%= @batch.description %></li> -->
+<div class="batch-info">
+  <div class="batch-info-titles">
+    <h3>Primary Ingredients</h3>
+  </div>
+  <div class="batch-list">
+  <p><strong><i class="fas fa-tint"></i> <%= @batch.ingredientone %> </strong><br><%= @batch.ingredientonedesc %>🇧🇪<br></p>
+  <p><strong><i class="fas fa-seedling"></i> <%= @batch.ingredienttwo %> </strong><br><%= @batch.ingredienttwodesc %>🇩🇪<br></p>
+  <p><strong><i class="fas fa-spa"></i> <%= @batch.ingredientthree %> </strong><br><%= @batch.ingredientthreedesc %>🇺🇸<br></p>
+  <p><strong><i class="fas fa-bread-slice"></i> <%= @batch.ingredientfour %> </strong><br><%= @batch.ingredientfourdesc %>🇺🇸<br><br></p>
+  </div>
+  <div class="batch-info-titles">
+    <h3>Brewing Process</h3>
+  </div>
+  <div class=batch-brewing-info>
+  <p><strong>Brewing Start Date: </strong><%= @batch.brewingstart.strftime("%B %d, %Y") %><br><br></p>
+  <p><strong>1. <%= @batch.stepone %>: </strong><br><%= @batch.steponedescription %><br></p>
+  <p><strong>2. <%= @batch.steptwo %>: </strong><br><%= @batch.steptwodescription %><br></p>
+  <p><strong>3. <%= @batch.stepthree %>: </strong><br><%= @batch.stepthreedescription %><br></p>
+  <p><strong>4. <%= @batch.stepfour %>: </strong><br><%= @batch.stepfourdescription %><br></p>
+  <p><strong>5. <%= @batch.stepfive %>: </strong><br><%= @batch.stepfivedescription %><br></p>
+  <p><strong>6. <%= @batch.stepsix %>: </strong><br><%= @batch.stepsixdescription %><br></p>
+  <p><strong>7. <%= @batch.stepseven %>: </strong><br><%= @batch.stepsevendescription %>.<br><br></p>
+  <p><strong>Total Quantity Produced: </strong><%= @batch.quantity %><br></p>
+  <p><strong> Date of Bottling: </strong><%= @batch.bottled_date.strftime("%B %d, %Y") %><br><br></p>
+  </div>
+</div>
+
+
+<div class="links-at-bottom">
+  <%= link_to "Browse the brewery", brewery_path(@batch.brewery), class: 'go-to-beers-btn' %>
+  <%= link_to "Add a review", new_beer_batch_review_batch_path(@beer.id, @batch.id), class: 'go-to-beers-btn'%><br><br>
+</div>
 
 
 
