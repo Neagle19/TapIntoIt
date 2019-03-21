@@ -107,7 +107,7 @@
     </div>
     <% if current_user == @user %>
       <div class="col-xs-12 col-md-3 marg-bot">
-        
+
         <div class="find-friends-title">
           <h2>Find your friends</h2>
         </div>
@@ -130,9 +130,6 @@
                   <div class="beer-card-name">
                     <p><%= raw " <i class='fas fa-star'></i> " * beer.rating.round %></p>
                     <%= beer.name %>
-                  </div>
-                  <div class="beer-card-alcohol">
-                    <%= beer.alcohol_percentage %>%<br>
                   </div>
                   <div class="beer-card-brewery">
                     <%= beer.brewery.name %><br>

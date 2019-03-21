@@ -2,9 +2,6 @@
   <div class='breweries-title'>
     <h2>Breweries </h2>
   </div>
-  <div class="wrapper" text-align="center">
-  <div id="map" style="width: 100vw; height: 350px; margin-top: 90px;" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-</div>
 
   <div class='breweries-container'>
     <div class='breweries-cards'>
@@ -15,15 +12,6 @@
             <div class='brewery-card-name'>
               <%= brewery.name %>
             </div>
-           <!--  <div class='brewery-card-description'>
-              <%= brewery.description %>
-            </div> -->
-            <!-- <div class='brewery-card-address'>
-              <%= brewery.address %><br>
-              <% if current_user  %>
-                <%= brewery.distance_from([current_user.lat, current_user.lng]).round(2) %> km away
-              <% end %>
-            </div> -->
           </div>
         </div>
         <% end %>
@@ -39,7 +27,8 @@
   <div class='map-title'>
     <h2>Breweries Nearby </h2>
   </div>
-  <div id="map" style="width: 100vw; height: 350px; margin-top: 90px;" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+  <div id="map" style="width: 100vw; height: 350px; margin-top: 90px;" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
 </div>
 
 
