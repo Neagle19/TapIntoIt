@@ -230,11 +230,12 @@
 .beer-title-header {
 
     border-bottom: 2px solid black;
-    margin: 30px 10px 40px;
+    margin: 30px 30px 40px 30px;
 
     h2 {
       font-weight: 500;
       font-size: 30px;
       color: black;
+      border-bottom-width: 2px;
     }
 }
