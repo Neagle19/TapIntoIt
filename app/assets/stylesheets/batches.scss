@@ -11,7 +11,14 @@
   text-align: center;
   border-bottom: 2px solid black;
   padding: 10px;
-  margin: 20px;
+  margin-bottom: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: -35px;
+}
+
+.go-to-beers-btn {
+  color: black !important;
 }
 
 .under-title {
@@ -20,8 +27,17 @@
   margin: 20px;
 }
 
+.batch-show-photo {
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .beer-photo-on-batch {
-  border-radius: 7px;
+  width: 75vw;
+  box-shadow: 1px 1px 2.4px gray;
+  border-radius: 2px;
 }
 
 .batch-info-titles {
