@@ -39,13 +39,23 @@
   <div id="map" style="height: 350px;" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
 </div>
-<div class="redirect-btns">
+<div class="redirect-btns rows">
+  <div class="adoptedlink col-sm-3 col-xs-3" >
   <%= link_to "Go back to beers", beers_path, class: 'go-to-beers-btn' %>
-  <% if user_signed_in? && current_user.admin? %>
-    <%= link_to "Edit this beer", edit_beer_path(@beer.id), class: 'go-to-beers-btn' %>
-    <%= link_to "Create a new batch", new_beer_batch_path(@beer), class: 'go-to-beers-btn' %>
-    <%= link_to "All the batches from this beer", beer_batches_path(@beer), class: 'go-to-beers-btn' %>
-  <% end %>
 </div>
+  <% if user_signed_in? && current_user.admin? %>
+  <div class="adoptedlink col-sm-3 col-xs-3" >
+    <%= link_to "Edit this beer", edit_beer_path(@beer.id), class: 'go-to-beers-btn' %>
+  </div>
+  <div class="adoptedlink col-sm-6 col-xs-6" >
+    <%= link_to "Create a new batch", new_beer_batch_path(@beer), class: 'go-to-beers-btn' %>
+  </div>
+  <div class="adoptedlink col-sm-6 col-xs-6" >
+    <%= link_to "All batches", beer_batches_path(@beer), class: 'go-to-beers-btn' %>
+  </div>
+  <% end %>
+
+</div>
+
 <!-- && current_user.id == @beer.brewery_id
  -->

@@ -182,8 +182,7 @@
 .redirect-btns{
   align-content:center;
   align-self:center;
-  margin-bottom:20px;
-  margin-top: 20px !important;
+  margin: auto 20px;
   a.hover {
     color: black;
     opacity: 50%;
@@ -238,4 +237,7 @@
       color: black;
       border-bottom-width: 2px;
     }
+.adoptedlink {
+  width: 160px;
+  height: 50px;
 }
