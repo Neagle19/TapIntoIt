@@ -1,14 +1,63 @@
+@mixin flag-bel() {
+  @include ratio(13 / 15);
+  $black: #000;
+  $yellow: #FFE936;
+  $red: #FF0F21;
+
+  @include three-columns($black, $yellow, $red);
+};
+
+.batch-title {
+  text-align: center;
+  border-bottom: 2px solid black;
+  padding: 10px;
+  margin: 20px;
+}
+
+.under-title {
+  text-align: center;
+  padding: 10px;
+  margin: 20px;
+}
+
+.beer-photo-on-batch {
+  border-radius: 7px;
+}
+
+.batch-info-titles {
+  text-align: center;
+  border-bottom: 2px solid black;
+  padding: 10px;
+  margin: 20px;
+}
+
+.batch-brewing-info {
+
+}
+
+.batch-info {
+  padding: 10px;
+  margin: 12px;
+  text-align: left;
+}
 
 .batch-review-title {
-  font-weight: 300;
-  color: #E67E22;
-  font-size: 45px;
   text-align: center;
-  margin: 25px;
+  border-bottom: 2px solid black;
+  padding: 10px;
+  margin: 20px;
 }
 
 .show-batch-review {
   text-align: center;
+}
+
+.links-at-bottom {
+  text-align: center;
+}
+
+.review-show {
+  margin: 20px;
 }
 
 .add-review-batch-btn {
@@ -23,5 +72,18 @@
 }
 
 .add-review-batch-btn:hover {
-  opacity: 0.5;
+  text-decoration: none !important;
+  color: black !important;
 }
+
+.batch-list {
+  text-align: left;
+  padding-left: 20px;
+  strong {
+    margin-bottom: 5px;
+    font-size: 1.1em;
+    // border-bottom: .5px solid black;
+  }
+}
+// opacity: 0.5 !important;
+//   color: black;
