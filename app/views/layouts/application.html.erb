@@ -24,7 +24,7 @@
   </head>
   <body>
         <%= javascript_include_tag 'application' %>
-        <%= javascript_pack_tag 'application' %>
+        <%#= javascript_pack_tag 'application' %>
 
     <% if current_page?(root_path) %>
     <style>
@@ -34,7 +34,6 @@
     </style>
       <%= render 'shared/navbar/navbar' %>
       <%= yield %>
-     <%#= javascript_pack_tag 'application' %>
       <%= render 'footer/footer' %>
     <% else %>
       <div class="page-wrapper">
@@ -42,7 +41,7 @@
         <div class="page-content">
           <%= yield %>
         </div>
-        <%#= javascript_pack_tag 'application' %>
+        <%= javascript_pack_tag 'application' %>
         <%= render 'footer/footer' %>
       </div>
     <% end %>
