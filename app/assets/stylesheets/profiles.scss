@@ -7,6 +7,27 @@
   padding-bottom:40px;
 }
 
+.edit-icon-profile {
+  position: absolute;
+  right:12%;
+  top:11%;
+}
+
+.fa-pen {
+  color:#3c5c7e
+}
+
+.profile-title {
+  text-align: center;
+  border-bottom:2px solid black;
+  margin:30px;
+  padding:10px;
+  h2 {
+    font-weight:500;
+    font-size:30px;
+    color:black;
+  }
+}
 .marg-bot {
   margin-bottom: 50px;
 }
@@ -18,14 +39,17 @@
 .avatar {
   align-self: center;
   width: 150px;
-  height: 100px;
+  height: 150px;
   border-radius: 50%;
   margin-bottom:25px;
   margin-left: 12.5px;
 }
 
 .profile-name{
-  align-self:center
+  align-self:center;
+  font-weight: bolder;
+  font-size: 20px;
+
 }
 
 .profile-info {
@@ -38,11 +62,11 @@
 }
 
 
-.center-self {
-  display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+// .center-self {
+//   display: flex;
+//     flex-direction: column;
+//     align-items: center;
+// }
 
 .edit-profile-btn {
   text-decoration: none;
@@ -103,7 +127,7 @@
   flex-direction:column;
   text-align:center;
   border:1px solid;
-  padding:10px;
+  padding:20px;
   border-radius:10px;
   h3 {
     font-weight: 300;
@@ -113,7 +137,10 @@
 #new_user {
   font-weight: 100;
   .btn {
-    border: 1px solid;
+    border:1px solid #e7e6e6;
+    background-color:#e7e6e6;
+    border-radius:39px;
+    margin:10px;
   }
 }
 
