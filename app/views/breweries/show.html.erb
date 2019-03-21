@@ -45,7 +45,7 @@
 <div class='brewery-container'>
   <div class="brewery-beers-container">
     <div class="brewery-beers-title">
-      <h3>Our Beers</h3>
+      <h2>Our Beers</h2>
     </div>
     <div class="brewery-child brewery-beer-cards">
       <% @beers.each do |beer| %>
@@ -56,9 +56,6 @@
                 <div class="brewery-beer-card-name">
                   <%= beer.name %><br>
                 </div>
-                <div class="brewery-beer-card-alcohol">
-                  <%= beer.alcohol_percentage %>%<br>
-                </div>
               </div>
             </div>
           </div>
@@ -68,13 +65,13 @@
   </div>
   <div class="show-brewery-card">
     <div class="brewery-find-title">
-      <h3>Find Us</h3>
+      <h2>Find Us</h2>
     </div>
     <div class="brewery-find-description">
       <%= @brewery.address %><br>
       <%= @brewery.phone_number %><br>
-      <%= @brewery.email %>
-      <p><strong><%= link_to "Visit our Website", "https://www.beerproject.be/en", target: "_blank" %></strong></p>
+      <%= @brewery.email %><br>
+      <%= link_to "Visit our Website", "https://www.beerproject.be/en", target: "_blank" %>
        <% if current_user  %>
           <%= @brewery.distance_from([current_user.lat, current_user.lng]).round(3) %> km
         <% end %>
@@ -83,12 +80,8 @@
 
 
   <div class="back-btn">
-    <%= link_to "Go back to breweries", breweries_path, class: 'go-to-beers-btn' %>
+    <%= link_to "Back to breweries", breweries_path, class: 'go-to-beers-btn' %>
   </div>
-
-  <div id="map" style="width: 100vw; height: 350px; margin-top: 90px;" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-  </div>
-
 </div>
 
 
