@@ -1,5 +1,7 @@
 <div class="beer-container">
-  <h2>Beers</h2>
+   <div class="beer-title-header">
+    <h2>Beers</h2>
+   </div>
   <div class="beer-cards">
     <% @beers.each do |beer| %>
       <%= link_to beer_path(beer) do %>

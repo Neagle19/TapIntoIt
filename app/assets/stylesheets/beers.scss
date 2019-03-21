@@ -145,7 +145,8 @@
   color: #E67E22;
   font-size: 45px;
   text-align: center;
-  margin: 15px;
+  margin:30px;
+  padding:10px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -224,4 +225,17 @@
 
 .left-myself {
   text-align: left;
+}
+
+.beer-title-header {
+
+    border-bottom: 2px solid black;
+    margin: 30px 30px 40px 30px;
+
+    h2 {
+      font-weight: 500;
+      font-size: 30px;
+      color: black;
+      border-bottom-width: 2px;
+    }
 }
