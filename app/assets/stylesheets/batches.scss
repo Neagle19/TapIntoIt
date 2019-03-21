@@ -1,11 +1,3 @@
-@mixin flag-bel() {
-  @include ratio(13 / 15);
-  $black: #000;
-  $yellow: #FFE936;
-  $red: #FF0F21;
-
-  @include three-columns($black, $yellow, $red);
-};
 
 .batch-title {
   text-align: center;
