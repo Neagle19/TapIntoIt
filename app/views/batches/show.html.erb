@@ -54,7 +54,6 @@
         <h2>Reviews</h2>
       </div>
       <div class="show-batch-review">
-        <p>-----</p>
         <% @review_batches.each do |review| %>
         <p class="review-show"><b><%= raw "<i class='fas fa-star'></i>" * review.rating %></b> -- <%= review.user.first_name %>: <i style="font-weight: 300;"><%= review.content %></i></p>
         <% end %>
