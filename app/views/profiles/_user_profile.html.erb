@@ -33,6 +33,7 @@
             <b>Contact me at</b> <%= @user.email %></p>
         </div>
 
+
         <div class="profile-numbers">
             <div class="user-numbers">
               <p>Friends</p>
@@ -106,9 +107,11 @@
     </div>
     <% if current_user == @user %>
       <div class="col-xs-12 col-md-3 marg-bot">
+        
         <div class="find-friends-title">
           <h2>Find your friends</h2>
         </div>
+
         <!-- Below is the container to find other people -->
         <div class="search-friends-container">
           <%= simple_form_for(User.new, method: :post, url: show_with_username_path) do |f| %>

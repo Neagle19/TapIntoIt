@@ -3,12 +3,14 @@
 </div>
 
 <div class="under-title">
-  <p>Your beer was bottled on <strong><%= @batch.bottled_date.strftime("%B %d, %Y") %></strong> by <strong><%= @batch.brewery.name %>.</strong></p>
+  <p>Your beer was bottled on <strong><%= @batch.bottled_date.strftime("%B %d, %Y") %></strong> by <strong><%= @batch.brewery.name %>.</strong></p><br>
+  <p>Avg Rating: <%= raw "<i class='fas fa-star'></i>" * @batch.rating %></p>
 </div>
+
 
 <div class="batch-show-photo">
   <img class="beer-photo-on-batch" src='<%= cl_image_path(@beer.photo) %>'>
-</div><br><br>
+</div><br>
 
 <!-- <h2>Your beer's brewing process:</h2><br>
 <li><strong>Description: </strong><%= @batch.description %></li> -->
@@ -53,7 +55,7 @@
       </div>
       <div class="show-batch-review">
         <% @review_batches.each do |review| %>
-        <p class="review-show"><b><%= review.rating %></b> -- <%= review.user.first_name %>: <i style="font-weight: 300;"><%= review.content %></i></p>
+        <p class="review-show"><b><%= raw "<i class='fas fa-star'></i>" * review.rating %></b> -- <%= review.user.first_name %>: <i style="font-weight: 300;"><%= review.content %></i></p>
         <% end %>
       </div>
 </div>
