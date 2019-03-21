@@ -8,11 +8,11 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-sm-12 col-lg-8 offset-lg-2">
+    <div class="col-sm-12 col-lg-8 offset-lg-2 kill-padding">
       <div class="wrapper-posts">
         <% @posts.each do |post| %>
         <div class="wrapper-post">
-          <div class="box-post">
+          <div class="box-post small-padding">
             <div class="info-post">
               <%= cl_image_tag post.user.photo, class: "avatar-post"%>
               <%= link_to like_path(post.id), remote: true do %>
@@ -26,27 +26,26 @@
             </div>
             <div class="big-content-post">
               <div class="title-post">
-                <%= post.user.username %>  <i class="fas fa-angle-double-right"></i>
-                <%= raw " <i class='fas fa-star'></i> " * post.rating.round %>
-                <%= post.batch.beer.name %>
+                <%= post.user.username %><br>
+                <strong><%= raw " <i class='fas fa-star'></i> " * post.rating.round %>
+                <%= post.batch.beer.name %></strong>
               </div>
               <p class="content-post"><%= post.content %></p>
             </div>
           </div>
           <div class="wrapper-comments hidden" id="wrapper-hidden-<%= post.id %>">
             <div class="arrow-up"></div>
-            <ul id="iterated-comments-<%= post.id %>">
+            <div class="form-comment">
+              <%= simple_form_for CommentBatch.new, remote: true do |f| %>
+                <%= f.input :review_batch_id, as: :hidden, :input_html => { :value => post.id} %>
+                <%= f.input :content, as: :string, label: false %>
+              <% end %>
+            </div>
+            <ul id="iterated-comments-<%= post.id %>" class="list-comments">
               <% post.comment_batches.all.each do |comment| %>
                 <%= render 'comment_line', comment: comment %>
               <% end %>
             </ul>
-            <div class="form-comment">
-              <%= simple_form_for CommentBatch.new, remote: true do |f| %>
-                <%= f.input :review_batch_id, as: :hidden, :input_html => { :value => post.id} %>
-                <%= f.input :content, as: :string %>
-                <%= f.button :submit, class: "comment-btn",name: post.id %>
-              <% end %>
-            </div>
           </div>
         </div>
         <% end %>
