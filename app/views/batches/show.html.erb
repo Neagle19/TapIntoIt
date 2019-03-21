@@ -1,5 +1,6 @@
 <div class="batch-title">
   <h1><%= @batch.beer.name %></h1>
+  <p><%= raw "<i class='fas fa-star'></i>" * @batch.rating %><%= raw "<i class='far fa-star'></i>" * (5 - @batch.rating) %></p>
 </div>
 
 <div class="under-title">
@@ -53,7 +54,6 @@
         <h2>Reviews</h2>
       </div>
       <div class="show-batch-review">
-        <p>Average: <%= raw "<i class='fas fa-star'></i>" * @batch.rating %></p>
         <p>-----</p>
         <% @review_batches.each do |review| %>
         <p class="review-show"><b><%= raw "<i class='fas fa-star'></i>" * review.rating %></b> -- <%= review.user.first_name %>: <i style="font-weight: 300;"><%= review.content %></i></p>
