@@ -11,20 +11,28 @@
 <div class="container-profile">
   <div class="row">
     <div class="col-xs-12 col-md-6 marg-bot">
-      <h2>Profile info</h2>
-      <div class="profile-info">
-        <%= cl_image_tag @user.photo, class: "avatar" %>
-        <p class="profile-name"><b>Name:</b> <%= @user.first_name %> <%= @user.last_name %></p>
-        <p><b>Username:</b> <%= @user.username %></p>
-        <p><b>Located at:</b> <%= @user.location %></p>
-        <p><b>About:</b> <%= @user.description %></p>
-        <p><b>Contact me at:</b> <%= @user.email %></p>
-
-        <% if current_user == @user %>
-          <div class="center-self">
-            <%= link_to "Edit info",edit_user_registration_path,class: "edit-profile-btn btn-profile" %>
+      <div class="profile-title">
+        <h2><%= @user.first_name %> <%= @user.last_name %></h2>
+      </div>
+      <% if current_user == @user %>
+          <div class="edit-icon-profile">
+            <%= link_to edit_user_registration_path do %>
+            <i class="fas fa-pen"></i>
+            <% end %>
           </div>
         <% end %>
+      <div class="profile-info">
+        <div class="profile-picture">
+          <%= cl_image_tag @user.photo, class: "avatar"%>
+        </div>
+        <div class="profile-description">
+          <p>
+            <%= @user.username %><br>
+            <b>Located in</b> <%= @user.location %><br>
+            <b>About:</b> <%= @user.description %><br>
+            <b>Contact me at</b> <%= @user.email %></p>
+        </div>
+
       <% if user_signed_in? && current_user != @user %>
         <div class="friend-btn-container">
           <% if !@connection %>
@@ -81,7 +89,7 @@
     </div>
     <% if current_user == @user %>
       <div class="col-xs-12 col-md-3 marg-bot">
-        <h2>Friend Finder</h2>
+        <h2>Add some friends</h2>
         <!-- Below is the container to find other people -->
         <div class="search-friends-container">
           <%= simple_form_for(User.new, method: :post, url: show_with_username_path) do |f| %>
