@@ -1,21 +1,26 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-12 col-lg-6">
-    <div class="beer-title-show">
-      <img src='<%= cl_image_path(@beer.photo) %>'>
-      <h2><%= @beer.name %></h2>
-      <p><%= raw " <i class='fas fa-star'></i> " * @beer.rating.round %></p>
+      <div class="beer-title-show">
+        <img src='<%= cl_image_path(@beer.photo) %>'>
       </div>
+      <div>
+        <p><%= raw " <i class='fas fa-star'></i> " * @beer.rating.round %></p>
+      </div>
+      <div class="beer-title-show">
+        <h3><%= @beer.name %></h3>
+      </div>
+      <hr/>
     </div>
     <div class="col-sm-12 col-lg-6">
-      <div class="center-myself">
+      <div class="left-myself">
         <div class="show-beer-card">
           <ul class="beer-info-list">
-            <li><strong>Beer Kind:  </strong><%= @beer.kind %></li>
-            <li><strong>Beer Size:  </strong><%= @beer.size %></li>
-            <li><strong>Alcohol Percentage:  </strong><%= @beer.alcohol_percentage  %>%</li>
-            <li><strong>Description:  </strong><%= @beer.description %></li>
-            <li><strong>Brewery:  </strong><%= link_to @beer.brewery.name, brewery_path(@beer.brewery.id) %></li>
+            <li><b>Beer Kind:  </b><%= @beer.kind %></li>
+            <li><b>Beer Size:  </b><%= @beer.size %></li>
+            <li><b>Alcohol Percentage:  </b><%= @beer.alcohol_percentage  %>%</li>
+            <li><b>Description:  </b><%= @beer.description %></li>
+            <li><b>Brewery:  </b><%= link_to @beer.brewery.name, brewery_path(@beer.brewery.id) %></li>
           </ul>
         </div>
       </div>
@@ -23,26 +28,24 @@
   </div>
   <div class="row">
       <div class="col-sm-12 col-lg-6 offset-lg-3">
-        <div class="redirect-btns">
-      <%= link_to "Go back to beers", beers_path, class: 'go-to-beers-btn' %>
-        <% if user_signed_in? && current_user.admin? %>
-          <%= link_to "Edit this beer", edit_beer_path(@beer.id), class: 'go-to-beers-btn' %>
-          <%= link_to "Create a new batch", new_beer_batch_path(@beer), class: 'go-to-beers-btn' %>
-          <%= link_to "All the batches from this beer", beer_batches_path(@beer), class: 'go-to-beers-btn' %>
-        <% end %>
-    </div>
+
       </div>
     </div>
-    <div class="row">
-      <div class="col-sm-12 col-lg-6 offset-lg-3">
-        <div class="beer-map">
-          <div id="map" style="height: 350px;" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-          </div>
-        </div>
-      </div>
-    </div>
+
     </div>
   </div>
+</div>
+<div class="beer-map">
+  <div id="map" style="height: 350px;" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+</div>
+<div class="redirect-btns">
+  <%= link_to "Go back to beers", beers_path, class: 'go-to-beers-btn' %>
+  <% if user_signed_in? && current_user.admin? %>
+    <%= link_to "Edit this beer", edit_beer_path(@beer.id), class: 'go-to-beers-btn' %>
+    <%= link_to "Create a new batch", new_beer_batch_path(@beer), class: 'go-to-beers-btn' %>
+    <%= link_to "All the batches from this beer", beer_batches_path(@beer), class: 'go-to-beers-btn' %>
+  <% end %>
 </div>
 <!-- && current_user.id == @beer.brewery_id
  -->
