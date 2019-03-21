@@ -33,6 +33,22 @@
             <b>Contact me at</b> <%= @user.email %></p>
         </div>
 
+
+        <div class="profile-numbers">
+            <div class="user-numbers">
+              <p>Friends</p>
+              <%= @friends_count %>
+            </div>
+            <div class="user-numbers">
+              <p>Batches</p>
+              <%= @review_batches %>
+            </div>
+            <div class="user-numbers">
+              <p>Breweries</p>
+              <%= @review_breweries %>
+            </div>
+        </div>
+
       <% if user_signed_in? && current_user != @user %>
         <div class="friend-btn-container">
           <% if !@connection %>
@@ -46,7 +62,9 @@
 
     </div>
     <div class="col-xs-12 col-md-3 marg-bot">
-      <h2>Recent reviews</h2>
+      <div class="reviews-profile-title">
+        <h2>Recent reviews</h2>
+      </div>
       <% if !@posts.nil? %>
         <% @posts.each do |post| %>
           <div class="wrapper-post">
@@ -89,20 +107,17 @@
     </div>
     <% if current_user == @user %>
       <div class="col-xs-12 col-md-3 marg-bot">
-        <h2>Add some friends</h2>
+        
+        <div class="find-friends-title">
+          <h2>Find your friends</h2>
+        </div>
+
         <!-- Below is the container to find other people -->
         <div class="search-friends-container">
           <%= simple_form_for(User.new, method: :post, url: show_with_username_path) do |f| %>
           <%= f.input :username, collection: @all_names %>
           <%= f.button :submit, value: "Go to profile" %>
           <% end %>
-        </div>
-        <div class="profile-numbers">
-          <ul class="numbers-ul">
-            <li class="user-numbers">#Friends: <%= @friends_count %></li>
-            <li class="user-numbers">#Reviewed Batches: <%= @review_batches %></li>
-            <li class="user-numbers">#Reviewed Breweries: <%= @review_breweries %></li>
-          </ul>
         </div>
       </div>
     <% else %>
