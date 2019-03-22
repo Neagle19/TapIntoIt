@@ -450,42 +450,42 @@ Aroma: 5/10 Appearance: 2/5 Taste: 4/10 Palate: 3/5 Overall: 7/20",
   user: shane
   )
 
-review_soleil - ReviewBatch.create!(
+review_soleil = ReviewBatch.create!(
   content: "On tap at the brewery. The most hazy yellow with a proud white head. Another juicy, hazy pale ale here exudes pear, lychee, lime, and stone fruit. Orange peel, unripe peach, and lime peel. Stiff bitterness advances on the heels of that wheat malt character. Soft body, good active carbonation, and it all works together to showcase the juicy, flavorful hops. They undersell this one by just calling it “Pale Wheat Ale”. It’s a better NE IPA than some from adjacent breweries.",
   rating: 5,
   batch: batch1_soleil,
   user: shane
   )
 
-review2_soleil - ReviewBatch.create!(
+review2_soleil = ReviewBatch.create!(
   content: "Not the best beer I've ever had. I bit too dry for a wheat ale in my opinion.",
   rating: 3,
   batch: batch1_soleil,
   user: roman
   )
 
-review3_soleil - ReviewBatch.create!(
+review3_soleil = ReviewBatch.create!(
   content: "Literally the best wheat ale I've ever had. Soft pour with a foamy head, perfect balance between carbonation and hops. Incredible aromas. Try this if you're at l'ermitage!",
   rating: 5,
   batch: batch1_soleil,
   user: george
   )
 
-review4_soleil - ReviewBatch.create!(
+review4_soleil = ReviewBatch.create!(
   content: "L'ermitage finds success again with this pale wheat. I'm not a big fan of wheat ales, but this one is special. The flavor is much stronger than other wheat ales, but it's still balanced. Very refreshing.",
   rating: 4,
   batch: batch1_soleil,
   user: olivier
   )
 
-review5_soleil - ReviewBatch.create!(
+review5_soleil = ReviewBatch.create!(
   content: "Pretty good, but not amazing. This isn't a typical wheat ale, I think they tried to do something different with this one, but I prefer the classic wheat ales. Gotta stay classy.",
   rating: 3,
   batch: batch1_soleil,
   user: diego
   )
 
-review6_soleil - ReviewBatch.create!(
+review6_soleil = ReviewBatch.create!(
   content: "I was very surprised with this wheat ale. Pours a hazy straw color with a modest off-white head. Initial impression is lemon, bready malt, and a touch of slightly bitter floral hops. Mouthfeel is clean and refershing. Finish is dry and slightly bitter.",
   rating: 5,
   batch: batch1_soleil,
