@@ -19,7 +19,7 @@
     font-size: 18px;
     font-weight: 100;
     margin: 30px  20px 20px 20px;
-    text-align:justify;
+    text-align: left;
  }
 }
 
@@ -53,8 +53,10 @@
 .brewery-photo {
   margin: 30px;
   img {
-  border-radius:0px;
-  width:90%;
+    // height:100vw;
+    border-radius:0px;
+    width:90%;
+    background-size: fill;
   }
 }
 
@@ -187,12 +189,12 @@
   display:flex;
   flex-direction: row;
   align-items: center;
-  color: #EAC343;
+  color: black;
 }
 
 .checkin-btn, .follow-btn {
- color: #EAC343;
- border-color: #EAC343;
+ color: black;
+ border-color: black;
  p:hover {
   text-decoration: none;
  }
