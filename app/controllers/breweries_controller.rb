@@ -8,16 +8,16 @@ class BreweriesController < ApplicationController
   end
 
   def index
-    @breweries = Brewery.where.not(latitude: nil, longitude: nil)
+    @breweries = Brewery.all
 
     if params[:search].present?
       @breweries = Brewery.global_search(params[:search])
     elsif params[:show].present?
       @breweries = Brewery.all
     elsif current_user
-      @breweries = Brewery.near([current_user.lat, current_user.lng], 10)
+      @breweries = Brewery.all
     else
-
+      @breweries = Brewery.all
     end
     # if params[:search_place].present?
     #   @breweries = @breweries.near(params[:search_place], 50)
