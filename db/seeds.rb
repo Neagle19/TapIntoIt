@@ -529,7 +529,7 @@ FriendConnection.create!(
 
 FriendConnection.create!(
   receiver: roman,
-  requester: olivier,
+  requester: george,
   accepted: true
   )
 
@@ -541,9 +541,12 @@ FriendConnection.create!(
 
 FriendConnection.create!(
   receiver: george,
-  requester: thierry,
-  accepted: true
+  requester: shane,
+  accepted: false
   )
+
+
+
 
 # 10.times do |i|
 #   beer = Beer.new
