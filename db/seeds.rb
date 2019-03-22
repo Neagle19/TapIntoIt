@@ -157,6 +157,16 @@ ipa_de_papa = Beer.create!(
   remote_photo_url: "https://res.cloudinary.com/discwhk4f/image/upload/v1552925132/IMG_1521.jpg"
   )
 
+soleil = Beer.create!(
+  name: "Soleil",
+  brewery: lermitage,
+  kind: "Pale Wheat Ale",
+  size: "33cl",
+  alcohol_percentage: 4.5,
+  description: "An Americanized version of a Hefeweizen, this beer typically falls between pale straw and deep gold in color. Higher carbonation is proper as is a long-lasting head and a light to medium body.",
+  remote_photo_url: "Higher carbonation is proper as is a long-lasting head and a light to medium body."
+  )
+
 delta_ipa = Beer.create!(
   name: "Delta IPA",
   brewery: brussels_beer_project,
@@ -237,6 +247,38 @@ batch1_ipa_de_papa = Batch.create!(
   description: "Fruity love, packed into a bottle.",
   quantity: 58,
   beer: ipa_de_papa,
+  brewingstart: "18/10/2018",
+  stepone: "Milling the Grain",
+  steponedescription: "Grain is crushed to extract fermentable sugars, producing a product called 'grist'.",
+  steptwo: "Mash Conversion",
+  steptwodescription: "Grist is mixed with heated water, producing 'mash'.",
+  stepthree: "Lautering",
+  stepthreedescription: "Grain husks are separated from the mash, producing 'wart'.",
+  stepfour: "The boil",
+  stepfourdescription: "Wort is boiled, followed by the adding of hops.",
+  stepfive: "Wort Separation & Cooling",
+  stepfivedescription: "Malt and hop particles are removed from the wort as the wort cools.",
+  stepsix: "Primary Fermentation",
+  stepsixdescription: "Yeast is added to the wort to convert sugar into alcohol and to create both flavor and carbon dioxide.",
+  stepseven: "Secondary Fermentation",
+  stepsevendescription: "Beer reaches maximum maturity.",
+  ingredientone: "Water",
+  ingredientonedesc: "Spa Natural Mineral Water",
+  ingredienttwo: "Grain",
+  ingredienttwodesc: "BESTMALZ Biscuit Malt",
+  ingredientthree: "Hops",
+  ingredientthreedesc: "Citra Leaf Hops- features higher alpha acids and total oil contents with a low percentage of co-humulone",
+  ingredientfour: "Yeast",
+  ingredientfourdesc: "Danstar American West Coast Yeast",
+  brewer: "Johnny T"
+  )
+
+batch1_soleil = Batch.create!(
+  bottled_date: "21/10/2018",
+  brewery: lermitage,
+  description: "Fruity love, packed into a bottle.",
+  quantity: 58,
+  beer: soleil,
   brewingstart: "18/10/2018",
   stepone: "Milling the Grain",
   steponedescription: "Grain is crushed to extract fermentable sugars, producing a product called 'grist'.",
@@ -405,6 +447,13 @@ review_ipa_de_papa = ReviewBatch.create!(
 Aroma: 5/10 Appearance: 2/5 Taste: 4/10 Palate: 3/5 Overall: 7/20",
   rating: 2,
   batch: batch1_ipa_de_papa,
+  user: shane
+  )
+
+review_soleil - ReviewBatch.create!(
+  content: "On tap at the brewery. The most hazy yellow with a proud white head. Another juicy, hazy pale ale here exudes pear, lychee, lime, and stone fruit. Orange peel, unripe peach, and lime peel. Stiff bitterness advances on the heels of that wheat malt character. Soft body, good active carbonation, and it all works together to showcase the juicy, flavorful hops. They undersell this one by just calling it “Pale Wheat Ale”. It’s a better NE IPA than some from adjacent breweries.",
+  rating: 5,
+  batch: batch1_soleil,
   user: shane
   )
 
