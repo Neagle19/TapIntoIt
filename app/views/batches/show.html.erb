@@ -1,6 +1,6 @@
 <div class="batch-title">
   <h1><%= @batch.beer.name %></h1>
-  <p><%= raw "<i class='fas fa-star'></i>" * @batch.rating %><%= raw "<i class='far fa-star'></i>" * (5 - @batch.rating.round) %></p>
+  <p><%= raw "<i class='fas fa-star'></i>" * @batch.rating.round %><%= raw "<i class='far fa-star'></i>" * (5 - @batch.rating.round) %></p>
 </div>
 
 <div class="under-title">
