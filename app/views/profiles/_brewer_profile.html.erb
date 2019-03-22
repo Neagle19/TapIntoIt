@@ -1,50 +1,58 @@
 <div class="container-profile">
-  <div class="profile-title">
-    <h2>Welcome to your Dashboard!</h2><br>
-    <h2><strong><%= @brewery[0].name %></strong></h2>
-  </div>
-  <div class='brewery-photo'>
-    <img src='<%= cl_image_path(@brewery[0].photo) %>' height='500'>
-  </div>
-  <div class="card-brewery-details">
-    <p>Here are your brewery details:</p>
-    <p><b>Name:</b> <%= @brewery[0].name %></p>
-    <p><b>Address:</b> <%= @brewery[0].address %></p>
-    <p><b>Description:</b> <%= @brewery[0].description %></p>
-    <p><b>Email:</b> <%= @brewery[0].email %></p>
-    <p><b>Phone Number:</b> <%= @brewery[0].phone_number %></p>
-    <div class="edit-brewery-btn">
-      <%= link_to "Edit here", edit_brewery_path(@brewery[0].id) %>
+  <div class="profile-first-info-brewer">
+    <div class="profile-title">
+      <h2><%= @brewery[0].name %></h2>
+      <div class="edit-icon-brewer-profile">
+        <%= link_to edit_brewery_path(@brewery[0].id) do %>
+          <i class="fas fa-pen"></i>
+        <% end %>
+      </div>
+    </div>
+    <div class='brewery-photo'>
+      <img src='<%= cl_image_path(@brewery[0].photo) %>' height='500'>
+    </div>
+    <div class="brewery-description-profile">
+      <p><%= @brewery[0].description %></p>
     </div>
   </div>
-  <div class="middle-box-brewery-profile">
-    <h2>Here are your actively listed beers:</h2>
-  </div>
-  <div class="add-new-beer-btn">
-      <%= link_to "Add a new beer", new_beer_path %>
-  </div>
-  <div class="beers-brewer-profile-page-container">
-    <% @beers.each do |beer| %>
-    <div class="beer-brewer-cards">
-      <%= link_to beer_path(beer) do %>
-        <div class="brewer-beer-card">
-          <div class="brewer-beer-card-body" style="background-image: linear-gradient(-150deg, rgba(0,101,168,0.2) 0%, rgba(0,36,61,0.3) 80%), url(<%= cl_image_path(beer.photo) %>">
-            <div class="brewer-beer-card-link">
-              <div class="brewer-beer-card-name">
-                <%= beer.name %><br>
-              </div>
-              <div class="brewer-beer-card-alcohol">
-                <%= beer.alcohol_percentage %>%<br>
-              </div>
-              <div class="brewer-beer-card-brewery">
-                <%= beer.brewery.name %><br>
+  <div class="profile-brewery-container">
+    <div class="profile-brewery-beers-container">
+      <div class="listed-beers-title">
+        <h2> Your listed beers</h2>
+        <div class="add-new-beer-btn">
+          <%= link_to new_beer_path do %>
+            <i class="fas fa-plus"></i>
+          <% end %>
+        </div>
+      </div>
+      <div class="beers-brewer-profile-page-cards">
+        <% @beers.each do |beer| %>
+          <%= link_to beer_path(beer) do %>
+            <div class="brewer-beer-card">
+              <div class="brewer-beer-card-body" style="background-image: linear-gradient(-150deg, rgba(0,101,168,0.2) 0%, rgba(0,36,61,0.3) 80%), url(<%= cl_image_path(beer.photo) %>">
+                <div class="brewer-beer-card-link">
+                  <div class="brewer-beer-card-name">
+                    <%= beer.name %><br>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
-      <% end %>
+          <% end %>
+        <% end %>
+      </div>
     </div>
-    <% end %>
+  </div>
+
+  <div class="show-brewery-card">
+    <div class="brewery-find-title">
+      <h2>Your infos</h2>
+    </div>
+    <div class="brewery-find-description">
+      <%= @brewery[0].address %><br>
+      <%= @brewery[0].phone_number %><br>
+      <%= @brewery[0].email %><br>
+      <%= link_to "Your Website", "#{@brewery[0].website}", target: "_blank" %>
+    </div>
   </div>
 </div>
 

@@ -9,23 +9,29 @@
 
 .edit-icon-profile {
   position: absolute;
-  right:12%;
-  top:11%;
+  right:0%;
+  top:15%;
+}
+
+.edit-icon-brewer-profile {
+  position: absolute;
+  right:0%;
+  top:30%;
 }
 
 .fa-pen {
-  color:#3c5c7e
+  color:#3c5c7e;
 }
 
-.profile-title {
+.listed-beers-title {
+  position:relative;
   text-align: center;
-  border-bottom:2px solid black;
-  margin:30px;
-  padding:10px;
+  border-bottom: 2px solid black;
+  margin: 20px;
   h2 {
-    font-weight:500;
-    font-size:30px;
-    color:black;
+    font-weight: 500;
+    font-size: 30px;
+    color: black;
   }
 }
 
@@ -171,10 +177,22 @@
   }
 }
 
+.brewery-description-profile {
+  margin: 30px;
+  img {
+    height:100vw;
+    border-radius:0px;
+    width:90%;
+  }
+}
+
 
 
 .profile-title {
   text-align: center;
+  position: relative;
+  border-bottom: 2px solid black;
+  margin: 20px;
 }
 
 .brewery-photo {
@@ -183,79 +201,22 @@
 
 .card-brewery-details {
   position: center;
-  border: 1px solid #E67E22;
-  box-shadow: 0 0 0 1;
-  width: 500px;
-  padding: 20px;
-  border-radius: 10px;
+  width: 80%;
+  padding: 10px;
   margin: 10px;
   text-align: center;
-  color: #E67E22;
-}
-
-.edit-brewery-btn {
-  text-align: center;
-  color: white;
-  background-color: #E67E22;
-  border-radius: 5px;
-  width: 150px;
-  height: 30px;
-  line-height: 30px;
-  text-decoration: none;
-  a {
-    color: white;
-  }
-  a:hover {
-    color: white;
-    opacity: 0,7%;
-  }
-}
-
-.middle-box-brewery-profile {
-  display: flex;
-  margin: 50px;
-  padding: 20px;
-  background-color: #E67E22;
-  color: white;
-  justify-content: center;
-  align-items: center;
-}
-
-.beers-brewer-profile-page-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  overflow-x: scroll;
-  scroll-snap-type: x mandatory;
-  scroll-padding: 50%;
 }
 
 .add-new-beer-btn {
-  position: relative;
-  margin-bottom: 20px;
-  left: 50px;
-  text-align: center;
-  color: white;
-  background-color: #E67E22;
-  border-radius: 5px;
-  width: 150px;
-  height: 30px;
-  line-height: 30px;
-  text-decoration: none;
-  a {
-    color: white;
-  }
-  a:hover {
-    color: white;
-    opacity: 0,7%;
-  }
+  position:absolute;
+  top:7px;
+  right:0%;
 }
 
-.beer-brewer-cards {
-  background-color: white;
-  text-align: center;
-  scroll-snap-align: center;
+.fa-plus {
+  color:#3c5c7e
 }
+
 
 .brewer-beer-card {
   border-radius: 5px;
@@ -266,21 +227,41 @@
   }
 }
 
+.profile-brewery-container {
+  text-align: center;
+}
+
+.profile-brewery-beers-container {
+  padding-top: 35px;
+}
+
+.beers-brewer-profile-page-cards {
+  margin-right: 20px;
+  margin-left: 20px;
+  margin-top: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 40px;
+  overflow-x: auto;
+  flex-direction: column;
+  max-height: 400px;
+  flex-wrap: wrap;
+}
+
 .brewer-beer-card-body {
   position: relative;
   color: white;
   background-size: cover;
   color: white;
-  width: 300px;
-  height: 500px;
   background-repeat: no-repeat;
   justify-content: flex-start;
-  transition: 0.4s ease;
-  &:hover {
-  transform: scale(1.05);
-  transition: 0.4s ease;
-  }
-
+  width: 250px;
+  height: 350px;
+  // &:hover {
+  // transform: scale(1.05);
+  // transition: 0.4s ease;
+  // }
 }
 
 .brewer-beer-card-name {
@@ -289,19 +270,4 @@
   bottom: 10px;
   font-size: 30px;
   font-weight: 300;
-}
-
-.brewer-beer-card-alcohol {
-  position: absolute;
-  right: 10px;
-  top: 10px;
-  font-weight: 300;
-}
-
-.brewer-beer-card-brewery {
-  position: absolute;
-  left: 10px;
-  top: 10px;
-  font-weight: 300;
-
 }
