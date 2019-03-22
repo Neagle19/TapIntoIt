@@ -58,15 +58,12 @@ body {
   padding-top: 5px;
   padding-bottom: 0px;
   a {
-    border-radius: 10px;
     border-bottom: solid;
     border-width: 1px;
     border-color: #A7A8A7;
     font-weight: 100;
+    line-height: 40px;
     margin-left: 0px;
-    margin-right: 0px;
-    padding-left: 10px;
-    padding-right: 10px;
     &:hover {
       -webkit-filter: invert(20%);
       filter: invert(10%);
@@ -78,16 +75,26 @@ div.col-white a:hover {
   color: white !important;
 }
 
+a.dropdown-item:nth-child(7) {
+  border: none;
+}
+
 
 .dropdown-menu {
   text-align: center;
-  min-width: 0;
-  z-index: 1000
+  min-width: 0 !important;
+  z-index: 1000;
+  left: 75px;
+  box-shadow: 30px 62px 992px gray;
+  text-align: center;
+
+  .fa, .fas {
+    font-weight: 501;
+  }
 }
 
 .drop-btn {
   font-size: 25px;
-  margin-right: 25px;
 }
 
 #dropdownMenuButton::after {
