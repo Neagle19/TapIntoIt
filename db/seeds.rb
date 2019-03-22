@@ -63,7 +63,7 @@ diego = User.create!(
   location: "Brussels",
   description: "I'm an addict!",
   role: 0,
-  photo: 'https://res.cloudinary.com/discwhk4f/image/upload/v1553000549/IMG_9913.jpg')
+  remote_photo_url: 'https://res.cloudinary.com/discwhk4f/image/upload/v1553000549/IMG_9913.jpg')
 
 thierry = User.create!(
   email: "thierry@test.com",
@@ -75,7 +75,7 @@ thierry = User.create!(
   location: "Brussels",
   description: "I don't drink anymore cause I'm not allowed from my girlfriend...",
   role: 0,
-  photo: 'https://res.cloudinary.com/discwhk4f/image/upload/v1553000545/thierry.jpg')
+  remote_photo_url: 'https://res.cloudinary.com/discwhk4f/image/upload/v1553000545/thierry.jpg')
   #remote_photo_url: 'https://res.cloudinary.com/discwhk4f/image/upload/v1551781659/wx0p5qp2g5obwlw8evau.jpg')
 
 
@@ -164,7 +164,7 @@ soleil = Beer.create!(
   size: "33cl",
   alcohol_percentage: 4.5,
   description: "An Americanized version of a Hefeweizen, this beer typically falls between pale straw and deep gold in color. Higher carbonation is proper as is a long-lasting head and a light to medium body.",
-  remote_photo_url: "Higher carbonation is proper as is a long-lasting head and a light to medium body."
+  remote_photo_url: "https://res.cloudinary.com/discwhk4f/image/upload/v1552925133/IMG_1526.jpg"
   )
 
 delta_ipa = Beer.create!(
