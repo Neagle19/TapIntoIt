@@ -63,7 +63,7 @@ diego = User.create!(
   location: "Brussels",
   description: "I'm an addict!",
   role: 0,
-  photo: 'https://res.cloudinary.com/discwhk4f/image/upload/v1553000549/IMG_9913.jpg')
+  remote_photo_url: 'https://res.cloudinary.com/discwhk4f/image/upload/v1553000549/IMG_9913.jpg')
 
 thierry = User.create!(
   email: "thierry@test.com",
@@ -75,7 +75,7 @@ thierry = User.create!(
   location: "Brussels",
   description: "I don't drink anymore cause I'm not allowed from my girlfriend...",
   role: 0,
-  photo: 'https://res.cloudinary.com/discwhk4f/image/upload/v1553000545/thierry.jpg')
+  remote_photo_url: 'https://res.cloudinary.com/discwhk4f/image/upload/v1553000545/thierry.jpg')
   #remote_photo_url: 'https://res.cloudinary.com/discwhk4f/image/upload/v1551781659/wx0p5qp2g5obwlw8evau.jpg')
 
 
@@ -155,6 +155,16 @@ ipa_de_papa = Beer.create!(
   alcohol_percentage: 4.5,
   description: "Cask; Regular.A perfectly balanced ale, characterised by its fresh hoppy taste and a clean bitter finish.",
   remote_photo_url: "https://res.cloudinary.com/discwhk4f/image/upload/v1552925132/IMG_1521.jpg"
+  )
+
+soleil = Beer.create!(
+  name: "Soleil",
+  brewery: lermitage,
+  kind: "Pale Wheat Ale",
+  size: "33cl",
+  alcohol_percentage: 4.5,
+  description: "An Americanized version of a Hefeweizen, this beer typically falls between pale straw and deep gold in color. Higher carbonation is proper as is a long-lasting head and a light to medium body.",
+  remote_photo_url: "https://res.cloudinary.com/discwhk4f/image/upload/v1552925133/IMG_1526.jpg"
   )
 
 delta_ipa = Beer.create!(
@@ -237,6 +247,38 @@ batch1_ipa_de_papa = Batch.create!(
   description: "Fruity love, packed into a bottle.",
   quantity: 58,
   beer: ipa_de_papa,
+  brewingstart: "18/10/2018",
+  stepone: "Milling the Grain",
+  steponedescription: "Grain is crushed to extract fermentable sugars, producing a product called 'grist'.",
+  steptwo: "Mash Conversion",
+  steptwodescription: "Grist is mixed with heated water, producing 'mash'.",
+  stepthree: "Lautering",
+  stepthreedescription: "Grain husks are separated from the mash, producing 'wart'.",
+  stepfour: "The boil",
+  stepfourdescription: "Wort is boiled, followed by the adding of hops.",
+  stepfive: "Wort Separation & Cooling",
+  stepfivedescription: "Malt and hop particles are removed from the wort as the wort cools.",
+  stepsix: "Primary Fermentation",
+  stepsixdescription: "Yeast is added to the wort to convert sugar into alcohol and to create both flavor and carbon dioxide.",
+  stepseven: "Secondary Fermentation",
+  stepsevendescription: "Beer reaches maximum maturity.",
+  ingredientone: "Water",
+  ingredientonedesc: "Spa Natural Mineral Water",
+  ingredienttwo: "Grain",
+  ingredienttwodesc: "BESTMALZ Biscuit Malt",
+  ingredientthree: "Hops",
+  ingredientthreedesc: "Citra Leaf Hops- features higher alpha acids and total oil contents with a low percentage of co-humulone",
+  ingredientfour: "Yeast",
+  ingredientfourdesc: "Danstar American West Coast Yeast",
+  brewer: "Johnny T"
+  )
+
+batch1_soleil = Batch.create!(
+  bottled_date: "21/10/2018",
+  brewery: lermitage,
+  description: "Fruity love, packed into a bottle.",
+  quantity: 58,
+  beer: soleil,
   brewingstart: "18/10/2018",
   stepone: "Milling the Grain",
   steponedescription: "Grain is crushed to extract fermentable sugars, producing a product called 'grist'.",
@@ -406,6 +448,48 @@ Aroma: 5/10 Appearance: 2/5 Taste: 4/10 Palate: 3/5 Overall: 7/20",
   rating: 2,
   batch: batch1_ipa_de_papa,
   user: shane
+  )
+
+review_soleil - ReviewBatch.create!(
+  content: "On tap at the brewery. The most hazy yellow with a proud white head. Another juicy, hazy pale ale here exudes pear, lychee, lime, and stone fruit. Orange peel, unripe peach, and lime peel. Stiff bitterness advances on the heels of that wheat malt character. Soft body, good active carbonation, and it all works together to showcase the juicy, flavorful hops. They undersell this one by just calling it “Pale Wheat Ale”. It’s a better NE IPA than some from adjacent breweries.",
+  rating: 5,
+  batch: batch1_soleil,
+  user: shane
+  )
+
+review2_soleil - ReviewBatch.create!(
+  content: "Not the best beer I've ever had. I bit too dry for a wheat ale in my opinion.",
+  rating: 3,
+  batch: batch1_soleil,
+  user: roman
+  )
+
+review3_soleil - ReviewBatch.create!(
+  content: "Literally the best wheat ale I've ever had. Soft pour with a foamy head, perfect balance between carbonation and hops. Incredible aromas. Try this if you're at l'ermitage!",
+  rating: 5,
+  batch: batch1_soleil,
+  user: george
+  )
+
+review4_soleil - ReviewBatch.create!(
+  content: "L'ermitage finds success again with this pale wheat. I'm not a big fan of wheat ales, but this one is special. The flavor is much stronger than other wheat ales, but it's still balanced. Very refreshing.",
+  rating: 4,
+  batch: batch1_soleil,
+  user: olivier
+  )
+
+review5_soleil - ReviewBatch.create!(
+  content: "Pretty good, but not amazing. This isn't a typical wheat ale, I think they tried to do something different with this one, but I prefer the classic wheat ales. Gotta stay classy.",
+  rating: 3,
+  batch: batch1_soleil,
+  user: diego
+  )
+
+review6_soleil - ReviewBatch.create!(
+  content: "I was very surprised with this wheat ale. Pours a hazy straw color with a modest off-white head. Initial impression is lemon, bready malt, and a touch of slightly bitter floral hops. Mouthfeel is clean and refershing. Finish is dry and slightly bitter.",
+  rating: 5,
+  batch: batch1_soleil,
+  user: thierry
   )
 
 review_delta_ipa = ReviewBatch.create!(
