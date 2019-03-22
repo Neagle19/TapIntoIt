@@ -457,6 +457,41 @@ review_soleil - ReviewBatch.create!(
   user: shane
   )
 
+review2_soleil - ReviewBatch.create!(
+  content: "Not the best beer I've ever had. I bit too dry for a wheat ale in my opinion.",
+  rating: 3,
+  batch: batch1_soleil,
+  user: roman
+  )
+
+review3_soleil - ReviewBatch.create!(
+  content: "Literally the best wheat ale I've ever had. Soft pour with a foamy head, perfect balance between carbonation and hops. Incredible aromas. Try this if you're at l'ermitage!",
+  rating: 5,
+  batch: batch1_soleil,
+  user: george
+  )
+
+review4_soleil - ReviewBatch.create!(
+  content: "L'ermitage finds success again with this pale wheat. I'm not a big fan of wheat ales, but this one is special. The flavor is much stronger than other wheat ales, but it's still balanced. Very refreshing.",
+  rating: 4,
+  batch: batch1_soleil,
+  user: olivier
+  )
+
+review5_soleil - ReviewBatch.create!(
+  content: "Pretty good, but not amazing. This isn't a typical wheat ale, I think they tried to do something different with this one, but I prefer the classic wheat ales. Gotta stay classy.",
+  rating: 3,
+  batch: batch1_soleil,
+  user: diego
+  )
+
+review6_soleil - ReviewBatch.create!(
+  content: "I was very surprised with this wheat ale. Pours a hazy straw color with a modest off-white head. Initial impression is lemon, bready malt, and a touch of slightly bitter floral hops. Mouthfeel is clean and refershing. Finish is dry and slightly bitter.",
+  rating: 5,
+  batch: batch1_soleil,
+  user: thierry
+  )
+
 review_delta_ipa = ReviewBatch.create!(
   content: "Light amber color, with an immediately smooth flow due to low carbonation. Mildly bitter flavor, was expecting much more from the hops. I’m a hoppy IPA guy, and this beer just didn’t do it for me.",
   rating: 2,
