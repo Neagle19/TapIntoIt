@@ -71,7 +71,7 @@
       <%= @brewery.address %><br>
       <%= @brewery.phone_number %><br>
       <%= @brewery.email %><br>
-      <%= link_to "Visit our Website", "#{@brewery.website}", target: "_blank" %>
+      <%= link_to "Visit our Website", "https://www.beerproject.be/en", target: "_blank" %>
        <% if current_user  %>
           <%= @brewery.distance_from([current_user.lat, current_user.lng]).round(3) %> km
         <% end %>
